@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "username": "hola@hola.es",
+      "password": "$2b$10$8.w4FBNNE75tqFrg73R5NuzmayThlNHXxCJsp512EHwJ.sCzxZp/G",
+      "id": 1
+    },
+    {
+      "username": "hola2@hola.es",
+      "password": "$2b$10$8.w4FBNNE75tqFrg73R5NuzmayThlNHXxCJsp512EHwJ.sCzxZp/G",
+      "id": 2
+    }
+  ],
+  "commercial": [
+    {
+      "name": "Ducati V4",
+      "price": "28000",
+      "opType": "vendo",
+      "description": "Vendo ducati monster V4. Nunca circuito.",
+      "date": "Sun Oct 29 2023 23:07:57 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fmMMd5B-ducati.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:07:57.276Z",
+      "id": 1
+    },
+    {
+      "name": "Honda cbr1000rr",
+      "price": "18000",
+      "opType": "compro",
+      "description": "Compro honda cbr1000rr con pocos kms",
+      "date": "Sun Oct 29 2023 23:08:51 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fm5C4Gm-honda.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:08:51.471Z",
+      "id": 2
+    },
+    {
+      "name": "yamaha r1",
+      "price": "10000",
+      "opType": "vendo",
+      "description": "Vendo yamaha r1 con escapes trucados sin dbkillers. Neumaticos 90% lisos. Nunca circuito, ni concentraciones. Se usaba para ir a trabajar.",
+      "date": "Sun Oct 29 2023 23:09:55 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fkkJbLG-yamaha.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:09:55.118Z",
+      "id": 3
+    },
+    {
+      "name": "patinete electrico",
+      "price": "500",
+      "opType": "vendo",
+      "description": "Vendo patinete electrico, trucado con bateria de mayor potencia. Corre un 30% más que de serie",
+      "date": "Sun Oct 29 2023 23:10:52 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fkTEn7U-patinete.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:10:52.553Z",
+      "id": 4
+    },
+    {
+      "name": "busco llantas",
+      "price": "1000",
+      "opType": "compro",
+      "description": "Busco juego de llantas para bmw serie 3 del 2000. Preferiblemente para neumatico ancho y de perfil bajo. Es para hacer drift en las rotondas.",
+      "date": "Sun Oct 29 2023 23:12:03 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fk66wgJ-llantas.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:12:03.635Z",
+      "id": 5
+    },
+    {
+      "name": "bmw serie 2",
+      "price": "26000",
+      "opType": "vendo",
+      "description": "Vendo bmw serie 2, 3 puertas con 67.000kms por no usarlo. Me he casado y he tenido gemelos y no se me ha quedado pequeño. Es diesel pero lleva escape con boca ancha para que suene \"bien\" y te miren",
+      "date": "Sun Oct 29 2023 23:14:00 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fjVP9HH-bmw.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T22:14:00.390Z",
+      "id": 6
+    },
+    {
+      "name": "iphone15",
+      "price": "600",
+      "opType": "vendo",
+      "description": "Vendo iphone15 porque se me ha bloqueado la pantalla y no recuerdo el pin para desbloquearlo.",
+      "date": "Sun Oct 29 2023 23:16:26 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fik3gGx-iphone.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-29T22:16:26.138Z",
+      "id": 7
+    },
+    {
+      "name": "vendo ps5",
+      "price": "1500",
+      "opType": "vendo",
+      "description": "Vendo ps5 nueva sin abrir. No hay stock en tiendas da ahi su precio",
+      "date": "Sun Oct 29 2023 23:17:06 GMT+0100 (hora estándar de Europa central)",
+      "image": "https://upcdn.io/FW25biu/raw/uploads/2023/10/29/4m4fiY7k4a-ps5.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-29T22:17:06.648Z",
+      "id": 8
+    }
+  ]
+}

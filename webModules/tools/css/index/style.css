@@ -1,0 +1,100 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* Barra de navegación */
+  nav {
+    background-color: #ff6000;
+    text-align: center;
+    padding: 10px;
+    list-style-type: none; /* Elimina los puntos de lista */
+    margin: 0; /* Elimina el espacio entre elementos de la lista */
+  }
+  
+  nav li {
+    display: inline; /* Muestra los elementos en línea en lugar de como una lista vertical */
+    margin-right: 10px; /* Agrega un espacio entre los elementos (ajusta según sea necesario) */
+  }
+  
+
+  li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #333; /* Cambia el color del texto de los enlaces */
+  }
+  
+  li a:hover {
+    color: hsla(101, 100%, 50%, 0.952); /* Cambia el color del texto de los enlaces al pasar el mouse */
+  }
+
+  button {
+    background-color: #ff6000; /* Cambia el color de fondo del botón */
+    color: #333;
+    padding: 10px 20px; /* Ajusta el relleno del botón según sea necesario */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Agrega esquinas redondeadas al botón */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    font-size: 16px; /* Cambia el tamaño de fuente del botón */
+  }
+  
+  button:hover {
+    background-color: #ff00ea; /* Cambia el color de fondo del botón al pasar el mouse */
+    color: hsla(101, 100%, 50%, 0.952);
+  }
+  
+  button:focus {
+    outline: none; /* Elimina el contorno enfocado del botón */
+  }
+  
+
+  /* Contenedor de anuncios */
+  #advertisement {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 20px; /* Agrega un espacio entre las imágenes */
+  }
+  
+  /* Estilos para las imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho de su contenedor */
+  }
+  
+  /* Media query para dispositivos móviles */
+  @media (max-width: 768px) {
+    #advertisement {
+      grid-template-columns: 1fr; /* Muestra 1 columna en dispositivos móviles */
+    }
+  }
+  
+  /* Media query para pantallas más grandes (ordenadores) */
+  @media (min-width: 769px) {
+    #advertisement {
+      grid-template-columns: repeat(5, 1fr); /* Muestra cinco columnas en ordenadores */
+    }
+  }
+  
