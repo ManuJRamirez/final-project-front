@@ -1,16 +1,13 @@
-import { sparrestApi } from "../tools/sparrestApi.js";
+import { apiRest } from '../tools/apiRest.js';
 
-export const getOneAd = async (adId) => {
-    const endpoint = `api/commercial/${adId}?_expand=user`;
+export const getOneAd = async adId => {
+  const endpoint = `final-project/public/anuncio/${adId}`;
 
-    return await sparrestApi().get(endpoint);
+  return await apiRest().get(endpoint);
 };
 
-export const deleteOneAd = async (adId) => {
-    const endpoint = `api/commercial/${adId}`;
+export const deleteOneAd = async adId => {
+  const endpoint = `api/commercial/${adId}`;
 
-    await sparrestApi().delete(endpoint);
+  await apiRest().delete(endpoint);
 };
-
-
-

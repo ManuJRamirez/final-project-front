@@ -1,12 +1,12 @@
-import { sparrestApi } from "../tools/sparrestApi.js";
+import { apiRest } from '../tools/apiRest.js';
 
-export const loginAccount = async ( email, password ) => {
-    const endpoint = 'auth/login';
+export const loginAccount = async (email, password) => {
+  const endpoint = 'final-project/auth/signin';
 
-    const data = {
-        username: email,
-        password: password,
-    }
+  const data = {
+    email: email,
+    contrasenia: password,
+  };
 
-    return await sparrestApi().loginAcc(endpoint, data)
-}
+  return await apiRest().loginAcc(endpoint, data);
+};

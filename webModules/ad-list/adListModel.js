@@ -1,7 +1,7 @@
-import { sparrestApi } from "../tools/sparrestApi.js";
+import { apiRest } from '../tools/apiRest.js';
 
 export const getAdverts = async () => {
-    const endpoint = "api/commercial";
+  const endpoint = 'final-project/public/anuncios';
 
-    return await sparrestApi().get(endpoint);
-}
+  return await apiRest().get(endpoint);
+};

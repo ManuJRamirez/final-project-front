@@ -1,30 +1,26 @@
-export const adTemplate = (ad) => {
-    
-    let template = ``;
+export const adTemplate = ad => {
+  let template = ``;
 
-    if(ad.image === 'noImage') {
-        template = `
-        <span>${ad.name}</span></br>
-        <span>${ad.price}€</span></br>
-        <span>${ad.opType}</span></br>
-        <p>${ad.description}</p></br>
-        <span>${ad.date}</p></br>
-        <p>Contacto: ${ad.user.username}</p>
+  if (ad.image === undefined) {
+    template = `
+        <span>${ad.titulo}</span></br>
+        <span>${ad.precio}€</span></br>
+        <span>${ad.transacion}</span></br>
+        <p>${ad.descripcion}</p></br>
+        <span>${ad.fechaCreacion}</p></br>
+        <p>Contacto: </p>
         
-        `
-    } else {
-        template = `
-        <img src="${ad.image}"></img>
-        <span>${ad.name}</span></br>
-        <span>${ad.price}€</span></br>
-        <span>${ad.opType}</span></br>
-        <p>${ad.description}</p></br>
-        <span>${ad.date}</p></br>
-        <p>Contacto: ${ad.user.username}</p>
-        `
-    }
-    return template;
-}
-    
-    
-
+        `;
+  } else {
+    template = `
+        <img src="${ad.imagen}"></img>
+        <span>${ad.titulo}</span></br>
+        <span>${ad.precio}€</span></br>
+        <span>${ad.transacion}</span></br>
+        <p>${ad.descripcion}</p></br>
+        <span>${ad.fechaCreacion}</p></br>
+        <p>Contacto: </p>
+        `;
+  }
+  return template;
+};

@@ -1,31 +1,31 @@
 export const emptyAdListTemplate = () => {
-    return `No hay anuncios disponibles para mostrar. Inténtelo de nuevo mas tarde`; 
-}
+  return `No hay anuncios disponibles para mostrar. Inténtelo de nuevo mas tarde`;
+};
 
-export const adListTemplate = (ad) => {
-    let template = ``;
+export const adListTemplate = ad => {
+  let template = ``;
 
-    if(ad.image === 'noImage') {
-        template = `
+  if (ad.image === undefined) {
+    template = `
         <a href="../ad-specification.html?id=${ad.id}">
-            <span>${ad.name}</span></br>
-            <span>${ad.price}€</span></br>
-            <span>${ad.opType}</span></br>
-            <p>${ad.description}</p></br>
-            <span>${ad.date}</p></br>
+            <span>${ad.titulo}</span></br>
+            <span>${ad.precio}€</span></br>
+            <span>${ad.transacion}</span></br>
+            <p>${ad.descripcion}</p></br>
+            <span>${ad.fechaCreacion}</p></br>
         </a>
     `;
-    } else {
-        template = `
+  } else {
+    template = `
         <a href="../ad-specification.html?id=${ad.id}">
-            <img src="${ad.image}"></img>
-            <span>${ad.name}</span></br>
-            <span>${ad.price}€</span></br>
-            <span>${ad.opType}</span></br>
-            <p>${ad.description}</p></br>
-            <span>${ad.date}</p></br>
+            <img src="${ad.imagen}"></img>
+            <span>${ad.titulo}</span></br>
+            <span>${ad.precio}€</span></br>
+            <span>${ad.transacion}</span></br>
+            <p>${ad.descripcion}</p></br>
+            <span>${ad.fechaCreacion}</p></br>
         </a>
     `;
-    }
-    return template;
-}
+  }
+  return template;
+};
