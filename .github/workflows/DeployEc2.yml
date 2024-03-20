@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.AWS_EC2_USERNAME }}
           key: ${{ secrets.AWS_EC2_SSH_KEY }}
           source: "."
-          target: "/home/ubuntu/final-project-frontend"
+          target: "/home/ubuntu/final-project-front"
           args: -r
           
       - name: SSH into EC2 instance and deploy
@@ -33,4 +33,4 @@ jobs:
           script: |
             sudo cp -rf final-project-front/* /var/www/html
             sudo systemctl reload nginx
-            sudo rm -r final-project-frontend/
+            sudo rm -r final-project-front/
