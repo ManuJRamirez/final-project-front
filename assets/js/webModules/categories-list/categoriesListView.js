@@ -1,5 +1,5 @@
 export const catListTemplate = cat => {
   return `   
-  <a href="">${cat.nombre}</a>    
+  <a href="" class="categoria-link">${cat.nombre}</a>    
 `;
 };

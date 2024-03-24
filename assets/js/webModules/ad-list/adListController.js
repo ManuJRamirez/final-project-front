@@ -2,12 +2,19 @@ import { getAdverts } from './adListModel.js';
 import { adListTemplate, emptyAdListTemplate } from './adListView.js';
 import { printEvent } from '../tools/printEvent.js';
 
-export const adListController = async adList => {
+export const adListController = async (
+  adList,
+  searchTerm = '',
+  categorias = [],
+  transacion = null,
+) => {
+  let page;
   let adverts = [];
 
   try {
     printEvent('loadingListAdvs', null, adList);
-    adverts = await getAdverts();
+    page = await getAdverts(searchTerm, categorias, transacion);
+    adverts = page.content;
     printEvent(
       'advertListLoaded',
       {
@@ -37,6 +44,7 @@ export const adListController = async adList => {
       adList,
     );
   } else {
+    adList.innerHTML = '';
     printAdList(adverts, adList);
   }
 };

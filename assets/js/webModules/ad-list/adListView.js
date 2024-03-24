@@ -32,7 +32,7 @@ export const adListTemplate = ad => {
                 </div>
             </div>
             <div class="additional-info">
-            <p style="color:black;">${ad.transaccion ? 'Venta' : 'Compra'}</p>
+            <p style="color:black;">${ad.transacion ? 'Venta' : 'Compra'}</p>
             <p style="color:black;">${moment(ad.fechaCreacion).format(
               'DD/MM/YYYY',
             )}</p>

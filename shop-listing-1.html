@@ -81,8 +81,8 @@
                   action="shop-listing-1.html"
                   class="input-group search-bar"
                   >
-                  <input type="text" placeholder="Search..." required />
-                  <button class="search" type="submit">
+                  <input id="searchInput" type="text" placeholder="Buscar..." />
+                  <button id="searchButton" class="search" type="submit">
                     <i class="far fa-search search-icon"></i>
                   </button>
                 </form>
@@ -93,12 +93,10 @@
                 </ul>
               </div>
               <div class="categories-block mb-32">
-                <h2 class="h-27 bold light-black mb-16">By Age</h2>
-                <ul class="categorie unstyled">
-                  <li><a href="">1 - 3</a></li>
-                  <li><a href="">3 - 10</a></li>
-                  <li><a href="">10 - 16</a></li>
-                  <li><a href="">16 - 21</a></li>
+                <h2 class="h-27 bold light-black mb-16">Transacción</h2>
+                <ul class="categorie unstyled transacciones">
+                  <li><a href="" class="transaccion-link">Compra</a></li>
+                  <li><a href="" class="transaccion-link">Venta</a></li>
                 </ul>
               </div>
               <div class="price mb-32">
@@ -165,23 +163,21 @@
 
                 <ul class="pagination">
                   <li>
-                    <a href="./shop-listing-1.html"
+                    <a href="#"
                     ><i class="fas fa-chevron-left"></i
                       ></a>
                     </li>
                     <li>
-                      <a href="./shop-listing-1.html" class="active">1</a>
+                      <a href="#" class="active">1</a>
                     </li>
                     <li>
-                      <a href="./shop-listing-1.html">2</a>
+                      <a href="#">2</a>
                     </li>
                   <li>
-                    <a href="./shop-listing-1.html">3</a>
+                    <a href="#">3</a>
                   </li>
                   <li>
-                    <a href="./shop-listing-1.html"
-                    ><i class="fas fa-chevron-right"></i
-                      ></a>
+                    <a href="#"><i class="fas fa-chevron-right"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -191,21 +187,7 @@
         <!-- All Product End -->
 
         <!-- Comming Soon Area Start -->
-        <section class="comming-soon">
-          <div class="container">
-            <div class="content">
-              <h6 class="h-36 bold color-white">New</h6>
-              <h2>Baby Toys</h2>
-              <h3 class="h-61 bold color-white mb-32">Will Be In-Stock!</h3>
-              <ul class="timer countdown unstyled">
-                <li>20 <small>d</small></li>
-                <li>23 <small>h</small></li>
-                <li>50 <small>m</small></li>
-                <li>34 <small>s</small></li>
-              </ul>
-            </div>
-          </div>
-        </section>
+
         <!-- Comming Soon Area End -->
       </div>
       
@@ -355,7 +337,27 @@
     <!-- Site Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script type="module" src="./assets/js/webModules/ad-list/index.js"></script>
-    <script type="module" src="./assets/js/webModules/categories-list/index.js"></script>
     <script src="assets/js/app.js"></script>
+    <script> $(document).ready(function() {
+      // Handler for previous button click
+      $('.pagination .prev').click(function(e) {
+        e.preventDefault();
+        var currentPage = parseInt($('.pagination .active').text());
+        if (currentPage > 1) {
+          $('.pagination .active').removeClass('active').prev().addClass('active');
+        }
+      });
+
+      // Handler for next button click
+      $('.pagination .next').click(function(e) {
+        e.preventDefault();
+        var currentPage = parseInt($('.pagination .active').text());
+        var totalPages = parseInt($('.pagination li:last-child').prev().text());
+        if (currentPage < totalPages) {
+          $('.pagination .active').removeClass('active').next().addClass('active');
+        }
+      });
+    });
+  </script>
   </body>
 </html>

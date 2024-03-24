@@ -23,7 +23,7 @@ STYLE SHEET INDEXING
 /*-------------------------
     Fonts
 -------------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@300;400;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@300;400;700;900&family=Nunito:wght@300;400;500;600;700;800&display=swap');
 /*-------------------------
     Variables
 -------------------------*/
@@ -52,7 +52,7 @@ ol.list-style {
 
 ul.list-style li::marker,
 ol.list-style li::marker {
-  color: #FBC270;
+  color: #fbc270;
 }
 
 .unstyled {
@@ -73,7 +73,7 @@ ol.list-style li::marker {
 }
 
 .page-content {
-  background-color: #67D4E0;
+  background-color: #67d4e0;
 }
 
 .star-cb-group {
@@ -91,8 +91,8 @@ html {
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  color: #FAFAFA;
+  font-family: 'Nunito', sans-serif;
+  color: #fafafa;
   font-size: 16px;
   font-weight: 400;
   line-height: 140%;
@@ -128,7 +128,7 @@ h6 a {
 }
 
 p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -151,7 +151,7 @@ a {
   color: unset;
 }
 a:hover {
-  color: #FBC270;
+  color: #fbc270;
   transition: all 0.5s ease;
 }
 
@@ -161,7 +161,7 @@ span {
 
 b,
 strong {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .pagination {
@@ -177,13 +177,13 @@ strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2C2D2F;
+  color: #2c2d2f;
   font-size: 21px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   line-height: 140%; /* 24px */
   border-radius: 10px;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .pagination li a i {
@@ -191,12 +191,12 @@ strong {
   font-weight: 400;
 }
 .pagination li a.active {
-  background-color: #FBC270;
-  color: #FAFAFA;
+  background-color: #fbc270;
+  color: #fafafa;
 }
 .pagination li a:hover {
-  color: #FAFAFA;
-  background: #2C2D2F;
+  color: #fafafa;
+  background: #2c2d2f;
 }
 
 .social-icons {
@@ -211,58 +211,58 @@ strong {
 }
 .social-icons li a {
   font-size: 32px;
-  color: #FAFAFA;
+  color: #fafafa;
   transition: all 0.5s ease;
 }
 .social-icons li a:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 .social-icons li a:hover svg {
-  stroke: #FBC270;
-  stroke-width: #FBC270;
+  stroke: #fbc270;
+  stroke-width: #fbc270;
 }
 
 /*-------------------------
 Helpers
 -------------------------*/
 .color-primary {
-  color: #FBC270 !important;
+  color: #fbc270 !important;
 }
 
 .bg-primary {
-  background-color: #FBC270 !important;
+  background-color: #fbc270 !important;
 }
 
 .color-white {
-  color: #FAFAFA !important;
+  color: #fafafa !important;
 }
 
 .bg-white {
-  background-color: #FAFAFA !important;
+  background-color: #fafafa !important;
 }
 
 .light-black {
-  color: #2C2D2F !important;
+  color: #2c2d2f !important;
 }
 
 .bg-light-black {
-  background-color: #2C2D2F !important;
+  background-color: #2c2d2f !important;
 }
 
 .color-black {
-  color: #1B1C1E !important;
+  color: #1b1c1e !important;
 }
 
 .bg-black {
-  background-color: #1B1C1E !important;
+  background-color: #1b1c1e !important;
 }
 
 .dark-black {
-  color: #0D0D0D !important;
+  color: #0d0d0d !important;
 }
 
 .bg-dark-black {
-  background-color: #0D0D0D !important;
+  background-color: #0d0d0d !important;
 }
 
 .medium-black {
@@ -270,67 +270,69 @@ Helpers
 }
 
 .lightest-gray {
-  color: #F4F2F0 !important;
+  color: #f4f2f0 !important;
 }
 
 .bg-lightest-gray {
-  background-color: #F4F2F0 !important;
+  background-color: #f4f2f0 !important;
 }
 
 .light-gray {
-  color: #DBD8D6 !important;
+  color: #dbd8d6 !important;
 }
 
 .bg-light-gray {
-  background-color: #DBD8D6 !important;
+  background-color: #dbd8d6 !important;
 }
 
 .bg-medium-gray {
-  background-color: #B6B1AF !important;
+  background-color: #b6b1af !important;
 }
 
 .bg-every {
-  background: #FEEEC1;
+  background: #feeec1;
 }
 
 .bg-sky {
-  background: #BFF9FF;
+  background: #bff9ff;
 }
 
 .bg-light-dark-blue {
-  background: #C1E5FF;
+  background: #c1e5ff;
 }
 
 .bg-brown {
-  background: #FDCDC5;
+  background: #fdcdc5;
 }
 
 .medium-gray {
-  color: #B6B1AF !important;
+  color: #b6b1af !important;
 }
 
 .dark-gray {
-  color: #54575C !important;
+  color: #54575c !important;
 }
 
 .bg-dark-gray {
-  background-color: #54575C !important;
+  background-color: #54575c !important;
 }
 
 .bg-blue {
-  background-color: #28C4BC !important;
+  background-color: #28c4bc !important;
 }
 
 .light-blue {
-  color: #67D4E0 !important;
+  color: #67d4e0 !important;
 }
 
 .bg-light-blue {
-  background-color: #67D4E0 !important;
+  background-color: #67d4e0 !important;
 }
 
 .text-shadow {
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08), 0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15),
+    0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08),
+    0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
 }
 
 .br-30 {
@@ -367,11 +369,16 @@ Helpers
 }
 
 .dark-shadow {
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03) !important;
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03) !important;
 }
 
 .h-61 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   font-size: 61px;
   line-height: 120%;
@@ -408,7 +415,7 @@ Helpers
 }
 
 .h-47 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   font-size: 47px;
   line-height: 120%;
@@ -435,7 +442,7 @@ Helpers
 }
 
 .h-36 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 120%; /* 43.2px */
@@ -462,7 +469,7 @@ Helpers
 }
 
 .h-27 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 27px;
   font-weight: 400;
   line-height: 130%;
@@ -490,18 +497,18 @@ Helpers
 }
 
 .h-21 {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 130%;
 }
 .h-21.sec {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 800;
   line-height: 140%;
 }
 .h-21.sec-2 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   line-height: 140%;
 }
 .h-21.bold {
@@ -1104,7 +1111,7 @@ Elements
   height: 100vh;
   justify-content: center;
   display: flex;
-  background: #2C2D2F;
+  background: #2c2d2f;
   z-index: 9999999;
   padding-top: 16%;
 }
@@ -1123,7 +1130,7 @@ Elements
   margin: 0 auto;
 }
 #preloader .loader::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 30px;
   left: 50px;
@@ -1134,7 +1141,7 @@ Elements
   animation: loading-bounce 0.5s ease-in-out infinite alternate;
 }
 #preloader .loader::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: 0;
@@ -1161,10 +1168,12 @@ Elements
 }
 @keyframes loading-step {
   0% {
-    box-shadow: 0 10px 0 rgba(0, 0, 0, 0), 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0), 0 10px 0 #f2f2f2,
+      -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
   }
   100% {
-    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2, -70px 90px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2,
+      -70px 90px 0 rgba(0, 0, 0, 0);
   }
 }
 .back-to-top {
@@ -1176,8 +1185,8 @@ Elements
   height: 120px;
   font-size: 100px;
   padding: 11px 0;
-  background: #FBC270;
-  color: #FAFAFA;
+  background: #fbc270;
+  color: #fafafa;
   text-align: center;
   opacity: 0;
   text-decoration: none;
@@ -1190,8 +1199,8 @@ Elements
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .back-to-top:hover {
-  background: #2C2D2F;
-  color: #FAFAFA;
+  background: #2c2d2f;
+  color: #fafafa;
 }
 .back-to-top.show {
   opacity: 1;
@@ -1204,7 +1213,7 @@ Elements
 }
 
 .cus-btn {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%;
@@ -1226,53 +1235,53 @@ Elements
   }
 }
 .cus-btn.primary {
-  background-color: #FBC270;
-  color: #FAFAFA;
+  background-color: #fbc270;
+  color: #fafafa;
 }
 .cus-btn.primary:hover {
-  background-color: #28C4BC;
-  color: #FAFAFA;
+  background-color: #28c4bc;
+  color: #fafafa;
 }
 .cus-btn.sec {
-  background-color: #28C4BC;
-  color: #FAFAFA;
+  background-color: #28c4bc;
+  color: #fafafa;
 }
 .cus-btn.sec:hover {
-  background-color: #FBC270;
-  color: #FAFAFA;
+  background-color: #fbc270;
+  color: #fafafa;
 }
 .cus-btn.light {
-  background-color: #FAFAFA;
-  color: #2C2D2F;
+  background-color: #fafafa;
+  color: #2c2d2f;
 }
 .cus-btn.light.st-2 {
   padding: 10px 32px;
-  border: 2px solid #2C2D2F;
+  border: 2px solid #2c2d2f;
 }
 .cus-btn.light:hover {
-  background-color: #2C2D2F;
-  color: #FAFAFA;
+  background-color: #2c2d2f;
+  color: #fafafa;
 }
 .cus-btn.light:hover svg {
-  stroke: #FAFAFA;
+  stroke: #fafafa;
   transition: all 0.5s ease;
 }
 .cus-btn.grey {
-  background-color: #B6B1AF;
-  color: #FAFAFA;
+  background-color: #b6b1af;
+  color: #fafafa;
   transition: all 0.5s ease;
 }
 .cus-btn.grey:hover {
-  background: #FBC270;
+  background: #fbc270;
 }
 .cus-btn.dark {
-  background-color: #2C2D2F;
-  color: #FAFAFA;
+  background-color: #2c2d2f;
+  color: #fafafa;
   transition: all 0.5s ease;
 }
 .cus-btn.dark:hover {
-  background-color: #FAFAFA;
-  color: #2C2D2F;
+  background-color: #fafafa;
+  color: #2c2d2f;
 }
 
 .light-btn {
@@ -1280,7 +1289,7 @@ Elements
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 150%; /* 24px */
@@ -1288,10 +1297,10 @@ Elements
   transition: all 0.5s ease;
 }
 .light-btn.primary {
-  color: #FBC270;
+  color: #fbc270;
 }
 .light-btn.primary:hover {
-  color: #28C4BC;
+  color: #28c4bc;
 }
 
 .modal {
@@ -1323,7 +1332,12 @@ Elements
 .input-group {
   position: relative;
   background: white;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   padding: 16px 24px;
   border: none;
   border-radius: 18px;
@@ -1335,11 +1349,11 @@ Elements
   border: none;
   background: transparent;
   width: 88%;
-  color: #2C2D2F;
+  color: #2c2d2f;
   font-size: 21px;
   font-weight: 400;
   line-height: 140%;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .input-group input:focus {
   outline: 0;
@@ -1347,14 +1361,14 @@ Elements
   border: none;
 }
 .input-group input::placeholder {
-  color: #54575C;
+  color: #54575c;
   opacity: 1;
 }
 .input-group button {
   border: none;
   background: transparent;
   width: 12%;
-  color: #2C2D2F;
+  color: #2c2d2f;
   font-size: 24px;
   padding: 0;
   text-align: end;
@@ -1365,7 +1379,7 @@ Elements
 }
 .input-group.st-2 {
   border: none;
-  background: #F4F2F0;
+  background: #f4f2f0;
   border-radius: 20px;
 }
 
@@ -1375,9 +1389,9 @@ Elements
   font-size: 21px;
   font-weight: 400;
   line-height: 140%;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   position: relative;
-  color: #54575C;
+  color: #54575c;
   border: 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -1387,12 +1401,12 @@ Elements
   border: none;
 }
 .form-control::placeholder {
-  color: #DBD8D6;
+  color: #dbd8d6;
   opacity: 1;
 }
 
 .form-group .form-control {
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 12px 16px;
 }
 
@@ -1402,7 +1416,7 @@ Elements
 }
 .inputGroup textarea,
 .inputGroup input {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -1411,13 +1425,13 @@ Elements
   padding: 16px;
   outline: none;
   border: none;
-  background-color: #ECECF2;
+  background-color: #ececf2;
   border-radius: 20px;
   width: 100%;
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 .inputGroup label {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -1429,7 +1443,7 @@ Elements
   margin-left: 0.5em;
   pointer-events: none;
   transition: all 0.3s ease;
-  color: #54575C;
+  color: #54575c;
 }
 
 .inputGroup :is(textarea:focus, textarea:valid) ~ label,
@@ -1449,35 +1463,35 @@ label.error {
   margin-top: 10px;
 }
 
-input[type=checkbox] {
+input[type='checkbox'] {
   height: auto;
   width: auto;
-  background-color: #B6B1AF;
+  background-color: #b6b1af;
 }
 
-input[type=checkbox]:checked {
-  accent-color: #FBC270;
+input[type='checkbox']:checked {
+  accent-color: #fbc270;
 }
 
-input[type=checkbox]:checked {
-  accent-color: #FBC270;
-  background-color: #FBC270;
+input[type='checkbox']:checked {
+  accent-color: #fbc270;
+  background-color: #fbc270;
   width: 18px;
   height: 16px;
   border-radius: 10px;
 }
 
-input[type=range]::-webkit-slider-thumb {
-  background: #FBC270;
+input[type='range']::-webkit-slider-thumb {
+  background: #fbc270;
 }
 
-input[type=radio] {
+input[type='radio'] {
   height: auto;
   width: auto;
 }
 
-input[type=radio]:checked {
-  accent-color: #FBC270;
+input[type='radio']:checked {
+  accent-color: #fbc270;
 }
 
 .alert-message {
@@ -1497,39 +1511,39 @@ input[type=radio]:checked {
   }
 }
 
-.search input[type=text] {
+.search input[type='text'] {
   width: 636px;
   padding: 16px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%; /* 24px */
   letter-spacing: 0.32px;
-  color: #54575C;
+  color: #54575c;
 }
 @media (max-width: 1199px) {
-  .search input[type=text] {
+  .search input[type='text'] {
     width: 500px;
   }
 }
 @media (max-width: 992px) {
-  .search input[type=text] {
+  .search input[type='text'] {
     width: 430px;
   }
 }
 @media (max-width: 768px) {
-  .search input[type=text] {
+  .search input[type='text'] {
     width: 100%;
   }
 }
 
-.search input[type=text]:focus {
+.search input[type='text']:focus {
   outline: 0;
 }
 
-.search button[type=submit] {
+.search button[type='submit'] {
   position: absolute;
   top: 0;
   right: 0;
@@ -1551,21 +1565,21 @@ input[type=radio]:checked {
 .checkBox label {
   position: relative;
   cursor: pointer;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 24px */
-  color: #FAFAFA;
+  color: #fafafa;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .checkBox label:before {
-  content: "";
+  content: '';
   -webkit-appearance: none;
   background-color: transparent;
-  border: 2px solid #FAFAFA;
+  border: 2px solid #fafafa;
   border-radius: 7px;
   box-shadow: none;
   padding: 10px;
@@ -1576,14 +1590,14 @@ input[type=radio]:checked {
 }
 
 .checkBox input:checked + label:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 6px;
   left: 8px;
   width: 7px;
   height: 14px;
-  border: solid #FAFAFA;
+  border: solid #fafafa;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -1623,7 +1637,7 @@ input[type=radio]:checked {
   margin: 0;
   padding: 14.8px 24px;
   border-radius: 18px;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .card .card-header .nav-tabs.st-2 {
@@ -1657,11 +1671,11 @@ input[type=radio]:checked {
   background: transparent;
   border-radius: 0;
   font-size: 27px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   line-height: 130%;
   letter-spacing: -0.54px;
-  color: #54575C;
+  color: #54575c;
   transition: all 0.5s ease;
 }
 @media (max-width: 768px) {
@@ -1675,11 +1689,11 @@ input[type=radio]:checked {
   }
 }
 .card .card-header .nav-tabs li a.active {
-  color: #FBC270;
+  color: #fbc270;
   font-weight: 700;
 }
 .card .card-header .nav-tabs li a:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 .card .card-body {
   padding: 0;
@@ -1705,9 +1719,9 @@ textarea {
   justify-content: center;
   padding: 6px 16px;
   border-radius: 10px;
-  background: #F4F2F0;
-  color: #2C2D2F;
-  font-family: "Nunito", sans-serif;
+  background: #f4f2f0;
+  color: #2c2d2f;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 400;
   flex-shrink: 0;
@@ -1717,8 +1731,8 @@ textarea {
   height: 53px;
 }
 .quantity .number {
-  color: #FAFAFA;
-  background: #FBC270;
+  color: #fafafa;
+  background: #fbc270;
 }
 
 .radio-button input:checked,
@@ -1728,15 +1742,15 @@ textarea {
 }
 
 .radio-button label {
-  color: #2C2D2F;
-  font-family: "Nunito", sans-serif;
+  color: #2c2d2f;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 140%; /* 29.4px */
 }
 
 .radio-button input:not(:checked) + label {
-  color: #54575C;
+  color: #54575c;
 }
 
 .radio-button input:checked + label,
@@ -1749,27 +1763,27 @@ textarea {
 
 .radio-button input:checked + label:before,
 .radio-button input:not(:checked) + label:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 6px;
   width: 16px;
   height: 16px;
-  border: 2px solid #2C2D2F;
+  border: 2px solid #2c2d2f;
   border-radius: 100%;
-  background: #FAFAFA;
+  background: #fafafa;
 }
 
 .radio-button input:not(:checked) + label:before {
-  border: 2px solid #54575C;
+  border: 2px solid #54575c;
 }
 
 .radio-button input:checked + label:after,
 .radio-button input:not(:checked) + label:after {
-  content: "";
+  content: '';
   width: 10px;
   height: 10px;
-  background: #2C2D2F;
+  background: #2c2d2f;
   position: absolute;
   top: 9px;
   left: 3px;
@@ -1810,9 +1824,11 @@ textarea {
 }
 .heading h2 {
   text-align: center;
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08), 0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
-  color: #FAFAFA;
-  font-family: "Nunito", sans-serif;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15),
+    0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08),
+    0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
+  color: #fafafa;
+  font-family: 'Nunito', sans-serif;
   font-size: 80px;
   font-weight: 700;
   line-height: 120%;
@@ -1903,7 +1919,7 @@ header nav .navbar-collapse .right-nav .navbar-nav .menu-item a {
   font-weight: 800;
   font-size: 21px;
   line-height: 140%;
-  color: #FAFAFA;
+  color: #fafafa;
   text-transform: capitalize;
   position: relative;
 }
@@ -1913,19 +1929,19 @@ header nav .navbar-collapse .right-nav .navbar-nav .menu-item a i {
 }
 header nav .navbar-collapse .left-nav .navbar-nav .menu-item a.active,
 header nav .navbar-collapse .right-nav .navbar-nav .menu-item a.active {
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .menu-item a.active svg,
 header nav .navbar-collapse .right-nav .navbar-nav .menu-item a.active svg {
-  stroke: #2C2D2F;
+  stroke: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .menu-item a:hover,
 header nav .navbar-collapse .right-nav .navbar-nav .menu-item a:hover {
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .menu-item a:hover svg,
 header nav .navbar-collapse .right-nav .navbar-nav .menu-item a:hover svg {
-  stroke: #2C2D2F;
+  stroke: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children {
@@ -1933,7 +1949,7 @@ header nav .navbar-collapse .right-nav .navbar-nav .has-children {
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children a,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children a {
-  color: #FAFAFA;
+  color: #fafafa;
   font-weight: 800;
   font-size: 21px;
   line-height: 140%;
@@ -1941,11 +1957,11 @@ header nav .navbar-collapse .right-nav .navbar-nav .has-children a {
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children a.active,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children a.active {
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children a:hover,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children a:hover {
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children .submenu,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu {
@@ -1979,7 +1995,7 @@ header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu li {
 header nav .navbar-collapse .left-nav .navbar-nav .has-children .submenu li a,
 header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu li a {
   position: relative;
-  color: #2C2D2F;
+  color: #2c2d2f;
   font-weight: 700;
   font-size: 18px;
   line-height: 140%;
@@ -1987,29 +2003,93 @@ header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu li a {
   display: block;
   position: relative;
 }
-header nav .navbar-collapse .left-nav .navbar-nav .has-children .submenu li a.active,
-header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu li a.active {
-  color: #FBC270;
+header
+  nav
+  .navbar-collapse
+  .left-nav
+  .navbar-nav
+  .has-children
+  .submenu
+  li
+  a.active,
+header
+  nav
+  .navbar-collapse
+  .right-nav
+  .navbar-nav
+  .has-children
+  .submenu
+  li
+  a.active {
+  color: #fbc270;
 }
-header nav .navbar-collapse .left-nav .navbar-nav .has-children .submenu li a:hover,
-header nav .navbar-collapse .right-nav .navbar-nav .has-children .submenu li a:hover {
-  color: #FBC270;
+header
+  nav
+  .navbar-collapse
+  .left-nav
+  .navbar-nav
+  .has-children
+  .submenu
+  li
+  a:hover,
+header
+  nav
+  .navbar-collapse
+  .right-nav
+  .navbar-nav
+  .has-children
+  .submenu
+  li
+  a:hover {
+  color: #fbc270;
 }
 header nav .navbar-collapse .left-nav .navbar-nav .has-children:hover .submenu,
-header nav .navbar-collapse .right-nav .navbar-nav .has-children:hover .submenu {
+header
+  nav
+  .navbar-collapse
+  .right-nav
+  .navbar-nav
+  .has-children:hover
+  .submenu {
   opacity: 1;
   visibility: visible;
   z-index: 99999;
   right: 0;
 }
 @media (max-width: 790px) {
-  header nav .navbar-collapse .left-nav .navbar-nav .has-children:hover .submenu,
-  header nav .navbar-collapse .right-nav .navbar-nav .has-children:hover .submenu {
+  header
+    nav
+    .navbar-collapse
+    .left-nav
+    .navbar-nav
+    .has-children:hover
+    .submenu,
+  header
+    nav
+    .navbar-collapse
+    .right-nav
+    .navbar-nav
+    .has-children:hover
+    .submenu {
     left: 0;
   }
 }
-header nav .navbar-collapse .left-nav .navbar-nav .has-children:hover .submenu li,
-header nav .navbar-collapse .right-nav .navbar-nav .has-children:hover .submenu li {
+header
+  nav
+  .navbar-collapse
+  .left-nav
+  .navbar-nav
+  .has-children:hover
+  .submenu
+  li,
+header
+  nav
+  .navbar-collapse
+  .right-nav
+  .navbar-nav
+  .has-children:hover
+  .submenu
+  li {
   opacity: 1;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -2052,7 +2132,7 @@ header.small-screen .hamburger-menu {
 header.small-screen .hamburger-menu .bar {
   position: relative;
   transform: translateY(10px);
-  background: #2C2D2F;
+  background: #2c2d2f;
   transition: all 0ms 300ms;
   width: 24px;
   height: 2px;
@@ -2062,23 +2142,25 @@ header.small-screen .hamburger-menu .bar:before {
   width: 24px;
   height: 2px;
   cursor: pointer;
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 10px;
-  background: #2C2D2F;
-  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  background: #2c2d2f;
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.small-screen .hamburger-menu .bar:after {
   width: 24px;
   height: 2px;
   cursor: pointer;
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 10px;
-  background: #2C2D2F;
-  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  background: #2c2d2f;
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.small-screen .hamburger-menu .bar.animate {
   background: rgba(255, 255, 255, 0);
@@ -2086,12 +2168,14 @@ header.small-screen .hamburger-menu .bar.animate {
 header.small-screen .hamburger-menu .bar.animate:after {
   top: 0;
   transform: rotate(45deg);
-  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.small-screen .hamburger-menu .bar.animate:before {
   bottom: 0;
   transform: rotate(-45deg);
-  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.small-screen .mobile-navar ul {
   margin: 0;
@@ -2108,21 +2192,21 @@ header.small-screen .mobile-navar ul li {
   text-align: left;
   text-transform: capitalize;
   padding-left: 15px;
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 header.small-screen .mobile-navar ul li:first-child {
   margin-top: 20px;
 }
 header.small-screen .mobile-navar ul li a {
   text-decoration: none;
-  color: #2C2D2F;
+  color: #2c2d2f;
   position: relative;
 }
 header.small-screen .mobile-navar ul li a.active {
-  color: #FBC270;
+  color: #fbc270;
 }
 header.small-screen .mobile-navar ul li a:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 header.small-screen .mobile-navar {
   top: 0px;
@@ -2130,9 +2214,9 @@ header.small-screen .mobile-navar {
   max-width: 300px;
   right: -300%;
   width: 100%;
-  background: #FFFFFF;
+  background: #ffffff;
   background-size: cover;
-  color: #FAFAFA;
+  color: #fafafa;
   height: 100%;
   padding-bottom: 20px;
   position: fixed;
@@ -2160,7 +2244,7 @@ header.small-screen .mobile-navar.active {
   transition: all 500ms ease-in-out;
 }
 header.small-screen .has-children.active {
-  color: #FBC270;
+  color: #fbc270;
 }
 header.small-screen .has-children:hover {
   cursor: pointer;
@@ -2179,7 +2263,7 @@ header.small-screen .icon-arrow {
   position: absolute;
   display: block;
   font-size: 0.7em;
-  color: #2C2D2F;
+  color: #2c2d2f;
   top: 10px;
   right: 10px;
   transform: rotate(0deg);
@@ -2190,7 +2274,7 @@ header.small-screen .icon-arrow {
   -moz-transition: 0.6s;
 }
 header.small-screen .icon-arrow:after {
-  content: "▼";
+  content: '▼';
 }
 header.small-screen .icon-arrow:hover {
   transform: rotate(-180deg);
@@ -2246,34 +2330,58 @@ footer .footer-main .footer-info .footer-about .contact .contact-list li {
   }
 }
 footer .footer-main .footer-info .footer-about .contact .contact-list li a {
-  color: #FAFAFA;
+  color: #fafafa;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-footer .footer-main .footer-info .footer-about .contact .contact-list li a span {
-  font-family: "Nunito", sans-serif;
+footer
+  .footer-main
+  .footer-info
+  .footer-about
+  .contact
+  .contact-list
+  li
+  a
+  span {
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%;
   transition: all 0.5s ease;
 }
 footer .footer-main .footer-info .footer-about .contact .contact-list li a i {
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 32px;
   transform: all 0.5s ease;
 }
-footer .footer-main .footer-info .footer-about .contact .contact-list li a:hover span,
-footer .footer-main .footer-info .footer-about .contact .contact-list li a:hover i {
+footer
+  .footer-main
+  .footer-info
+  .footer-about
+  .contact
+  .contact-list
+  li
+  a:hover
+  span,
+footer
+  .footer-main
+  .footer-info
+  .footer-about
+  .contact
+  .contact-list
+  li
+  a:hover
+  i {
   transform: all 0.5s ease;
-  color: #FBC270;
+  color: #fbc270;
 }
 footer .footer-main .footer-info h3 {
   font-size: 36px;
   font-weight: 700;
   line-height: 120%;
   letter-spacing: -1.08px;
-  color: #FAFAFA;
+  color: #fafafa;
 }
 @media (max-width: 1199px) {
   footer .footer-main .footer-info h3 {
@@ -2342,11 +2450,11 @@ footer .footer-main .footer-info .menu {
   }
 }
 footer .footer-main .footer-info .menu .link li a {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 150%;
-  color: #FAFAFA;
+  color: #fafafa;
   transition: all 0.5s ease;
 }
 @media (max-width: 767px) {
@@ -2360,7 +2468,7 @@ footer .footer-main .footer-info .menu .link li a {
   }
 }
 footer .footer-main .footer-info .menu .link li a:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 
 .hero-banner-1 {
@@ -2643,12 +2751,14 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .page-title-banner .content .title h2 {
-  color: #FAFAFA;
+  color: #fafafa;
   text-align: center;
   /* New Shadow Style */
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08), 0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 4px 10px rgba(0, 0, 0, 0.15),
+    0px 17px 17px rgba(0, 0, 0, 0.13), 0px 39px 24px rgba(0, 0, 0, 0.08),
+    0px 70px 28px rgba(0, 0, 0, 0.02), 0px 109px 31px rgba(0, 0, 0, 0);
   /* 80 B */
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 80px;
   font-weight: 700;
   line-height: 120%;
@@ -2699,17 +2809,22 @@ footer .footer-main .footer-info .menu .link li a:hover {
 
 .product .product-card {
   border-radius: 30px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   overflow: hidden;
 }
 .product .product-card.sec .img-block {
-  background: #FEEEC1;
+  background: #feeec1;
 }
 .product .product-card.sec-2 .img-block {
-  background: linear-gradient(0deg, #FFDED9 0%, #FFDED9 100%), #FDCDC5;
+  background: linear-gradient(0deg, #ffded9 0%, #ffded9 100%), #fdcdc5;
 }
 .product .product-card .img-block {
-  background: #FDCDC5;
+  background: #fdcdc5;
   padding: 24px;
   text-align: center;
 }
@@ -2718,7 +2833,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .product .product-card .content {
   width: 100%;
-  background: #FAFAFA;
+  background: #fafafa;
   display: inline-flex;
   padding: 16px 0 24px 0;
   flex-direction: column;
@@ -2731,8 +2846,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   gap: 8px;
 }
 .product .product-card .content .name-price h5 {
-  font-family: "Nunito", sans-serif;
-  color: #2C2D2F;
+  font-family: 'Nunito', sans-serif;
+  color: #2c2d2f;
   font-size: 27px;
   font-weight: 400;
   line-height: 130%;
@@ -2765,8 +2880,9 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .product .product-card .content .btn-block .list-btn {
   padding: 8px;
   border-radius: 15px;
-  background: #FAFAFA;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1), 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+  background: #fafafa;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
 }
 @media (max-width: 575px) {
   .product .product-card .content .btn-block .list-btn {
@@ -2774,9 +2890,9 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .product .product-card .content .btn-block .list-btn:hover svg {
-  fill: #FBC270;
-  stroke: #FBC270;
-  color: #FBC270;
+  fill: #fbc270;
+  stroke: #fbc270;
+  color: #fbc270;
 }
 .product.st-2 {
   display: flex;
@@ -2909,8 +3025,13 @@ footer .footer-main .footer-info .menu .link li a:hover {
   position: relative;
 }
 .product-card .cards::before {
-  content: "";
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url(<path-to-image>), lightgray 50%/cover no-repeat;
+  content: '';
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url(<path-to-image>), lightgray 50% / cover no-repeat;
   position: absolute;
   left: 0;
   top: 0;
@@ -2924,7 +3045,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   border-radius: 30px;
 }
 .product-card .cards h3 {
-  color: #FAFAFA;
+  color: #fafafa;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -2937,7 +3058,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   transition: all 0.5s ease;
 }
 .product-card .cards:hover h3 {
-  color: #2C2D2F !important;
+  color: #2c2d2f !important;
 }
 .product-card .discount {
   position: absolute;
@@ -2945,17 +3066,18 @@ footer .footer-main .footer-info .menu .link li a:hover {
   top: 0;
   left: calc(50% - 56px);
   border-radius: 0px 0px 15px 15px;
-  background: #FAFAFA;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1), 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
-  font-family: "Nunito", sans-serif;
+  background: #fafafa;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 500;
   line-height: 140%;
   /* 29.4px */
-  color: #FBC270;
+  color: #fbc270;
 }
 .product-card .discount.sec {
-  color: #28C4BC;
+  color: #28c4bc;
 }
 
 @media screen and (min-width: 1200px) {
@@ -2977,7 +3099,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .sales-product .container .sales {
   width: 948px;
   padding: 58.31px 0;
-  background: #FBC270;
+  background: #fbc270;
   border-radius: 60px 0 0 60px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
@@ -2994,7 +3116,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .sales-product .container .sales .tag {
   position: absolute;
-  background: #28C4BC;
+  background: #28c4bc;
   border-radius: 0 0 60px 0;
   width: 167px;
   height: 61px;
@@ -3005,9 +3127,9 @@ footer .footer-main .footer-info .menu .link li a:hover {
   flex-shrink: 0;
   left: 0;
   top: 0;
-  color: #FAFAFA;
+  color: #fafafa;
   padding: 4px 16px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 27px;
   font-weight: 700;
   line-height: 130%;
@@ -3028,9 +3150,14 @@ footer .footer-main .footer-info .menu .link li a:hover {
   border-radius: 100%;
   margin-left: -139.02px;
   flex-shrink: 0;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: -4px -4px 15px 0px rgba(63, 31, 1, 0.15) inset;
-  filter: drop-shadow(0px 4px 10px rgba(63, 31, 1, 0.15)) drop-shadow(0px 17px 17px rgba(63, 31, 1, 0.13)) drop-shadow(0px 39px 24px rgba(63, 31, 1, 0.08)) drop-shadow(0px 70px 28px rgba(63, 31, 1, 0.02)) drop-shadow(0px 109px 31px rgba(63, 31, 1, 0)) drop-shadow(0px 4px 4px rgba(63, 31, 1, 0.03));
+  filter: drop-shadow(0px 4px 10px rgba(63, 31, 1, 0.15))
+    drop-shadow(0px 17px 17px rgba(63, 31, 1, 0.13))
+    drop-shadow(0px 39px 24px rgba(63, 31, 1, 0.08))
+    drop-shadow(0px 70px 28px rgba(63, 31, 1, 0.02))
+    drop-shadow(0px 109px 31px rgba(63, 31, 1, 0))
+    drop-shadow(0px 4px 4px rgba(63, 31, 1, 0.03));
 }
 @media (max-width: 1399px) {
   .sales-product .container .sales .off {
@@ -3054,14 +3181,14 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .sales-product .container .sales .off h2,
 .sales-product .container .sales .off h3,
 .sales-product .container .sales .off h4 {
-  color: #FBC270;
+  color: #fbc270;
 }
 .sales-product .container .sales .off .discount {
   display: flex;
   align-items: center;
 }
 .sales-product .container .sales .off .discount h2 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 105px;
   font-weight: 700;
   line-height: 120%;
@@ -3112,29 +3239,33 @@ footer .footer-main .footer-info .menu .link li a:hover {
 
 .categories-block {
   padding: 24px;
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
 }
 .categories-block .categorie li {
   margin-bottom: 8px;
 }
 .categories-block .categorie li a {
-  color: #54575C;
-  font-family: "Nunito", sans-serif;
+  color: #54575c;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 140%; /* 29.4px */
 }
 .categories-block .categorie li a:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 .categories-block .categorie li:last-child {
   margin: 0;
 }
+.categories-block .categorie a.active {
+  color: #5dbec9;
+  font-weight: bold;
+}
 
 .price {
   padding: 24px;
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
 }
 .price .slider .irs--big {
@@ -3143,9 +3274,9 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .price .slider .irs--big .irs .irs-to,
 .price .slider .irs--big .irs .irs-from {
   background: transparent;
-  color: #2C2D2F;
+  color: #2c2d2f;
   top: 22px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 29.4px */
@@ -3154,7 +3285,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   top: 0;
   width: 16px;
   height: 16px;
-  background: #FBC270;
+  background: #fbc270;
   border: none;
   box-shadow: none;
 }
@@ -3167,15 +3298,20 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .price .slider .irs--big .irs-bar {
   top: 7.5px;
   height: 2px;
-  background: #1B1C1E;
+  background: #1b1c1e;
   border: none;
   box-shadow: none;
 }
 
 .product-detail .product-card {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   padding: 24px;
   margin-bottom: 96px;
 }
@@ -3201,7 +3337,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .product-detail .product-card .image-block {
   padding: 24px 0;
-  background: #67D4E0;
+  background: #67d4e0;
   border-radius: 25px;
   box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.25) inset;
 }
@@ -3254,7 +3390,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   align-items: flex-end;
 }
 .product-detail .product-card .content .category h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 29.4px */
@@ -3328,22 +3464,34 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .product-detail .product-card .content .social-link .social-icons li a svg,
 .product-detail .product-card .content .social-link .social-icons li a i {
-  color: #54575C;
-  fill: #54575C;
+  color: #54575c;
+  fill: #54575c;
 }
-.product-detail .product-card .content .social-link .social-icons li a:hover svg,
+.product-detail
+  .product-card
+  .content
+  .social-link
+  .social-icons
+  li
+  a:hover
+  svg,
 .product-detail .product-card .content .social-link .social-icons li a:hover i {
-  color: #FBC270;
-  stroke: #FBC270;
+  color: #fbc270;
+  stroke: #fbc270;
 }
 .product-detail .detail {
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 24px;
   border-radius: 30px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 .product-detail .detail p b {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 29.4px */
@@ -3393,9 +3541,14 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .product-detail .reviews .reviews-block {
   padding: 24px;
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 .product-detail .reviews .reviews-block .author-stars {
   display: flex;
@@ -3413,7 +3566,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   gap: 4px;
 }
 .product-detail .reviews .reviews-block .author-stars .stars i {
-  color: #FBC270;
+  color: #fbc270;
 }
 .product-detail .reviews .reviews-block .mb-53 {
   margin-bottom: 53px;
@@ -3424,8 +3577,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #2C2D2F;
-  font-family: "Lato", sans-serif;
+  color: #2c2d2f;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 140%;
@@ -3434,7 +3587,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   margin: 0 auto;
 }
 .product-detail .reviews .reviews-block .more:hover {
-  color: #FBC270;
+  color: #fbc270;
 }
 @media (max-width: 1399px) {
   .product-detail .reviews .reviews-block .more {
@@ -3463,13 +3616,15 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .review .review-slider .reviews {
   padding: 24px;
   border-radius: 25px;
-  background: linear-gradient(0deg, #BFF9FF 0%, #BFF9FF 100%), #FAFAFA;
+  background: linear-gradient(0deg, #bff9ff 0%, #bff9ff 100%), #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0 12px;
   margin-bottom: 56px;
 }
-.review .review-slider .reviews.slick-slide.slick-current.slick-active.slick-center {
-  background: linear-gradient(0deg, #FEEEC1 0%, #FEEEC1 100%), #FAFAFA;
+.review
+  .review-slider
+  .reviews.slick-slide.slick-current.slick-active.slick-center {
+  background: linear-gradient(0deg, #feeec1 0%, #feeec1 100%), #fafafa;
 }
 .review .review-slider .slick-dots {
   bottom: 0;
@@ -3481,17 +3636,17 @@ footer .footer-main .footer-info .menu .link li a:hover {
 .review .review-slider .slick-dots li button {
   width: 8px;
   height: 8px;
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 50px;
 }
 .review .review-slider .slick-dots li button::before {
   display: none;
 }
 .review .review-slider .slick-dots li button:hover {
-  background: #FBC270;
+  background: #fbc270;
 }
 .review .review-slider .slick-dots li.slick-active button {
-  background: #FBC270;
+  background: #fbc270;
 }
 
 .blog .blog-card {
@@ -3500,7 +3655,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   overflow: hidden;
 }
 .blog .blog-card .content {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   padding: 16px 24px 23px 24px;
 }
 .blog .blog-card .content .name-btn {
@@ -3515,10 +3670,15 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 
 .blog-detail .tag {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
   padding: 24px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 .blog-detail .tag ul {
   display: flex;
@@ -3528,14 +3688,14 @@ footer .footer-main .footer-info .menu .link li a:hover {
   flex-wrap: wrap;
 }
 .blog-detail .tag ul li a {
-  color: #54575C;
-  font-family: "Nunito", sans-serif;
+  color: #54575c;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 140%;
 }
 .blog-detail .tag ul li a:hover {
-  color: #2C2D2F;
+  color: #2c2d2f;
 }
 @media (max-width: 1399px) {
   .blog-detail .tag ul li a {
@@ -3558,10 +3718,15 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .blog-detail .author-detail {
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 24px;
   border-radius: 30px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 .blog-detail .author-detail .author {
   display: flex;
@@ -3599,8 +3764,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   gap: 4px;
 }
 .blog-detail .author-detail .author .frame .text h5 {
-  color: #54575C;
-  font-family: "Nunito", sans-serif;
+  color: #54575c;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 500;
   line-height: 140%;
@@ -3626,10 +3791,10 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .blog-detail .author-detail .author .frame .text p {
-  color: #B6B1AF;
+  color: #b6b1af;
 }
 .blog-detail .detail {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
   padding: 24px;
   padding: 24px;
@@ -3694,7 +3859,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 @media (max-width: 575px) {
   .comming-soon {
     padding: 48px 0;
-    background: #FBC270;
+    background: #fbc270;
   }
 }
 .comming-soon .content {
@@ -3726,8 +3891,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .comming-soon .content h2 {
-  color: #FAFAFA;
-  font-family: "Nunito", sans-serif;
+  color: #fafafa;
+  font-family: 'Nunito', sans-serif;
   font-size: 105px;
   font-weight: 700;
   line-height: 120%;
@@ -3765,16 +3930,21 @@ footer .footer-main .footer-info .menu .link li a:hover {
   gap: 16px;
 }
 .comming-soon .content .timer li {
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   display: flex;
   padding: 8px 16px;
   justify-content: center;
   align-items: flex-end;
   gap: 4px;
   border-radius: 15px;
-  background: #28C4BC;
-  color: #FAFAFA;
-  font-family: "Nunito", sans-serif;
+  background: #28c4bc;
+  color: #fafafa;
+  font-family: 'Nunito', sans-serif;
   font-size: 36px;
   font-weight: 700;
   line-height: 120%; /* 43.2px */
@@ -3823,7 +3993,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 
 .wishlist .list-product {
   border-radius: 30px;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   display: flex;
@@ -3886,12 +4056,12 @@ footer .footer-main .footer-info .menu .link li a:hover {
   gap: 8px;
 }
 .wishlist .list-product .content .bin:hover {
-  stroke: #FBC270;
+  stroke: #fbc270;
 }
 
 .cart .list-product {
   border-radius: 30px;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   display: flex;
@@ -3965,10 +4135,15 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 .cart .total,
 .cart .cart-detail {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
   padding: 24px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 @media (max-width: 992px) {
   .cart .total,
@@ -3984,10 +4159,15 @@ footer .footer-main .footer-info .menu .link li a:hover {
   margin-bottom: 16px;
 }
 .cart .payment {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 30px;
   padding: 24px;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
 }
 @media (max-width: 992px) {
   .cart .payment {
@@ -4002,13 +4182,18 @@ footer .footer-main .footer-info .menu .link li a:hover {
   width: 100%;
   padding: 24px;
   border-radius: 20px;
-  background: #FAFAFA;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  background: #fafafa;
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #2C2D2F;
-  font-family: "Nunito", sans-serif;
+  color: #2c2d2f;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 29.4px */
@@ -4059,15 +4244,20 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .contact .social-detail a:hover {
-  background: #FBC270;
-  color: #FAFAFA;
+  background: #fbc270;
+  color: #fafafa;
 }
 .contact .social-detail .address {
   width: 100%;
   padding: 24px;
   border-radius: 20px;
-  background: #FAFAFA;
-  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset, 0px 4px 10px 0px rgba(1, 59, 63, 0.15), 0px 17px 17px 0px rgba(1, 59, 63, 0.13), 0px 39px 24px 0px rgba(1, 59, 63, 0.08), 0px 70px 28px 0px rgba(1, 59, 63, 0.02), 0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
+  background: #fafafa;
+  box-shadow: -4px -4px 15px 0px rgba(1, 59, 63, 0.15) inset,
+    0px 4px 10px 0px rgba(1, 59, 63, 0.15),
+    0px 17px 17px 0px rgba(1, 59, 63, 0.13),
+    0px 39px 24px 0px rgba(1, 59, 63, 0.08),
+    0px 70px 28px 0px rgba(1, 59, 63, 0.02),
+    0px 109px 31px 0px rgba(1, 59, 63, 0), 0px 4px 4px 0px rgba(1, 59, 63, 0.03);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -4078,8 +4268,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .contact .social-detail .address h6 {
-  color: #2C2D2F;
-  font-family: "Nunito", sans-serif;
+  color: #2c2d2f;
+  font-family: 'Nunito', sans-serif;
   font-size: 21px;
   font-weight: 800;
   line-height: 140%; /* 29.4px */
@@ -4105,7 +4295,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
   }
 }
 .contact .social-detail .address i {
-  color: #2C2D2F;
+  color: #2c2d2f;
   font-size: 32px;
 }
 @media (max-width: 1399px) {

@@ -18,6 +18,29 @@ export const apiRest = () => {
     }
   };
 
+  const getFiltros = async (endpoint, filtros) => {
+    const url = baseUrl + endpoint;
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(filtros),
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        const message = data.message || 'Ha ocurrido un error';
+        throw new Error(message);
+      }
+    } catch (error) {
+      throw error.message;
+    }
+  };
+
   const remove = async endpoint => {
     const url = baseUrl + endpoint;
     const token = localStorage.getItem('token');
@@ -157,6 +180,7 @@ export const apiRest = () => {
 
   return {
     get: get,
+    getFiltros: getFiltros,
     delete: remove,
     createAcc: createAcc,
     loginAcc: loginAcc,
