@@ -674,9 +674,11 @@ Helpers
 .mb-48 {
   margin-bottom: 48px;
 }
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .mb-48 {
     margin-bottom: 42px;
+    margin-left: 35%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -686,6 +688,31 @@ Helpers
 }
 @media (max-width: 767px) {
   .mb-48 {
+    margin-bottom: 32px;
+  }
+}
+
+.mb-48login {
+  margin-bottom: 48px;
+}
+@media only screen and (min-width: 1200px) {
+  .mb-48login {
+    margin-left: 35%;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .mb-48login {
+    margin-bottom: 42px;
+    margin-left: 35%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .mb-48login {
+    margin-bottom: 36px;
+  }
+}
+@media (max-width: 767px) {
+  .mb-48login {
     margin-bottom: 32px;
   }
 }
@@ -1861,6 +1888,45 @@ header {
   /*---------------------
       HAMBURGER MENU
   ----------------------*/
+}
+.menu-item-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  font-weight: 800;
+  font-size: 21px;
+}
+
+.menu-item-button:focus {
+  outline: none;
+}
+
+.menu-item-button:hover {
+  color: #2c2d2f;
+}
+
+.menu-item-button-submenu {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  color: #2c2d2f;
+  font-size: 18px;
+  line-height: 140%;
+  padding: 8px 0;
+  display: block;
+  position: relative;
+}
+
+.menu-item-button-submenu:hover {
+  color: #fbc270;
 }
 header.large-screens {
   padding: 18px 96px;

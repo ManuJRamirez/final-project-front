@@ -9,12 +9,12 @@ export const menuLoggedSession = () => {
                   ><img alt src="./assets/media/logo.png"/></a>
                 <ul class="navbar-nav m-0">
                   <li class="has-children">
-                    <li class="menu-item"><a href="index-2.html">Inicio</a></li>
+                    <li class="menu-item"><a href="index.html">Inicio</a></li>
                 </ul>
               </div>
               <div class="search-block">
                 <form
-                  action="shop-listing-1.html"
+                  action="anuncios.html"
                   class="input-group search-bar"
                 >
                   <input type="text" placeholder="Search..." required />
@@ -26,9 +26,11 @@ export const menuLoggedSession = () => {
               <div class="right-nav">
                 <ul class="navbar-nav m-0">
                   <li class="has-children">
-                    <li class="menu-item"><a href="index-2.html">Anuncios</a></li>
+                    <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
+                    <li class="has-children">
+                    <li class="menu-item"><a href="anuncios.html">Mi Perfil</a></li>
                   <li class="has-children">
-                    <li class="menu-item"><a href="index-2.html">¡Desconectar!</a></li>
+                    <li class="menu-item"><button type="button" class="menu-item-button" id="logoutButton">¡Desconectar!</button></li>
                   </li>
                 </ul>
 
@@ -52,9 +54,10 @@ export const menuLoggedSession = () => {
           </div>
           <nav class="mobile-navar d-xl-none">
             <ul>
-                <li class="menu-item"><a href="index-2.html">Inicio</a></li>
-                <li class="menu-item"><a href="index-2.html">Anuncios</a></li>
-                <li class="menu-item"><a href="index-2.html">¡Desconectar!</a></li>  
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
+                <li class="menu-item"><a href="anuncios.html">Mi Perfil</a></li>
+                <li class="menu-item"><button type="button" class="menu-item-button-submenu" id="logoutButton">¡Desconectar!</button></li>  
             </ul>
           </nav>
         </div>
@@ -77,7 +80,7 @@ export const menuUnloggedSession = () => {
                 /></a>
                 <ul class="navbar-nav m-0">
                   <li class="has-children">
-                    <li class="menu-item"><a href="index-2.html">Inicio</a></li>
+                    <li class="menu-item"><a href="index.html">Inicio</a></li>
                 </ul>
               </div>
               <div class="search-block">
@@ -94,14 +97,14 @@ export const menuUnloggedSession = () => {
               <div class="right-nav">
                 <ul class="navbar-nav m-0">
                   <li class="has-children">
-                    <li class="menu-item"><a href="shop-listing-1.html">Anuncios</a></li>
+                    <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
                   <li class="has-children">
                     <li class="menu-item"><a href="index-2.html">¡Registrate!</a></li>
                   </li>
                 </ul>
                 <ul class="navbar-nav m-0">
                   <li class="menu-item">
-                    <li class="menu-item"><a href="index-2.html">¡Conectate!</a></li>
+                    <li class="menu-item"><a href="login.html">¡Conectate!</a></li>
                   </li>
                 </ul>
               </div>
@@ -123,10 +126,10 @@ export const menuUnloggedSession = () => {
           </div>
           <nav class="mobile-navar d-xl-none">
             <ul>
-                <li class="menu-item"><a href="index-2.html">Inicio</a></li>
-                <li class="menu-item"><a href="shop-listing-1.html">Anuncios</a></li>
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
                 <li class="menu-item"><a href="index-2.html">¡Registrate!</a></li>
-                <li class="menu-item"><a href="index-2.html">¡Conectate!</a></li>
+                <li class="menu-item"><a href="login.html">¡Conectate!</a></li>
               
             </ul>
           </nav>

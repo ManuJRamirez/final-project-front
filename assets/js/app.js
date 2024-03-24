@@ -21,15 +21,15 @@ $(document).ready(function () {
         Init.w();
         Init.BackToTop();
         Init.preloader();
-        Init.hamburgerMenu();
         Init.videoPlay();
         Init.countdownInit('.countdown', '2023/12/01');
         Init.initializeSlick();
         Init.formValidation();
-        Init.contactForm();
+        //Init.contactForm();
         Init.jsSlider();
         Init.quantityHandle();
         Init.leadMore();
+        Init.hamburgerMenu();
       },
 
       w: function (e) {

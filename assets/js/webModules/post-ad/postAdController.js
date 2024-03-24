@@ -1,5 +1,6 @@
 import { postAd, updateAd } from './postAdModel.js';
 import { printEvent } from '../tools/printEvent.js';
+import { getCategories } from '../categories-list/categoriesListModel.js';
 
 export const postAdController = (adForm, adId) => {
   const postAdButton = document.getElementById('postAdButton');
@@ -8,7 +9,7 @@ export const postAdController = (adForm, adId) => {
     event.preventDefault();
 
     const formData = new FormData(adForm);
-    const fileInput = adForm.querySelector('#image');
+    const fileInput = document.getElementById('imageInput');
 
     try {
       printEvent('adCreationPrintLoader', null, adForm);
@@ -66,4 +67,60 @@ export const loadInfoToEdit = (adInfo, adForm) => {
     transacion.value = parseAdInfo.transacion;
     descripcion.value = parseAdInfo.descripcion;
   }
+};
+
+export const createCategoriesOptions = tagsSelect => {
+  const categoria = getCategories()
+    .then(categorias => {
+      categorias.forEach(categoria => {
+        const option = document.createElement('option');
+        option.value = categoria.nombre;
+        option.textContent = categoria.nombre;
+        tagsSelect.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error al obtener las categorías:', error);
+    });
+};
+export const selectOptions = () => {
+  const selectElement = document.getElementById('tags');
+
+  // Agregar un controlador de eventos 'change' al elemento select
+  selectElement.addEventListener('change', () => {
+    // Obtener todas las opciones seleccionadas
+    const selectedOptions = Array.from(selectElement.selectedOptions);
+
+    // Iterar sobre las opciones seleccionadas y actualizar su estilo de fondo
+    selectedOptions.forEach(option => {
+      option.style.backgroundColor = '#ccc'; // Cambia el color de fondo cuando está seleccionado
+    });
+
+    // Iterar sobre todas las opciones y restaurar el estilo de fondo de las no seleccionadas
+    Array.from(selectElement.options).forEach(option => {
+      if (!selectedOptions.includes(option)) {
+        option.style.backgroundColor = ''; // Restaura el color de fondo predeterminado cuando no está seleccionado
+      }
+    });
+  });
+};
+
+export const imagenes = imageForm => {
+  imageForm.addEventListener('change', function (event) {
+    const previewContainer = document.getElementById('imagePreview');
+    previewContainer.innerHTML = '';
+
+    const file = event.target.files[0]; // Solo tomamos el primer archivo seleccionado
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const image = document.createElement('img');
+        image.src = e.target.result;
+        image.alt = 'Imagen';
+        image.classList.add('preview-image');
+        previewContainer.appendChild(image); // Agregar la imagen al contenedor de vista previa
+      };
+      reader.readAsDataURL(file); // Leer el archivo como una URL de datos
+    }
+  });
 };

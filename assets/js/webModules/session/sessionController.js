@@ -3,10 +3,12 @@ import { menuLoggedSession, menuUnloggedSession } from './sessionView.js';
 export const sessionController = nav => {
   if (isAccountLoggedIn()) {
     nav.innerHTML = menuLoggedSession();
-    const loggoutButton = nav.querySelector('button');
-    loggoutButton.addEventListener('click', () => {
-      localStorage.removeItem('token');
-      sessionController(nav);
+    const logoutButtons = nav.querySelectorAll('#logoutButton');
+    logoutButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        location.reload();
+      });
     });
   }
   if (!isAccountLoggedIn()) {

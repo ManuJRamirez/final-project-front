@@ -1,41 +1,34 @@
-import { loaderController } from "../tools/loader/loaderController.js";
-import { notificationController } from "../tools/notifications/notificationsController.js" 
-import { postAdController, loadInfoToEdit } from "./postAdController.js";
-import { closeByButtonController } from "../tools/notifications/closeByButton.js"
+import {
+  postAdController,
+  loadInfoToEdit,
+  createCategoriesOptions,
+  selectOptions,
+  imagenes,
+} from './postAdController.js';
 
 const token = localStorage.getItem('token');
 const adInfo = localStorage.getItem('infoAd');
 const adId = localStorage.getItem('adId');
+const tagsSelect = document.getElementById('tags');
+const images = document.getElementById('imageInput');
 
-if(!token) {
-    window.location = '../index.html';
+if (!token) {
+  window.location = '../index.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const adCreation = document.querySelector('#adForm');
+  const precioInput = document.getElementById('precio');
+  precioInput.addEventListener('keypress', function (event) {
+    if ((event.key === '.') | (event.key === '-') | (event.key === '+')) {
+      event.preventDefault();
+    }
+  });
 
-    const adCreation = document.querySelector('#adForm');
-    const notificationSection = document.querySelector('#notification');
-    const loaderSection = document.querySelector('#loader');
-    const { printLoader, hideLoader} = loaderController(loaderSection);
+  imagenes(images);
+  createCategoriesOptions(tagsSelect);
+  postAdController(adCreation, adId);
 
-    const printNotification = notificationController(notificationSection);
-
-
-    adCreation.addEventListener('adCreation', (event) =>{
-        printNotification(event.detail.notificationType, event.detail.message);
-        closeByButtonController(notificationSection);
-    });
-    
-    adCreation.addEventListener('adCreationPrintLoader', () =>{
-        printLoader();
-    });
-
-    adCreation.addEventListener('adCreationHideLoader', () =>{
-        hideLoader();
-    })
-
-    postAdController(adCreation, adId);
-
-    loadInfoToEdit(adInfo,adCreation);
-
-})
+  loadInfoToEdit(adInfo, adCreation);
+  selectOptions();
+});

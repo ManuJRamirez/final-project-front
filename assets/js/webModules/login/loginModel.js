@@ -1,10 +1,10 @@
 import { apiRest } from '../tools/apiRest.js';
 
-export const loginAccount = async (email, password) => {
+export const loginAccount = async (apodo, password) => {
   const endpoint = 'final-project/auth/signin';
 
   const data = {
-    email: email,
+    apodo: apodo,
     contrasenia: password,
   };
 

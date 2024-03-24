@@ -4,20 +4,17 @@ export const postAd = async (formData, image) => {
   const endpoint = 'final-project/auth/nuevoanuncio';
   const imageUrl = await loadImg(image);
 
-  const dateNow = new Date();
-  const date = dateNow.toString();
-
   const body = {
-    titulo: formData.get('name'),
-    precio: formData.get('price'),
-    transacion: formData.get('operationType'),
-    descripcion: formData.get('description'),
+    titulo: formData.get('titulo'),
+    precio: formData.get('precio'),
+    transacion: formData.get('transaccion'),
+    descripcion: formData.get('descripcion'),
   };
 
   if (imageUrl) {
     body.imagen = imageUrl;
   } else {
-    body.imagen = 'noImage';
+    body.imagen = './assets/media/product/p-2.png';
   }
 
   await apiRest().createAd(endpoint, body);
