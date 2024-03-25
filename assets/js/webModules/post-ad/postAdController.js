@@ -36,7 +36,7 @@ export const postAdController = (adForm, adId) => {
         );
       }
       setTimeout(() => {
-        window.location = '../index.html';
+        // window.location = '../index.html';
       }, 2000);
     } catch (error) {
       printEvent(
@@ -76,6 +76,7 @@ export const createCategoriesOptions = tagsSelect => {
         const option = document.createElement('option');
         option.value = categoria.nombre;
         option.textContent = categoria.nombre;
+        option.setAttribute('value', categoria.id);
         tagsSelect.appendChild(option);
       });
     })

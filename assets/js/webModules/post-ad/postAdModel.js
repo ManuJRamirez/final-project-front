@@ -1,41 +1,44 @@
+import { defaultImageController } from '../defaultImage/defaultImageController.js';
 import { apiRest } from '../tools/apiRest.js';
 
 export const postAd = async (formData, image) => {
   const endpoint = 'final-project/auth/nuevoanuncio';
-  const imageUrl = await loadImg(image);
+  const imagenesList = [];
+
+  if (!image) {
+    image = (await defaultImageController()).imagen;
+    imagenesList.push(image);
+  }
+  //let imageArrayByte = await loadImg(image);
 
   const body = {
     titulo: formData.get('titulo'),
     precio: formData.get('precio'),
     transacion: formData.get('transaccion'),
     descripcion: formData.get('descripcion'),
+    listCategoria: Array.from(new FormData(adForm).getAll('tags')),
+    imagen: imagenesList,
   };
-
-  if (imageUrl) {
-    body.imagen = imageUrl;
-  } else {
-    body.imagen = './assets/media/product/p-2.png';
-  }
 
   await apiRest().createAd(endpoint, body);
 };
 
-const loadImg = async image => {
-  let imageUrl;
+const loadImg = async imageFile => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
 
-  try {
-    const uploadManager = new Bytescale.UploadManager({
-      apiKey: 'public_FW25biuB7FCTi4QPc78WebD9jExu',
-    });
+    reader.onload = event => {
+      const arrayBuffer = event.target.result;
+      const uint8Array = new Uint8Array(arrayBuffer);
+      resolve(uint8Array);
+    };
 
-    const { fileUrl } = await uploadManager.upload({ data: image });
+    reader.onerror = error => {
+      reject(error);
+    };
 
-    imageUrl = fileUrl;
-  } catch (error) {
-    imageUrl = null;
-  }
-
-  return imageUrl;
+    reader.readAsArrayBuffer(imageFile);
+  });
 };
 
 export const updateAd = async (formData, image, adId) => {

@@ -24,7 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     }
   });
-
+  document
+    .getElementById('uploadImageButton')
+    .addEventListener('click', function () {
+      document.getElementById('imageInput').click();
+    });
   imagenes(images);
   createCategoriesOptions(tagsSelect);
   postAdController(adCreation, adId);

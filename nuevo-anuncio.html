@@ -106,12 +106,12 @@
                     <div class="col-lg-6 mb-24">
                         <select name="transaccion" id="transaccion" class="form-control" required>
                           <option value="">Selecciona una opción</option>
-                          <option value="venta" name="true">Venta</option>
-                          <option value="compra" name="false">Compra</option>
+                          <option value="true" name="true" value>Venta</option>
+                          <option value="false" name="false">Compra</option>
                         </select>
                       </div>
                       <div class="col-lg-6 mb-24">
-                        <select name="tags[]" id="tags" class="form-control" multiple required >
+                        <select name="tags"  id="tags" class="form-control" multiple required >
                         </select>
                       </div>
                     <div class="col-12 mb-24">
@@ -136,8 +136,8 @@
                 </form>
               </div>
               <div class="col-lg-6 mb-24">
-                <label for="imageInput" class="cus-btn primary w-100 mb-lg-0 mb-24">Subir Imágenes</label>
-                <input type="file" name="imageInput" id="imageInput" accept="image/*" multiple style="display: none;" />
+                <button id="uploadImageButton" class="cus-btn primary w-100 mb-lg-0 mb-24">Subir Imágenes</button>
+                <input type="file" name="imageInput" id="imageInput" accept="image/*"  style="display: none;" />
                 <div id="imagePreview" class="mt-2">                      
                 </div>
               </div>
