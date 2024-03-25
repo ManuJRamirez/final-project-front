@@ -4386,3 +4386,24 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 
 /*# sourceMappingURL=app.css.map */
+
+#consultarBtnContainer {
+  position: relative;
+  text-align: center;
+}
+
+#consultarBtn {
+  margin-top: 8px;  
+  background: none;
+  border: none; 
+  padding: 0; 
+  box-shadow: none; 
+  color: #54575c;
+  font-family: 'Nunito', sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 140%;
+}
+#consultarBtn:hover {
+  color: #fbc270;
+}

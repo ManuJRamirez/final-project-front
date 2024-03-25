@@ -4,17 +4,24 @@ import { printEvent } from '../tools/printEvent.js';
 
 export const adListController = async (
   adList,
+  pagination,
+  paginaActual = 0, 
   searchTerm = '',
   categorias = [],
   transacion = null,
+  precioMinimo = 0,
+  precioMaximo = 0,
+  orden = 'RECIENTE'
 ) => {
   let page;
   let adverts = [];
+  let totalPages;
 
   try {
     printEvent('loadingListAdvs', null, adList);
-    page = await getAdverts(searchTerm, categorias, transacion);
+    page = await getAdverts(paginaActual, searchTerm, categorias, transacion, precioMinimo, precioMaximo, orden);
     adverts = page.content;
+    totalPages = page.totalPages;
     printEvent(
       'advertListLoaded',
       {
@@ -46,6 +53,7 @@ export const adListController = async (
   } else {
     adList.innerHTML = '';
     printAdList(adverts, adList);
+    printPagination(paginaActual, totalPages, pagination);
   }
 };
 
@@ -59,4 +67,38 @@ const printAdList = (adverts, adList) => {
 
     adList.appendChild(adContainer);
   });
+};
+
+const printPagination = (paginaActual, totalPages, pagination) => {
+  pagination.innerHTML = '';
+
+  // Crea y agrega el botón de retroceso
+  if(paginaActual !== 0) {
+    const backButton = document.createElement('li');
+    backButton.innerHTML = '<a href=""><i class="fas fa-chevron-left pagination-link" id="pagina_0"></i></a>';
+    pagination.appendChild(backButton);
+  }
+
+   // Itera desde 0 hasta totalPages - 1 y crea los elementos de página correspondientes
+   for (let i = 0; i < totalPages; i++) {
+    const pageItem = document.createElement('li');
+    const pageLink = document.createElement('a');
+    pageLink.href = '';
+    pageLink.textContent = i + 1;
+    pageLink.id = `pagina_${i}`; 
+    pageLink.classList.add('pagination-link');
+    if (i === paginaActual) {
+      pageLink.classList.add('active');
+    }
+    pageItem.appendChild(pageLink);
+    pagination.appendChild(pageItem);
+  }
+
+  // Crea y agrega el botón de avance
+  if(paginaActual !== totalPages-1) {
+    const forwardButton = document.createElement('li');
+    const lastPageId = totalPages - 1;
+    forwardButton.innerHTML = `<a href=""><i class="fas fa-chevron-right pagination-link" id = "pagina_${lastPageId}"></i></a>`;
+    pagination.appendChild(forwardButton);
+  }
 };
