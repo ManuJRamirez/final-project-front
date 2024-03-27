@@ -64,8 +64,13 @@ const printAdList = (adverts, adList) => {
     adContainer.classList.add('col-lg-4');
     adContainer.classList.add('col-sm-6');
 
-    if (ad.listImagenes && ad.listImagenes.length > 0) {
-      ad.image = ad.listImagenes[0];
+    if (ad.mapIdImagenes) {
+      const mapEntries = Object.entries(ad.mapIdImagenes);
+      const map = new Map(mapEntries);
+      if(map.size > 0){
+        const sortedKeys = Array.from(map.keys()).sort((a, b) => a - b);
+        ad.image = map.get(sortedKeys[0]);
+      }
     }
     
     adContainer.innerHTML = adListTemplate(ad);

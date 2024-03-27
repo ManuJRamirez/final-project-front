@@ -51,7 +51,7 @@ export const adListTemplate = ad => {
   } else {
     template = `
     <div class="product-card sec mb-32">
-    <div class="img-block" style="height:300px">
+    <div class="img-block">
       <img id="ItemPreview" src="data:image/png;base64, ${ad.image}" >
     </div>
     <div class="content">

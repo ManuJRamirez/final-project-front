@@ -32,6 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nextButton').addEventListener("click", function() {
       cambiarSlide(1);
     });
+
+    document.addEventListener('click', function(event) {
+      if (event.target && event.target.classList.contains('buttonImg')) {
+        const key = event.target.getAttribute('data-key');
+        const imgOriginal = event.target.getAttribute('data-info');
+
+        const popupContainer = event.target.parentElement.querySelector('.popup-container');
+        const popupImage = popupContainer.querySelector('.popupImage');
+        popupImage.src = 'data:image/png;base64,' + imgOriginal;
+        popupContainer.style.display = 'block';
+        
+        // Cerrar el pop-up al hacer clic en la "X"
+        const closeBtn = popupContainer.querySelector('.close');
+        closeBtn.addEventListener('click', function() {
+          popupContainer.style.display = 'none';
+        });
+      }
+    });
+    
   });
 
   function cambiarSlide(n) {

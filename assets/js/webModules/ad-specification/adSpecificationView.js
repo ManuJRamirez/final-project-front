@@ -1,7 +1,19 @@
 export const adTemplate = ad => {
   let template = ``;
+  let map;
+  let mapOriginal;
 
-  if (ad.listImagenes === undefined || ad.listImagenes.lenght === 0) {
+  if (ad.mapIdImagenes !== undefined){
+      const mapEntries = Object.entries(ad.mapIdImagenes);
+      map = new Map(mapEntries);
+  }
+  
+  if (ad.mapIdImagenesOriginal !== undefined){
+    const mapEntries = Object.entries(ad.mapIdImagenesOriginal);
+    mapOriginal = new Map(mapEntries);
+}
+
+  if (map === undefined || map.lenght === 0) {
     template = `
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
@@ -98,13 +110,19 @@ export const adTemplate = ad => {
     template = `
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
-      ${ad.listImagenes.length === 1 ?
-        `<img src="data:image/png;base64, ${ad.listImagenes[0]}"/>` :
+      ${map.length === 1 ?
+        `<img src="data:image/png;base64, ${map.values().next().value}" role="button" class="buttonImg"  data-info="${mapOriginal}"/>` :
         `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-          ${ad.listImagenes.map((imagen, index) => `
+          ${Array.from(map.entries())
+            .sort(([keyA], [keyB]) => keyA - keyB)
+            .map(([key, value], index) => `
               <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="data:image/png;base64,${imagen}">
+                <img src="data:image/png;base64,${value}" role="button" data-key="${key}" class="buttonImg"  data-info="${mapOriginal.get(key)}">
+                <div class="popup-container">
+                  <span class="close">&times;</span>
+                  <img class="popupImage" src="" alt="Original Image">
+                </div>
               </div>
           `).join('')}
           </div>
