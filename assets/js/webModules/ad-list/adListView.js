@@ -1,3 +1,4 @@
+
 export const emptyAdListTemplate = () => {
   return `No hay anuncios disponibles para mostrar. Inténtelo de nuevo mas tarde`;
 };
@@ -9,7 +10,7 @@ export const adListTemplate = ad => {
     template = `   
     <div  class="product-card sec mb-32">
         <div
-            class="img-block">
+            class="img-block" style="height:300px">
             <img
                 src="./assets/media/product/p-2.png"
                 alt>
@@ -49,12 +50,9 @@ export const adListTemplate = ad => {
 `;
   } else {
     template = `
-    <div  class="product-card sec mb-32">
-    <div
-        class="img-block">
-        <img
-            src="${ad.imagen}"
-            alt>
+    <div class="product-card sec mb-32">
+    <div class="img-block" style="height:300px">
+      <img id="ItemPreview" src="data:image/png;base64, ${ad.image}" >
     </div>
     <div class="content">
         <div
@@ -65,7 +63,7 @@ export const adListTemplate = ad => {
                   ad.titulo.length > 10
                     ? ad.titulo.slice(0, 10) + '...'
                     : ad.titulo
-                }/h5>
+                }</h5>
             </div>
             <div
                 class="product-price">
@@ -89,3 +87,4 @@ export const adListTemplate = ad => {
   }
   return template;
 };
+ 

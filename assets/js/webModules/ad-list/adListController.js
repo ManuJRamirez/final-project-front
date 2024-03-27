@@ -63,6 +63,11 @@ const printAdList = (adverts, adList) => {
 
     adContainer.classList.add('col-lg-4');
     adContainer.classList.add('col-sm-6');
+
+    if (ad.listImagenes && ad.listImagenes.length > 0) {
+      ad.image = ad.listImagenes[0];
+    }
+    
     adContainer.innerHTML = adListTemplate(ad);
 
     adList.appendChild(adContainer);

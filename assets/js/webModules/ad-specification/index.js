@@ -5,6 +5,8 @@ import { sessionController } from '../session/sessionController.js';
 
 const sessionNav = document.getElementById('session');
 
+let slideIndex = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const adId = params.get('id');
@@ -22,5 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
     printNotification(event.detail.notificationType, event.detail.message);
     closeByButtonController(notificationSection);
   });
-  adSpecificationController(adInfoSection, adId);
+  adSpecificationController(adInfoSection, adId).then(() => {
+    document.getElementById('prevButton').addEventListener("click", function() {
+      cambiarSlide(-1);
+    });
+    
+    document.getElementById('nextButton').addEventListener("click", function() {
+      cambiarSlide(1);
+    });
+  });
+
+  function cambiarSlide(n) {
+    const slides = document.getElementsByClassName("carousel-item");
+    slideIndex += n;
+    
+    if (slideIndex >= slides.length) {
+      slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+      slideIndex = slides.length - 1;
+    }
+    
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    
+    slides[slideIndex].style.display = "block";
+  }
 });

@@ -1,7 +1,7 @@
 export const adTemplate = ad => {
   let template = ``;
 
-  if (ad.image === undefined) {
+  if (ad.listImagenes === undefined || ad.listImagenes.lenght === 0) {
     template = `
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
@@ -97,8 +97,26 @@ export const adTemplate = ad => {
   } else {
     template = `
     <div class="col-xl-7 col-lg-6">
-    <div class="image-block mb-lg-0 mb-32">
-      <img src="${ad.imagen}" alt="" />
+      <div class="image-block mb-lg-0 mb-32">
+      ${ad.listImagenes.length === 1 ?
+        `<img src="data:image/png;base64, ${ad.listImagenes[0]}"/>` :
+        `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+          ${ad.listImagenes.map((imagen, index) => `
+              <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="data:image/png;base64,${imagen}">
+              </div>
+          `).join('')}
+          </div>
+          <a id="prevButton" class="carousel-control-prev" role="button">
+            <span>&#10094;</span>
+          </a>
+          <a id="nextButton" class="carousel-control-next" role="button">
+            <span>&#10095;</span>
+          </a>
+        </div>
+        `
+      }
     </div>
   </div>
   <div class="col-xl-5 col-lg-6">

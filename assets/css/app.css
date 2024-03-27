@@ -3401,14 +3401,12 @@ footer .footer-main .footer-info .menu .link li a:hover {
     margin-bottom: 16px;
   }
 }
-.product-detail .product-card .image-block {
-  padding: 24px 0;
-  background: #67d4e0;
-  border-radius: 25px;
-  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.25) inset;
+.product-detail .product-card .image-block {  
+  overflow: hidden;
 }
 .product-detail .product-card .image-block img {
   width: 100%;
+  border-radius: 25px;
 }
 .product-detail .product-card .content {
   display: flex;
