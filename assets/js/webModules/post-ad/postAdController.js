@@ -10,43 +10,20 @@ export const postAdController = (adForm, adId) => {
 
     const formData = new FormData(adForm);
     const fileInput = document.getElementById('imageInput');
-
+    const imagenes = Array.from(fileInput.files).slice(0, 3);
     try {
       printEvent('adCreationPrintLoader', null, adForm);
       if (adId === null) {
-        await postAd(formData, fileInput.files[0]);
-        printEvent(
-          'adCreation',
-          {
-            notificationType: 'success',
-            message: '¡Felicidades!¡Anuncio creado correctamente',
-          },
-          adForm,
-        );
+        const createdAdId = await postAd(formData, imagenes);
+        alert('!Felicidades! ¡Anuncio creado correctamente!');
+        window.location.href = `./detalle-anuncio.html?id=${createdAdId.id}?${createdAdId.titulo}`;
       } else {
         localStorage.removeItem('adId');
-        await updateAd(formData, fileInput.files[0], adId);
-        printEvent(
-          'adCreation',
-          {
-            notificationType: 'success',
-            message: '¡Felicidades!¡Anuncio actualizado correctamente',
-          },
-          adForm,
-        );
+        await updateAd(formData, imagenes, adId);
+        alert('¡Felicidades! ¡Has actualizado el anuncio correctamente!');
       }
-      setTimeout(() => {
-        // window.location = '../index.html';
-      }, 2000);
     } catch (error) {
-      printEvent(
-        'adCreation',
-        {
-          notificationType: 'error',
-          message: 'Error al crear el anuncio. Intentelo de nuevo, por favor',
-        },
-        adForm,
-      );
+      //alert('Error al crear el anuncio, intentelo de nuevo mas tarde.');
       postAdButton.disabled = false;
     } finally {
       printEvent('adCreationHideLoader', null, adForm);
@@ -86,42 +63,44 @@ export const createCategoriesOptions = tagsSelect => {
 };
 export const selectOptions = () => {
   const selectElement = document.getElementById('tags');
-
-  // Agregar un controlador de eventos 'change' al elemento select
   selectElement.addEventListener('change', () => {
-    // Obtener todas las opciones seleccionadas
     const selectedOptions = Array.from(selectElement.selectedOptions);
+    selectedOptions.forEach(option => {});
 
-    // Iterar sobre las opciones seleccionadas y actualizar su estilo de fondo
-    selectedOptions.forEach(option => {
-      option.style.backgroundColor = '#ccc'; // Cambia el color de fondo cuando está seleccionado
-    });
-
-    // Iterar sobre todas las opciones y restaurar el estilo de fondo de las no seleccionadas
     Array.from(selectElement.options).forEach(option => {
       if (!selectedOptions.includes(option)) {
-        option.style.backgroundColor = ''; // Restaura el color de fondo predeterminado cuando no está seleccionado
+        option.style.backgroundColor = '';
       }
     });
   });
 };
 
-export const imagenes = imageForm => {
-  imageForm.addEventListener('change', function (event) {
-    const previewContainer = document.getElementById('imagePreview');
-    previewContainer.innerHTML = '';
+export const handleImageUpload = event => {
+  const imageList = document.getElementById('imageList');
+  const files = event.target.files;
+  // Limitar el número de imágenes a 3
+  if (files.length + imageList.children.length > 3) {
+    alert('Solo se pueden subir hasta 3 imágenes.');
+    return;
+  }
+  for (const file of files) {
+    displayImage(file);
+  }
+};
 
-    const file = event.target.files[0]; // Solo tomamos el primer archivo seleccionado
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const image = document.createElement('img');
-        image.src = e.target.result;
-        image.alt = 'Imagen';
-        image.classList.add('preview-image');
-        previewContainer.appendChild(image); // Agregar la imagen al contenedor de vista previa
-      };
-      reader.readAsDataURL(file); // Leer el archivo como una URL de datos
-    }
+export const displayImage = file => {
+  const imageListItem = document.createElement('li');
+  imageListItem.classList.add('image-list-item');
+
+  const imageName = document.createTextNode(file.name);
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'X';
+
+  deleteButton.addEventListener('click', () => {
+    imageListItem.remove();
   });
+
+  imageListItem.appendChild(imageName);
+  imageListItem.appendChild(deleteButton);
+  imageList.appendChild(imageListItem);
 };

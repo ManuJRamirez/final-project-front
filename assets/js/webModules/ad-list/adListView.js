@@ -39,7 +39,7 @@ export const adListTemplate = ad => {
             )}</p>
         </div>
             <a
-                href="../product-detail.html?id=${ad.id}?${ad.titulo}"
+                href="../detalle-anuncio.html?id=${ad.id}?${ad.titulo}"
                 class="cus-btn primary">Detalles</a>
         </div>
     </div>
@@ -78,7 +78,7 @@ export const adListTemplate = ad => {
         )}</p>
     </div>
         <a
-            href="../product-detail.html?id=${ad.id}?${ad.titulo}"
+            href="../detalle-anuncio.html?id=${ad.id}?${ad.titulo}"
             class="cus-btn primary">Detalles</a>
     </div>
 </div>

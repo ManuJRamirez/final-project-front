@@ -1,15 +1,20 @@
 import { defaultImageController } from '../defaultImage/defaultImageController.js';
 import { apiRest } from '../tools/apiRest.js';
 
-export const postAd = async (formData, image) => {
+export const postAd = async (formData, images) => {
   const endpoint = 'final-project/auth/nuevoanuncio';
   const imagenesList = [];
 
-  if (!image) {
-    image = (await defaultImageController()).imagen;
-    imagenesList.push(image);
+  if (images && images.length > 0 && images.length <= 3) {
+    // Convertir cada imagen a base64 y agregarla a la lista
+    for (const image of images) {
+      imagenesList.push(await convertirImagenABase64(image));
+    }
+  } else {
+    // Si no se proporcionaron imágenes o se excede el límite, agregar una imagen por defecto
+    const defaultImage = (await defaultImageController()).imagen;
+    imagenesList.push(await convertirImagenABase64(defaultImage));
   }
-  //let imageArrayByte = await loadImg(image);
 
   const body = {
     titulo: formData.get('titulo'),
@@ -20,26 +25,26 @@ export const postAd = async (formData, image) => {
     imagen: imagenesList,
   };
 
-  await apiRest().createAd(endpoint, body);
+  const response = await apiRest().createAd(endpoint, body);
+  return response;
 };
 
-const loadImg = async imageFile => {
+async function convertirImagenABase64(imageFile) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
     reader.onload = event => {
-      const arrayBuffer = event.target.result;
-      const uint8Array = new Uint8Array(arrayBuffer);
-      resolve(uint8Array);
+      const base64String = event.target.result.split(',')[1];
+      resolve(base64String);
     };
 
     reader.onerror = error => {
       reject(error);
     };
 
-    reader.readAsArrayBuffer(imageFile);
+    reader.readAsDataURL(imageFile);
   });
-};
+}
 
 export const updateAd = async (formData, image, adId) => {
   const idObj = JSON.parse(adId);

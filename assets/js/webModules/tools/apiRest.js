@@ -137,10 +137,12 @@ export const apiRest = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      const data = await response.json();
 
       if (!response.ok) {
-        const data = await response.json();
         throw new Error(data.message);
+      } else {
+        return data;
       }
     } catch (error) {
       if (error.message) {
