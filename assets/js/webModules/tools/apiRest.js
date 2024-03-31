@@ -1,5 +1,5 @@
 export const apiRest = () => {
-  const baseUrl = 'http://localhost:8080/';
+  const baseUrl = process.env.BASE_URL || 'http://localhost:8080/';
 
   const get = async endpoint => {
     const url = baseUrl + endpoint;
