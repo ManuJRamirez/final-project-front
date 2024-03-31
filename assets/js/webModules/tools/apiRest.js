@@ -179,6 +179,63 @@ export const apiRest = () => {
       }
     }
   };
+  const post = async (endpoint, data) => {
+    const url = baseUrl + endpoint;
+
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        const message = data.error || 'No ha sido posible establecer la conexión.';
+        throw new Error(message);
+      }
+    } catch (error) {
+      if (error.message) {
+        throw error.message;
+      } else {
+        throw error;
+      }
+    }
+  };
+  const postAuthUrl = async (endpoint, data) => {
+    const url = baseUrl + endpoint;
+    
+    const urlActual = window.location.href;
+    const params = new URLSearchParams(new URL(urlActual).search);
+    const token = params.get('token');
+
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        const message = data.error || 'No ha sido posible establecer la conexión.';
+        throw new Error(message);
+      }
+    } catch (error) {
+      if (error.message) {
+        throw error.message;
+      } else {
+        throw error;
+      }
+    }
+  };
 
   return {
     get: get,
@@ -188,5 +245,7 @@ export const apiRest = () => {
     loginAcc: loginAcc,
     createAd: createAd,
     updateAd: updateAd,
+    post: post,
+    postAuthUrl: postAuthUrl,
   };
 };

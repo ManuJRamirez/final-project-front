@@ -1239,6 +1239,17 @@ Elements
   }
 }
 
+button.cus-btn:disabled,
+footer .footer-main .footer-info .newsletter button.cus-btn:disabled {
+  background-color: gray;
+  color: white;
+}
+
+button.cus-btn:disabled:hover,
+footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
+  background-color: gray; 
+  color: white; 
+}
 .cus-btn {
   font-family: 'Nunito', sans-serif;
   font-size: 21px;
