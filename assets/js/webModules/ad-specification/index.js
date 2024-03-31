@@ -1,4 +1,4 @@
-import { notificationController } from '../tools/notifications/notificationsController.js';
+import { notificationController } from '../tools/notifications/notificationController.js';
 import { adSpecificationController } from './adSpecificationController.js';
 import { closeByButtonController } from '../tools/notifications/closeByButton.js';
 import { sessionController } from '../session/sessionController.js';
