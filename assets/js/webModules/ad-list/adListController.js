@@ -53,7 +53,7 @@ export const adListController = async (
   } else {
     adList.innerHTML = '';
     printAdList(adverts, adList);
-    printPagination(paginaActual, totalPages, pagination);
+    printPagination(paginaActual, totalPages, pagination, 5);
   }
 };
 
@@ -79,18 +79,26 @@ const printAdList = (adverts, adList) => {
   });
 };
 
-const printPagination = (paginaActual, totalPages, pagination) => {
+const printPagination = (paginaActual, totalPages, pagination, maxPagesToShow) => {
   pagination.innerHTML = '';
+
+  // Calcula el rango de páginas a mostrar
+  const startPage = Math.max(0, paginaActual - Math.floor(maxPagesToShow / 2));
+  const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1);
 
   // Crea y agrega el botón de retroceso
   if(paginaActual !== 0) {
     const backButton = document.createElement('li');
     backButton.innerHTML = '<a href=""><i class="fas fa-chevron-left pagination-link" id="pagina_0"></i></a>';
+    backButton.addEventListener('click', (event) => {
+      event.preventDefault(); 
+      window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en el botón de retroceso
+    });
     pagination.appendChild(backButton);
   }
 
    // Itera desde 0 hasta totalPages - 1 y crea los elementos de página correspondientes
-   for (let i = 0; i < totalPages; i++) {
+   for (let i = startPage; i <= endPage; i++) {
     const pageItem = document.createElement('li');
     const pageLink = document.createElement('a');
     pageLink.href = '';
@@ -100,15 +108,23 @@ const printPagination = (paginaActual, totalPages, pagination) => {
     if (i === paginaActual) {
       pageLink.classList.add('active');
     }
+    pageLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en cualquier enlace de página
+    });
     pageItem.appendChild(pageLink);
     pagination.appendChild(pageItem);
   }
-
-  // Crea y agrega el botón de avance
+  
   if(paginaActual !== totalPages-1) {
     const forwardButton = document.createElement('li');
     const lastPageId = totalPages - 1;
     forwardButton.innerHTML = `<a href=""><i class="fas fa-chevron-right pagination-link" id = "pagina_${lastPageId}"></i></a>`;
+    forwardButton.addEventListener('click', (event) => {
+      event.preventDefault(); 
+      window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en el botón de avance
+    });
     pagination.appendChild(forwardButton);
   }
+  
 };
