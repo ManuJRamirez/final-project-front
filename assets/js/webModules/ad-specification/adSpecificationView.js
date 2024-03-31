@@ -124,7 +124,9 @@ export const adTemplate = ad => {
                   <img class="popupImage" src="" alt="Original Image">
                 </div>
               </div>
-          `).join('')}
+          `,
+            )
+            .join('')}
           </div>
           <a id="prevButton" class="carousel-control-prev" role="button">
             <span>&#10094;</span>

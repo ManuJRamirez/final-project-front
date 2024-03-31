@@ -35,14 +35,18 @@ export const loadInfoToEdit = (adInfo, adForm) => {
   if (adInfo !== null) {
     const parseAdInfo = JSON.parse(adInfo);
     localStorage.removeItem('infoAd');
-    const titulo = adForm.querySelector('#name');
-    const precio = adForm.querySelector('#price');
-    const transacion = adForm.querySelector('#operationType');
-    const descripcion = adForm.querySelector('#description');
+    const titulo = adForm.querySelector('#titulo');
+    const precio = adForm.querySelector('#precio');
+    const transacion = adForm.querySelector('#transacion');
+    const listCategoria = adForm.querySelector('#tags');
+    const descripcion = adForm.querySelector('#descripcion');
+    const imagen = adForm.querySelector('#imageList');
     titulo.value = parseAdInfo.titulo;
     precio.value = parseAdInfo.precio;
     transacion.value = parseAdInfo.transacion;
     descripcion.value = parseAdInfo.descripcion;
+    listCategoria.value = parseAdInfo.listCategoria;
+    imagen.value = parseAdInfo.imagen;
   }
 };
 

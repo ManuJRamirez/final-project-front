@@ -99,7 +99,7 @@ export const menuUnloggedSession = () => {
                   <li class="has-children">
                     <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
                   <li class="has-children">
-                    <li class="menu-item"><a href="index-2.html">¡Registrate!</a></li>
+                    <li class="menu-item"><a href="registrar.html">¡Registrate!</a></li>
                   </li>
                 </ul>
                 <ul class="navbar-nav m-0">
@@ -128,7 +128,7 @@ export const menuUnloggedSession = () => {
             <ul>
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
-                <li class="menu-item"><a href="index-2.html">¡Registrate!</a></li>
+                <li class="menu-item"><a href="registrar.html">¡Registrate!</a></li>
                 <li class="menu-item"><a href="login.html">¡Conectate!</a></li>
               
             </ul>

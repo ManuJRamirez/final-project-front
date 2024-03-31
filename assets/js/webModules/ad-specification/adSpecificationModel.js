@@ -7,7 +7,7 @@ export const getOneAd = async adId => {
 };
 
 export const deleteOneAd = async adId => {
-  const endpoint = `api/commercial/${adId}`;
+  const endpoint = `final-project/auth/borraranuncio/${adId}`;
 
   await apiRest().delete(endpoint);
 };

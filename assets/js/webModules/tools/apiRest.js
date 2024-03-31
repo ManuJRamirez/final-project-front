@@ -1,5 +1,5 @@
 export const apiRest = () => {
-  const baseUrl = process.env.BASE_URL || 'http://localhost:8080/';
+  const baseUrl = 'http://16.170.166.103:8080/';
 
   const get = async endpoint => {
     const url = baseUrl + endpoint;
@@ -82,7 +82,7 @@ export const apiRest = () => {
 
       if (!response.ok) {
         const data = await response.json();
-        const message = data.message || 'No ha sido posible registar la cuenta';
+        const message = data.error || 'No ha sido posible registar la cuenta';
         throw new Error(message);
       }
     } catch (error) {
@@ -111,7 +111,8 @@ export const apiRest = () => {
       if (response.ok) {
         return data.token;
       } else {
-        const message = data.message || 'No ha sido posible establecer la conexión.';
+        const message =
+          data.message || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {
@@ -194,7 +195,8 @@ export const apiRest = () => {
 
       if (!response.ok) {
         const data = await response.json();
-        const message = data.error || 'No ha sido posible establecer la conexión.';
+        const message =
+          data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {
@@ -207,7 +209,7 @@ export const apiRest = () => {
   };
   const postAuthUrl = async (endpoint, data) => {
     const url = baseUrl + endpoint;
-    
+
     const urlActual = window.location.href;
     const params = new URLSearchParams(new URL(urlActual).search);
     const token = params.get('token');
@@ -225,7 +227,8 @@ export const apiRest = () => {
 
       if (!response.ok) {
         const data = await response.json();
-        const message = data.error || 'No ha sido posible establecer la conexión.';
+        const message =
+          data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {

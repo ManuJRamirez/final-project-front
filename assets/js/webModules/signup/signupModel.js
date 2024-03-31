@@ -1,17 +1,14 @@
 import { apiRest } from '../tools/apiRest.js';
 
-export const createrAccount = async (email, password) => {
-  const endpoint = 'auth/signup';
+export const createrAccount = async signupForm => {
+  const endpoint = 'final-project/auth/signup';
 
-  const data = {
-    nombre: nombre,
-    apellidos: apellidos,
-    fechaNacimiento: fechaNacimiento,
-    email: email,
-    contrasenia: password,
-    notificacion: notificacion,
-    imgPerfil: imgPerfil,
+  const body = {
+    apodo: signupForm.get('apodo'),
+    contrasenia: signupForm.get('password'),
+    email: signupForm.get('email'),
+    notificacion: signupForm.get('notificaciones'),
   };
 
-  await apiRest().createAcc(endpoint, data);
+  await apiRest().createAcc(endpoint, body);
 };

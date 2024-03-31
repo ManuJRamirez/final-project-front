@@ -37,35 +37,18 @@ const showDeleteAdButton = (ad, adInfoSection) => {
     deleteButton.textContent = 'Borrar Anuncio';
 
     deleteButton.addEventListener('click', async () => {
-      printEvent('oneAdDeleteLoading', null, adInfoSection);
       deleteButton.disabled = true;
       if (confirm('¿Seguro que quieres eliminar el anuncio?')) {
         await deleteOneAd(ad.id);
-        printEvent(
-          'oneAdDeleted',
-          {
-            notificationType: 'success',
-            message: '¡Anuncio eliminado correctamente!',
-          },
-          adInfoSection,
-        );
-        setTimeout(() => {
-          window.location = 'index.html';
-        }, 3000);
+        alert('Anuncio borrado correctamente.');
+        window.location = 'anuncios.html';
       } else {
         deleteButton.disabled = false;
       }
-      printEvent('oneAdDeleteLoadingOver', null, adInfoSection);
     });
     adInfoSection.appendChild(deleteButton);
   } catch (error) {
-    printEvent('oneAdDeleted', {
-      notificationType: 'error',
-      message:
-        '¡El anuncio no ha podido ser eliminado! ¡Inténtelo mas tarde, por favor!',
-    });
-  } finally {
-    printEvent('oneAdDeleteLoadingOver', null, adInfoSection);
+    alert(error);
   }
 };
 
@@ -75,7 +58,7 @@ const userDeleteAuthorization = (ad, adInfoSection) => {
   if (token) {
     const userId = decodeToken(token);
 
-    if (userId.sub === ad.emailCreador) {
+    if (userId.sub === ad.apodoCreador) {
       showDeleteAdButton(ad, adInfoSection);
       printEditAdButton(ad, adInfoSection);
     }
@@ -93,15 +76,17 @@ const printEditAdButton = (ad, adInfoSection) => {
         id: adInfo.id,
       };
       const body = {
-        name: adInfo.name,
-        price: adInfo.price,
-        opType: adInfo.opType,
-        description: adInfo.description,
+        titulo: adInfo.titulo,
+        precio: adInfo.precio,
+        transacion: adInfo.transacion,
+        descripcion: adInfo.descripcion,
+        listCategoria: adInfo.listCategoria,
+        imagen: adInfo.imagen,
       };
 
       window.localStorage.setItem('adId', JSON.stringify(bodyId));
       window.localStorage.setItem('infoAd', JSON.stringify(body));
-      window.location = 'post-ad.html';
+      window.location = 'nuevo-anuncio.html';
     });
 
     adInfoSection.appendChild(editButton);

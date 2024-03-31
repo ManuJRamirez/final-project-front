@@ -19,7 +19,7 @@ export const postAd = async (formData, images) => {
   const body = {
     titulo: formData.get('titulo'),
     precio: formData.get('precio'),
-    transacion: formData.get('transaccion'),
+    transacion: formData.get('transacion'),
     descripcion: formData.get('descripcion'),
     listCategoria: Array.from(new FormData(adForm).getAll('tags')),
     imagen: imagenesList,

@@ -13,6 +13,7 @@ export const signupController = signupData => {
 const dataChecking = async (event, signupData) => {
   event.preventDefault();
 
+  const signUpFormData = new FormData(signupData);
   const email = signupData.querySelector('#email');
   const password = signupData.querySelector('#password');
   const passwordConfirmation = signupData.querySelector(
@@ -21,8 +22,7 @@ const dataChecking = async (event, signupData) => {
 
   try {
     if (isDataOk(email, password, passwordConfirmation)) {
-      printEvent('printLoadSignup', null, signupData);
-      await createrAccount(email.value, password.value);
+      await createrAccount(signUpFormData);
       printEvent(
         'accountCreated',
         {
@@ -43,14 +43,13 @@ const dataChecking = async (event, signupData) => {
       signupData,
     );
     signupButton.disabled = false;
-  } finally {
-    printEvent('hideLoadSignup', null, signupData);
   }
 };
 
 const isEmailOk = email => {
   const emailRegExp = new RegExp(
-    /^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$/,
+    // /^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$/,
+    /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
   );
   let result = true;
 
@@ -62,7 +61,8 @@ const isEmailOk = email => {
 
 const isPasswordOk = (password, passwordConfirmation) => {
   const passwordRegExp = new RegExp(
-    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,!-_?])(?=\\S+$).{6,}$/,
+    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,!-_?]).{6,}$/,
+    // /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,!-_?])(?=\\S+$).{6,}$/,
   );
   let result = true;
 

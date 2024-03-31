@@ -678,7 +678,6 @@ Helpers
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .mb-48 {
     margin-bottom: 42px;
-    margin-left: 35%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -689,6 +688,29 @@ Helpers
 @media (max-width: 767px) {
   .mb-48 {
     margin-bottom: 32px;
+  }
+}
+
+.expandform {
+  margin-left: auto;
+}
+@media only screen and (min-width: 1400px) {
+  .expandform {
+    width: 500px;
+    margin-left: -20%;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .expandform {
+    width: 500px;
+    margin-left: -35%;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .expandform {
+    margin-bottom: 42px;
+    width: 500px;
+    margin-left: -55%;
   }
 }
 
@@ -1432,7 +1454,9 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
   color: #54575c;
   border: 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
+
 .form-control:focus {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   outline: 0;
@@ -1449,7 +1473,7 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
 }
 
 .inputGroup {
-  width: 100%;
+  width: 1000%;
   position: relative;
 }
 .inputGroup textarea,
@@ -3412,7 +3436,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
     margin-bottom: 16px;
   }
 }
-.product-detail .product-card .image-block {  
+.product-detail .product-card .image-block {
   overflow: hidden;
 }
 .product-detail .product-card .image-block img {
@@ -4402,11 +4426,11 @@ footer .footer-main .footer-info .menu .link li a:hover {
 }
 
 #consultarBtn {
-  margin-top: 8px;  
+  margin-top: 8px;
   background: none;
-  border: none; 
-  padding: 0; 
-  box-shadow: none; 
+  border: none;
+  padding: 0;
+  box-shadow: none;
   color: #54575c;
   font-family: 'Nunito', sans-serif;
   font-size: 21px;
@@ -4419,7 +4443,7 @@ footer .footer-main .footer-info .menu .link li a:hover {
 
 .carousel-control-prev span,
 .carousel-control-next span {
-    font-size: 6em; 
+  font-size: 6em;
 }
 
 .popup-container {
@@ -4448,4 +4472,3 @@ footer .footer-main .footer-info .menu .link li a:hover {
   color: white;
   cursor: pointer;
 }
-
