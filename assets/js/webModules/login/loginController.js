@@ -26,9 +26,10 @@ const submitLogin = async (event, loginFormData) => {
   const { apodo, password } = getLoginData(loginFormData);
 
   try {
-    printEvent('printLoadLogin', null, loginFormData);
     const jsonWebToken = await loginAccount(apodo, password);
+
     localStorage.setItem('token', jsonWebToken);
+
     printEvent(
       'loginNotification',
       {
@@ -41,16 +42,26 @@ const submitLogin = async (event, loginFormData) => {
       window.location = './index.html';
     }, 2000);
   } catch (error) {
+    if (error instanceof SyntaxError) {
     printEvent(
-      'loginNotification',
-      {
-        notificationType: 'error',
-        message: 'Error al intentar conectar. Pruebe de nuevo',
-      },
-      loginFormData,
-    );
+        'loginNotification',
+        {
+          notificationType: 'error',
+          message: 'Error al intentar conectar. Pruebe de nuevo',
+        },
+        loginFormData,
+      );
+    } else {
+      const errorMessage = error || 'Error desconocido';
+      printEvent(
+          'loginNotification',
+          {
+          notificationType: 'error',
+          message: errorMessage,
+          },
+          loginFormData,
+      );
+  }
     loginButton.disabled = false;
-  } finally {
-    printEvent('hideLoadLogin', null, loginFormData);
   }
 };

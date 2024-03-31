@@ -7,9 +7,9 @@ const printNotification = notificationController(notificationSection);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  nuevaPasswordFormData.addEventListener('passwordNotification', (event) =>{
-    printNotification(event.detail.notificationType, event.detail.message);
-});
+    nuevaPasswordFormData.addEventListener('passwordNotification', (event) =>{
+      printNotification(event.detail.notificationType, event.detail.message);
+  });
 
-nuevaPasswordController(nuevaPasswordFormData);
+  nuevaPasswordController(nuevaPasswordFormData);
 });

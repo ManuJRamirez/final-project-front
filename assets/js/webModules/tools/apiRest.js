@@ -107,11 +107,11 @@ export const apiRest = () => {
         },
       });
 
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         return data.token;
       } else {
-        const message = data.message || 'Ha ocurrido un error';
+        const message = data.message || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {
