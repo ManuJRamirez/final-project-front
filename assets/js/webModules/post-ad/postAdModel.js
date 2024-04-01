@@ -6,14 +6,12 @@ export const postAd = async (formData, images) => {
   const imagenesList = [];
 
   if (images && images.length > 0 && images.length <= 3) {
-    // Convertir cada imagen a base64 y agregarla a la lista
     for (const image of images) {
       imagenesList.push(await convertirImagenABase64(image));
     }
   } else {
-    // Si no se proporcionaron imágenes o se excede el límite, agregar una imagen por defecto
     const defaultImage = (await defaultImageController()).imagen;
-    imagenesList.push(await convertirImagenABase64(defaultImage));
+    imagenesList.push(defaultImage);
   }
 
   const body = {

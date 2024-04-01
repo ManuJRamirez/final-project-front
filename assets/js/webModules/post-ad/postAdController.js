@@ -7,13 +7,14 @@ export const postAdController = (adForm, adId) => {
   adForm.addEventListener('submit', async event => {
     postAdButton.disabled = true;
     event.preventDefault();
+    let createdAdId;
 
     const formData = new FormData(adForm);
     const fileInput = document.getElementById('imageInput');
     const imagenes = Array.from(fileInput.files).slice(0, 3);
     try {
       if (adId === null) {
-        const createdAdId = await postAd(formData, imagenes);
+        createdAdId = await postAd(formData, imagenes);
         printEvent(
           'adCreation',
           {
@@ -62,13 +63,41 @@ export const loadInfoToEdit = (adInfo, adForm) => {
     imagen.value = parseAdInfo.imagen;
   }
 };
+/*
+export const createCategoriesOptions = async () => {
+  try {
+    // Obtener las categorías
+    const categorias = await getCategories();
 
-export const createCategoriesOptions = tagsSelect => {
-  const categoria = getCategories()
+    // Crear el elemento <select>
+    const selectElement = document.createElement('select');
+    selectElement.id = 'tags';
+    //selectElement.classList.add('form-control');
+    selectElement.multiple = true;
+    selectElement.required = true;
+
+    // Iterar sobre las categorías y crear opciones para cada una
+    categorias.forEach(categoria => {
+      const option = document.createElement('option');
+      option.value = categoria.id;
+      option.textContent = categoria.nombre;
+      selectElement.appendChild(option);
+    });
+
+    // Devolver el elemento <select> creado
+    return selectElement;
+  } catch (error) {
+    console.error('Error al obtener las categorías:', error);
+    return null;
+  }
+};*/
+
+export const createCategoriesOptions = async tagsSelect => {
+  const categoria = await getCategories()
     .then(categorias => {
       categorias.forEach(categoria => {
         const option = document.createElement('option');
-        option.value = categoria.nombre;
+        option.value = categoria.id;
         option.textContent = categoria.nombre;
         option.setAttribute('value', categoria.id);
         tagsSelect.appendChild(option);
@@ -78,11 +107,32 @@ export const createCategoriesOptions = tagsSelect => {
       console.error('Error al obtener las categorías:', error);
     });
 };
+
 export const selectOptions = () => {
   const selectElement = document.getElementById('tags');
-  selectElement.addEventListener('change', () => {
+
+  selectElement.addEventListener('mousedown', event => {
+    const clickedOption = event.target;
+
+    if (clickedOption.tagName === 'OPTION') {
+      clickedOption.selected = !clickedOption.selected;
+      updateBackgroundColor(selectElement);
+      event.preventDefault();
+    }
+  });
+};
+const updateBackgroundColor = selectElement => {
+  Array.from(selectElement.options).forEach(option => {
+    option.style.backgroundColor = option.selected ? 'lightblue' : '';
+  });
+};
+
+/*
+export const selectOptions = () => {
+  const selectElement = document.getElementById('tags');
+  selectElement.addEventListener('mousedown', () => {
     const selectedOptions = Array.from(selectElement.selectedOptions);
-    selectedOptions.forEach(option => {});
+    //selectedOptions.forEach(option => {});
 
     Array.from(selectElement.options).forEach(option => {
       if (!selectedOptions.includes(option)) {
@@ -91,6 +141,7 @@ export const selectOptions = () => {
     });
   });
 };
+*/
 
 export const handleImageUpload = event => {
   const imageList = document.getElementById('imageList');

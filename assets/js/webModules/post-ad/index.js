@@ -46,14 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   adCreation.addEventListener('adCreation', event => {
     printNotification(event.detail.notificationType, event.detail.message);
-    closeByButtonController(notificationSection);
   });
 
   imageInput.addEventListener('change', handleImageUpload);
 
   createCategoriesOptions(tagsSelect);
+  selectOptions();
   postAdController(adCreation, adId);
 
   loadInfoToEdit(adInfo, adCreation);
-  selectOptions();
 });
