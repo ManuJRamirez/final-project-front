@@ -12,21 +12,34 @@ export const postAdController = (adForm, adId) => {
     const fileInput = document.getElementById('imageInput');
     const imagenes = Array.from(fileInput.files).slice(0, 3);
     try {
-      printEvent('adCreationPrintLoader', null, adForm);
       if (adId === null) {
         const createdAdId = await postAd(formData, imagenes);
-        alert('!Felicidades! ¡Anuncio creado correctamente!');
-        window.location.href = `./detalle-anuncio.html?id=${createdAdId.id}?${createdAdId.titulo}`;
+        printEvent(
+          'adCreation',
+          {
+            notificationType: 'success',
+            message: '¡Felicidades!¡Anuncio creado correctamente',
+          },
+          adForm,
+        );
       } else {
         localStorage.removeItem('adId');
         await updateAd(formData, imagenes, adId);
-        alert('¡Felicidades! ¡Has actualizado el anuncio correctamente!');
+        printEvent(
+          'adCreation',
+          {
+            notificationType: 'success',
+            message: '¡Felicidades!¡Anuncio actualizado correctamente',
+          },
+          adForm,
+        );
       }
+      setTimeout(() => {
+        window.location.href = `./detalle-anuncio.html?id=${createdAdId.id}?${createdAdId.titulo}`;
+      }, 2000);
     } catch (error) {
       //alert('Error al crear el anuncio, intentelo de nuevo mas tarde.');
       postAdButton.disabled = false;
-    } finally {
-      printEvent('adCreationHideLoader', null, adForm);
     }
   });
 };

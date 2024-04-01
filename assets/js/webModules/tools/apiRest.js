@@ -1,4 +1,5 @@
 export const apiRest = () => {
+  //const baseUrl = 'http://localhost:8080/';
   const baseUrl = 'http://16.170.166.103:8080/';
 
   const get = async endpoint => {

@@ -5,16 +5,7 @@ import { decodeToken } from '../tools/decodeToken.js';
 
 export const adSpecificationController = async (adInfoSection, adId) => {
   try {
-    printEvent('oneAdLoading', null, adInfoSection);
     const ad = await getOneAd(adId);
-    printEvent(
-      'oneAdNotification',
-      {
-        notificationType: 'success',
-        message: '¡Anuncio cargado correctamente!',
-      },
-      adInfoSection,
-    );
     adInfoSection.innerHTML = adTemplate(ad);
     userDeleteAuthorization(ad, adInfoSection);
   } catch (error) {
@@ -26,8 +17,6 @@ export const adSpecificationController = async (adInfoSection, adId) => {
       },
       adInfoSection,
     );
-  } finally {
-    printEvent('oneAdLoadingOver', null, adInfoSection);
   }
 };
 
@@ -40,15 +29,28 @@ const showDeleteAdButton = (ad, adInfoSection) => {
       deleteButton.disabled = true;
       if (confirm('¿Seguro que quieres eliminar el anuncio?')) {
         await deleteOneAd(ad.id);
-        alert('Anuncio borrado correctamente.');
-        window.location = 'anuncios.html';
+        printEvent(
+          'oneAdDeleted',
+          {
+            notificationType: 'success',
+            message: '¡Anuncio eliminado correctamente!',
+          },
+          adInfoSection,
+        );
+        setTimeout(() => {
+          window.location = 'anuncios.html';
+        }, 3000);
       } else {
         deleteButton.disabled = false;
       }
     });
     adInfoSection.appendChild(deleteButton);
   } catch (error) {
-    alert(error);
+    printEvent('oneAdDeleted', {
+      notificationType: 'error',
+      message:
+        '¡El anuncio no ha podido ser eliminado! ¡Inténtelo mas tarde, por favor!',
+    });
   }
 };
 

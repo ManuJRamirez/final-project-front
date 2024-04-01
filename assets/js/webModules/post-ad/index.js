@@ -5,6 +5,7 @@ import {
   selectOptions,
   handleImageUpload,
 } from './postAdController.js';
+import { notificationController } from '../tools/notifications/notificationController.js';
 
 const token = localStorage.getItem('token');
 const adInfo = localStorage.getItem('infoAd');
@@ -18,6 +19,8 @@ if (!token) {
 document.addEventListener('DOMContentLoaded', () => {
   const adCreation = document.querySelector('#adForm');
   const precioInput = document.getElementById('precio');
+  const notificationSection = document.querySelector('#notification');
+  const printNotification = notificationController(notificationSection);
 
   precioInput.addEventListener('keypress', function (event) {
     if ((event.key === '-') | (event.key === '+')) {
@@ -36,13 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageInput = document.getElementById('imageInput');
   const uploadImageButton = document.getElementById('uploadImageButton');
 
-  // Listener para el botón "Subir Imágenes"
   uploadImageButton.addEventListener('click', event => {
     event.preventDefault();
     imageInput.click();
   });
 
-  // Listener para el cambio en el input file
+  adCreation.addEventListener('adCreation', event => {
+    printNotification(event.detail.notificationType, event.detail.message);
+    closeByButtonController(notificationSection);
+  });
+
   imageInput.addEventListener('change', handleImageUpload);
 
   createCategoriesOptions(tagsSelect);
