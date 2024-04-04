@@ -73,22 +73,7 @@ const printEditAdButton = (ad, adInfoSection) => {
     editButton.textContent = 'Editar Anuncio';
 
     editButton.addEventListener('click', async () => {
-      const adInfo = await getOneAd(ad.id);
-      const bodyId = {
-        id: adInfo.id,
-      };
-      const body = {
-        titulo: adInfo.titulo,
-        precio: adInfo.precio,
-        transacion: adInfo.transacion,
-        descripcion: adInfo.descripcion,
-        listCategoria: adInfo.listCategoria,
-        imagen: adInfo.imagen,
-      };
-
-      window.localStorage.setItem('adId', JSON.stringify(bodyId));
-      window.localStorage.setItem('infoAd', JSON.stringify(body));
-      window.location = 'nuevo-anuncio.html';
+      window.location = `actualizar-anuncio.html?id=${ad.id}`;
     });
 
     adInfoSection.appendChild(editButton);

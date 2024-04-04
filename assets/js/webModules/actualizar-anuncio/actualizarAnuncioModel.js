@@ -1,9 +1,5 @@
-import { defaultImageController } from '../defaultImage/defaultImageController.js';
-import { apiRest } from '../tools/apiRest.js';
-import { convertirImagenABase64 } from '../tools/convertirImagenABase64.js';
-
-export const postAd = async (formData, images) => {
-  const endpoint = 'final-project/auth/nuevoanuncio';
+export const postAd = async (formData, images, adId) => {
+  const endpoint = `final-project/auth/actualizaranuncio/${adId}`;
   const imagenesMap = new Map();
 
   if (images && images.length > 0 && images.length <= 3) {
@@ -24,6 +20,6 @@ export const postAd = async (formData, images) => {
     imagenes: Object.fromEntries(imagenesMap),
   };
 
-  const response = await apiRest().createAd(endpoint, body);
+  const response = await apiRest().updateAd(endpoint, body);
   return response;
 };

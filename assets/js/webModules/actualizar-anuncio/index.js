@@ -1,14 +1,15 @@
-import { postAdController } from './postAdController.js';
 import { notificationController } from '../tools/notifications/notificationController.js';
-import {
-  selectOptions,
-  createCategoriesOptions,
-} from '../tools/selectOptions.js';
 import { handleImageUpload } from '../tools/handleImageUpload.js';
+import {
+  createCategoriesOptions,
+  selectOptions,
+} from '../tools/selectOptions.js';
 
+import { loadInfoToEdit } from './actualizarAnuncioController.js';
+
+const params = new URLSearchParams(window.location.search);
+const adId = params.get('id');
 const token = localStorage.getItem('token');
-const adInfo = localStorage.getItem('infoAd');
-const adId = localStorage.getItem('adId');
 const tagsSelect = document.getElementById('tags');
 
 if (!token) {
@@ -16,7 +17,7 @@ if (!token) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const adCreation = document.querySelector('#adForm');
+  const adUpdate = document.querySelector('#adForm');
   const precioInput = document.getElementById('precio');
   const notificationSection = document.querySelector('#notification');
   const printNotification = notificationController(notificationSection);
@@ -28,7 +29,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   document.getElementById('precio').addEventListener('input', function () {
     let value = this.value;
-
     let decimalIndex = value.indexOf('.');
     if (decimalIndex !== -1 && value.length - decimalIndex > 3) {
       this.value = parseFloat(value).toFixed(2);
@@ -42,14 +42,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     event.preventDefault();
     imageInput.click();
   });
-
-  adCreation.addEventListener('adCreation', event => {
+  adUpdate.addEventListener('adUpdate', event => {
     printNotification(event.detail.notificationType, event.detail.message);
   });
-
+  adUpdate.addEventListener('adLoadError', event => {
+    printNotification(event.detail.notificationType, event.detail.message);
+  });
   imageInput.addEventListener('change', handleImageUpload);
 
   await createCategoriesOptions(tagsSelect);
   selectOptions();
-  postAdController(adCreation, adId);
+
+  loadInfoToEdit(adId, adUpdate);
 });

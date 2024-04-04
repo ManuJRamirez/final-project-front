@@ -3,15 +3,15 @@ export const adTemplate = ad => {
   let map;
   let mapOriginal;
 
-  if (ad.mapIdImagenes !== undefined){
-      const mapEntries = Object.entries(ad.mapIdImagenes);
-      map = new Map(mapEntries);
+  if (ad.mapIdImagenes !== undefined) {
+    const mapEntries = Object.entries(ad.mapIdImagenes);
+    map = new Map(mapEntries);
   }
-  
-  if (ad.mapIdImagenesOriginal !== undefined){
+
+  if (ad.mapIdImagenesOriginal !== undefined) {
     const mapEntries = Object.entries(ad.mapIdImagenesOriginal);
     mapOriginal = new Map(mapEntries);
-}
+  }
 
   if (map === undefined || map.lenght === 0) {
     template = `
@@ -110,15 +110,21 @@ export const adTemplate = ad => {
     template = `
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
-      ${map.length === 1 ?
-        `<img src="data:image/png;base64, ${map.values().next().value}" role="button" class="buttonImg"  data-info="${mapOriginal}"/>` :
-        `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      ${
+        map.length === 1
+          ? `<img src="data:image/png;base64, ${
+              map.values().next().value
+            }" role="button" class="buttonImg"  data-info="${mapOriginal}"/>`
+          : `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
           ${Array.from(map.entries())
             .sort(([keyA], [keyB]) => keyA - keyB)
-            .map(([key, value], index) => `
+            .map(
+              ([key, value], index) => `
               <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="data:image/png;base64,${value}" role="button" data-key="${key}" class="buttonImg"  data-info="${mapOriginal.get(key)}">
+                <img src="data:image/png;base64,${value}" role="button" data-key="${key}" class="buttonImg"  data-info="${mapOriginal.get(
+                key,
+              )}">
                 <div class="popup-container">
                   <span class="close">&times;</span>
                   <img class="popupImage" src="" alt="Original Image">
@@ -151,7 +157,7 @@ export const adTemplate = ad => {
       <div class="tag">
         <div class="category mb-16">
           <h5 class="h-27 light-black">Tags:</h5>
-          <h6 class="light-black">TAGS AQUI!</h6>
+          <h6 class="light-black">${ad.listCategoria}</h6>
         </div>
         <div class="category">
           <h5 class="h-27 light-black">${ad.apodoCreador}</h5>
