@@ -25,17 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
     closeByButtonController(notificationSection);
   });
   adSpecificationController(adInfoSection, adId).then(() => {
-    document.getElementById('prevButton').addEventListener("click", function() {
+    const prevButton = document.getElementById('prevButton');
+    if (prevButton) {
+      prevButton.addEventListener("click", function() {
       cambiarSlide(-1);
     });
-    
-    document.getElementById('nextButton').addEventListener("click", function() {
-      cambiarSlide(1);
-    });
+  }
+    const nextButton = document.getElementById('nextButton');
+    if (nextButton) {
+      nextButton.addEventListener("click", function() {
+        cambiarSlide(1);
+      });
+  }
 
     document.addEventListener('click', function(event) {
       if (event.target && event.target.classList.contains('buttonImg')) {
-        const key = event.target.getAttribute('data-key');
         const imgOriginal = event.target.getAttribute('data-info');
 
         const popupContainer = event.target.parentElement.querySelector('.popup-container');

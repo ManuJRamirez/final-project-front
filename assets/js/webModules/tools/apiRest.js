@@ -60,6 +60,10 @@ export const apiRest = () => {
         const message = data.message || 'No ha sido posible borrar el elemento';
         throw new Error(message);
       }
+      const newToken = response.headers.get('Authorization');
+      if (newToken) {      
+        localStorage.setItem('token', newToken.split(' ')[1]);
+      }
     } catch (error) {
       if (error.message) {
         throw error.message;
