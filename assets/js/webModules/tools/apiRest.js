@@ -173,9 +173,12 @@ export const apiRest = () => {
         },
       });
 
-      if (!response.ok) {
-        const data = await response.json();
+      const data = await response.json();
+
+      if (!response.ok) {        
         throw new Error(data.message);
+      } else {
+        return data;
       }
     } catch (error) {
       if (error.message) {

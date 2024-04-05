@@ -1,3 +1,5 @@
+let mapImagenes = new Map();
+
 export const handleImageUpload = (event, imagen) => {
   const imageList = document.getElementById('imageList');
   if (event !== undefined) {
@@ -8,17 +10,18 @@ export const handleImageUpload = (event, imagen) => {
       return;
     }
     for (const file of files) {
-      displayImage(file.name);
+      displayImage(file.name, file);
     }
   } else {
     const files = imagen;
     for (const file of files) {
-      displayImage(file.nombre);
+      displayImage(file.nombre, file);
     }
   }
+  
 };
 
-const displayImage = nombre => {
+const displayImage = (nombre, file) => {
   const imageListItem = document.createElement('li');
   imageListItem.classList.add('image-list-item');
 
@@ -28,9 +31,22 @@ const displayImage = nombre => {
 
   deleteButton.addEventListener('click', () => {
     imageListItem.remove();
+    eliminarImagen(imageListItem);
   });
 
   imageListItem.appendChild(imageName);
   imageListItem.appendChild(deleteButton);
   imageList.appendChild(imageListItem);
+
+  agregarImagen(imageListItem, file)
+};
+
+export const obtenerListImagenes = mapImagenes;
+
+const agregarImagen = (imagenContainer, imagen) => {
+  mapImagenes.set(imagenContainer, imagen);
+};
+
+const eliminarImagen = imagenContainer => {
+  mapImagenes.delete(imagenContainer);
 };

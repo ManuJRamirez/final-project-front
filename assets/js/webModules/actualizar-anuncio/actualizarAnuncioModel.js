@@ -1,11 +1,18 @@
+import { convertirImagenABase64 } from '../tools/convertirImagenABase64.js'
+import { defaultImageController } from '../defaultImage/defaultImageController.js'
+import { apiRest } from '../tools/apiRest.js';
+
 export const putAd = async (formData, images, adId) => {
   const endpoint = `final-project/auth/actualizaranuncio/${adId}`;
   const imagenesMap = new Map();
 
   if (images && images.length > 0 && images.length <= 3) {
     for (const image of images) {
-      if (image)
+      if(image && image.nombre) {
+        imagenesMap.set(image.nombre, image.imagen);
+      } else {
         imagenesMap.set(image.name, await convertirImagenABase64(image));
+      } 
     }
   } else {
     const defaultImage = (await defaultImageController()).imagen;

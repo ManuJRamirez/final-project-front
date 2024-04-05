@@ -1,9 +1,7 @@
 import { getOneAd } from '../ad-specification/adSpecificationModel.js';
-import { handleImageUpload } from '../tools/handleImageUpload.js';
+import { handleImageUpload, obtenerListImagenes } from '../tools/handleImageUpload.js';
 import { putAd } from './actualizarAnuncioModel.js';
 import { printEvent } from '../tools/printEvent.js';
-
-let listaDeImagenes = [];
 
 export const actualizarAnuncioController = async (adInfoUpdate, adId) => {
   const putAdButton = document.getElementById('putAdButton');
@@ -14,7 +12,8 @@ export const actualizarAnuncioController = async (adInfoUpdate, adId) => {
     let updateAdId;
     const formData = new FormData(adInfoUpdate);
     const fileInput = document.getElementById('imageInput');
-    const imagenes = Array.from(fileInput.files).slice(0, 3);
+    //const imagenes = Array.from(fileInput.files).slice(0, 3);
+    const imagenes = Array.from(obtenerListImagenes.values());
     try {
       updateAdId = await putAd(formData, imagenes, adId);
       printEvent(
@@ -48,7 +47,6 @@ export const loadInfoToEdit = async (adId, adInfoUpdate) => {
     const listCategorias = adForm.querySelector('#tags');
     const categoriasSelected = ad.listCategoria;
     const imagen = ad.listImagenes;
-    agregarImagenesALaLista(imagen);
     titulo.value = ad.titulo;
     precio.value = ad.precio;
     transacion.value = ad.transacion;
@@ -73,8 +71,4 @@ export const loadInfoToEdit = async (adId, adInfoUpdate) => {
       adInfoUpdate,
     );
   }
-};
-
-const agregarImagenesALaLista = listaImagenesBBDD => {
-  listaImagenesBBDD.forEach(imagen => listaDeImagenes.push(imagen.imagen));
 };
