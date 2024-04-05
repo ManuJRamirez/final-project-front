@@ -1,10 +1,11 @@
-export const postAd = async (formData, images, adId) => {
+export const putAd = async (formData, images, adId) => {
   const endpoint = `final-project/auth/actualizaranuncio/${adId}`;
   const imagenesMap = new Map();
 
   if (images && images.length > 0 && images.length <= 3) {
     for (const image of images) {
-      imagenesMap.set(image.name, await convertirImagenABase64(image));
+      if (image)
+        imagenesMap.set(image.name, await convertirImagenABase64(image));
     }
   } else {
     const defaultImage = (await defaultImageController()).imagen;

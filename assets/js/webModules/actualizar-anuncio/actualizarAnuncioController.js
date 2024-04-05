@@ -1,10 +1,45 @@
 import { getOneAd } from '../ad-specification/adSpecificationModel.js';
 import { handleImageUpload } from '../tools/handleImageUpload.js';
+import { putAd } from './actualizarAnuncioModel.js';
+import { printEvent } from '../tools/printEvent.js';
+
+let listaDeImagenes = [];
 
 export const actualizarAnuncioController = async (adInfoUpdate, adId) => {
-  try {
-    //const ad = await getOneAd(adId);
-  } catch (error) {}
+  const putAdButton = document.getElementById('putAdButton');
+
+  adForm.addEventListener('submit', async event => {
+    putAdButton.disabled = true;
+    event.preventDefault();
+    let updateAdId;
+    const formData = new FormData(adInfoUpdate);
+    const fileInput = document.getElementById('imageInput');
+    const imagenes = Array.from(fileInput.files).slice(0, 3);
+    try {
+      updateAdId = await putAd(formData, imagenes, adId);
+      printEvent(
+        'adUpdate',
+        {
+          notificationType: 'success',
+          message: '¡Felicidades!¡Anuncio actualizado correctamente',
+        },
+        adInfoUpdate,
+      );
+      setTimeout(() => {
+        window.location.href = `./detalle-anuncio.html?id=${updateAdId.id}?${updateAdId.titulo}`;
+      }, 2000);
+    } catch (error) {
+      printEvent(
+        'loginNotification',
+        {
+          notificationType: 'error',
+          message: 'Error al intentar actualizar el artículo',
+        },
+        adInfoUpdate,
+      );
+      putAdButton.disabled = false;
+    }
+  });
 };
 
 export const loadInfoToEdit = async (adId, adInfoUpdate) => {
@@ -13,6 +48,7 @@ export const loadInfoToEdit = async (adId, adInfoUpdate) => {
     const listCategorias = adForm.querySelector('#tags');
     const categoriasSelected = ad.listCategoria;
     const imagen = ad.listImagenes;
+    agregarImagenesALaLista(imagen);
     titulo.value = ad.titulo;
     precio.value = ad.precio;
     transacion.value = ad.transacion;
@@ -37,4 +73,8 @@ export const loadInfoToEdit = async (adId, adInfoUpdate) => {
       adInfoUpdate,
     );
   }
+};
+
+const agregarImagenesALaLista = listaImagenesBBDD => {
+  listaImagenesBBDD.forEach(imagen => listaDeImagenes.push(imagen.imagen));
 };

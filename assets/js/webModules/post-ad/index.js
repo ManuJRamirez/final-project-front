@@ -51,5 +51,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await createCategoriesOptions(tagsSelect);
   selectOptions();
-  postAdController(adCreation, adId);
+  postAdController(adCreation);
 });

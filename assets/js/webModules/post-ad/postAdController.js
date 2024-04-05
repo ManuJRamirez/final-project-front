@@ -1,7 +1,7 @@
 import { postAd } from './postAdModel.js';
 import { printEvent } from '../tools/printEvent.js';
 
-export const postAdController = (adForm, adId) => {
+export const postAdController = adForm => {
   const postAdButton = document.getElementById('postAdButton');
   adForm.addEventListener('submit', async event => {
     postAdButton.disabled = true;
@@ -14,7 +14,7 @@ export const postAdController = (adForm, adId) => {
     const select = document.getElementById('tags');
 
     try {
-      if (adId === null && select.value.length !== 0) {
+      if (select.value.length !== 0) {
         createdAdId = await postAd(formData, imagenes);
         printEvent(
           'adCreation',
@@ -25,16 +25,7 @@ export const postAdController = (adForm, adId) => {
           adForm,
         );
       } else {
-        localStorage.removeItem('adId');
-        await updateAd(formData, imagenes, adId);
-        printEvent(
-          'adCreation',
-          {
-            notificationType: 'success',
-            message: '¡Felicidades!¡Anuncio actualizado correctamente',
-          },
-          adForm,
-        );
+        return;
       }
       setTimeout(() => {
         window.location.href = `./detalle-anuncio.html?id=${createdAdId.id}?${createdAdId.titulo}`;

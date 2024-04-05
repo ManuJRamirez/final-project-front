@@ -5,7 +5,10 @@ import {
   selectOptions,
 } from '../tools/selectOptions.js';
 
-import { loadInfoToEdit } from './actualizarAnuncioController.js';
+import {
+  loadInfoToEdit,
+  actualizarAnuncioController,
+} from './actualizarAnuncioController.js';
 
 const params = new URLSearchParams(window.location.search);
 const adId = params.get('id');
@@ -54,4 +57,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   selectOptions();
 
   loadInfoToEdit(adId, adUpdate);
+  actualizarAnuncioController(adUpdate, adId);
 });
