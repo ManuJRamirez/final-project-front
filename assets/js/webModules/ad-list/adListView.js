@@ -6,7 +6,7 @@ export const emptyAdListTemplate = () => {
 export const adListTemplate = ad => {
   let template = ``;
 
-  if (ad.image === undefined) {
+  if (ad.listImagenes === undefined || ad.listImagenes.length === 0) {
     template = `   
     <div  class="product-card sec mb-32">
         <div
@@ -52,7 +52,7 @@ export const adListTemplate = ad => {
     template = `
     <div class="product-card sec mb-32">
     <div class="img-block">
-      <img id="ItemPreview" src="data:image/png;base64, ${ad.image}" >
+      <img id="ItemPreview" src="data:image/png;base64, ${ad.listImagenes[0].imagen}" >
     </div>
     <div class="content">
         <div

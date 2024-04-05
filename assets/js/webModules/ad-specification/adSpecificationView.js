@@ -1,19 +1,7 @@
 export const adTemplate = ad => {
   let template = ``;
-  let map;
-  let mapOriginal;
 
-  if (ad.mapIdImagenes !== undefined) {
-    const mapEntries = Object.entries(ad.mapIdImagenes);
-    map = new Map(mapEntries);
-  }
-
-  if (ad.mapIdImagenesOriginal !== undefined) {
-    const mapEntries = Object.entries(ad.mapIdImagenesOriginal);
-    mapOriginal = new Map(mapEntries);
-  }
-
-  if (map === undefined || map.lenght === 0) {
+  if (ad.listImagenes === undefined || ad.listImagenes.length === 0) {
     template = `
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
@@ -111,20 +99,20 @@ export const adTemplate = ad => {
     <div class="col-xl-7 col-lg-6">
       <div class="image-block mb-lg-0 mb-32">
       ${
-        map.length === 1
-          ? `<img src="data:image/png;base64, ${
-              map.values().next().value
-            }" role="button" class="buttonImg"  data-info="${mapOriginal}"/>`
+        ad.listImagenes.length === 1
+          ? `
+              <img src="data:image/png;base64, ${ad.listImagenes[0].imagenResize}" role="button" class="buttonImg"  data-info="${ad.listImagenes[0].imagen}"/>
+              <div class="popup-container">
+                <span class="close">&times;</span>
+                <img class="popupImage" src="" alt="Original Image">
+              </div>`            
           : `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-          ${Array.from(map.entries())
-            .sort(([keyA], [keyB]) => keyA - keyB)
-            .map(
-              ([key, value], index) => `
+          ${ad.listImagenes
+            .sort((a, b) => a.id - b.id)
+            .map((imagen, index) => `
               <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="data:image/png;base64,${value}" role="button" data-key="${key}" class="buttonImg"  data-info="${mapOriginal.get(
-                key,
-              )}">
+                <img src="data:image/png;base64,${imagen.imagenResize}" role="button" data-key="${imagen.id}" class="buttonImg"  data-info="${imagen.imagen}">
                 <div class="popup-container">
                   <span class="close">&times;</span>
                   <img class="popupImage" src="" alt="Original Image">
