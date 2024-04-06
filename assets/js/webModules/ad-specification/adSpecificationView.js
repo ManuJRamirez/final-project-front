@@ -22,9 +22,11 @@ export const adTemplate = ad => {
             <h5 class="h-27 light-black">Tags:</h5>
             <h6 class="light-black">${ad.listCategoria}</h6>
           </div>
+          <a href="area-del-usuario.html?user=${ad.apodoCreador}">
           <div class="category">
             <h5 class="h-27 light-black">${ad.apodoCreador}</h5>
           </div>
+          </a>
         </div>
         <div class="btn-block">
           <a href="./cart.html" class="cus-btn primary">
@@ -105,14 +107,19 @@ export const adTemplate = ad => {
               <div class="popup-container">
                 <span class="close">&times;</span>
                 <img class="popupImage" src="" alt="Original Image">
-              </div>`            
+              </div>`
           : `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
           ${ad.listImagenes
             .sort((a, b) => a.id - b.id)
-            .map((imagen, index) => `
+            .map(
+              (imagen, index) => `
               <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="data:image/png;base64,${imagen.imagenResize}" role="button" data-key="${imagen.id}" class="buttonImg"  data-info="${imagen.imagen}">
+                <img src="data:image/png;base64,${
+                  imagen.imagenResize
+                }" role="button" data-key="${
+                imagen.id
+              }" class="buttonImg"  data-info="${imagen.imagen}">
                 <div class="popup-container">
                   <span class="close">&times;</span>
                   <img class="popupImage" src="" alt="Original Image">
@@ -147,9 +154,11 @@ export const adTemplate = ad => {
           <h5 class="h-27 light-black">Tags:</h5>
           <h6 class="light-black">${ad.listCategoria}</h6>
         </div>
+        <a href="area-del-usuario.html?user=${ad.apodoCreador}">
         <div class="category">
           <h5 class="h-27 light-black">${ad.apodoCreador}</h5>
         </div>
+        </a>
       </div>
       <div class="btn-block">
         <a href="./cart.html" class="cus-btn primary">

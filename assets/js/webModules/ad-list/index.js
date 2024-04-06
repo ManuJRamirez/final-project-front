@@ -5,6 +5,8 @@ import { categoriesListController } from '../categories-list/categoriesListContr
 const sessionNav = document.getElementById('session');
 const listCategoriasUl = document.getElementById('listCategorias');
 const listTransaccionesUl = document.getElementById('transacciones');
+const params = new URLSearchParams(window.location.search);
+const usuario = params.get('user');
 
 const searchInput = document.getElementById('searchInput');
 const searchForm = document.querySelector('.search-bar');
@@ -27,13 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const anunciosDiv = document.getElementById('row');
   const pagination = document.getElementById('paginationId');
 
-  adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+  adListController(
+    anunciosDiv,
+    pagination,
+    paginaActual,
+    searchTerm,
+    categoriasSeleccionadas,
+    valorTransaccion,
+    precioMinimo,
+    precioMaximo,
+    orden,
+    usuario,
+  );
   categoriesListController(listCategoriasUl);
 
   searchForm.addEventListener('submit', async event => {
     event.preventDefault();
     searchTerm = searchInput.value.trim();
-    await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   //document.getElementById('listCategorias')
@@ -55,74 +79,152 @@ document.addEventListener('DOMContentLoaded', () => {
         categoriasSeleccionadas.push(categoriaSeleccionada);
         event.target.classList.add('active');
       }
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+      await adListController(
+        anunciosDiv,
+        pagination,
+        paginaActual,
+        searchTerm,
+        categoriasSeleccionadas,
+        valorTransaccion,
+        precioMinimo,
+        precioMaximo,
+        orden,
+        usuario,
+      );
     }
   });
   listTransaccionesUl.addEventListener('click', async event => {
     if (event.target.classList.contains('transaccion-link')) {
       event.preventDefault();
-       const isSelected = event.target.classList.contains('active');
+      const isSelected = event.target.classList.contains('active');
 
-    if (isSelected) {
-      event.target.classList.remove('active');
-    } else {
-      event.target.classList.add('active');
-    }
-    const transaccionLinks = document.querySelectorAll('.transaccion-link.active');
-    valorTransaccion = null;
-    
-    if (transaccionLinks.length === 1) {
-      valorTransaccion = transaccionLinks[0].textContent.trim() === "Venta";
-    }
-    
-    await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+      if (isSelected) {
+        event.target.classList.remove('active');
+      } else {
+        event.target.classList.add('active');
+      }
+      const transaccionLinks = document.querySelectorAll(
+        '.transaccion-link.active',
+      );
+      valorTransaccion = null;
 
+      if (transaccionLinks.length === 1) {
+        valorTransaccion = transaccionLinks[0].textContent.trim() === 'Venta';
+      }
+
+      await adListController(
+        anunciosDiv,
+        pagination,
+        paginaActual,
+        searchTerm,
+        categoriasSeleccionadas,
+        valorTransaccion,
+        precioMinimo,
+        precioMaximo,
+        orden,
+        usuario,
+      );
     }
   });
 
-  const sliderElement = $("#rangoPrecio");
+  const sliderElement = $('#rangoPrecio');
 
-  sliderElement.on("change", async function() {
-      const sliderData = sliderElement.data("ionRangeSlider");
-      const data = sliderData.result;
-      precioMinimo = data.from;
-      precioMaximo = data.to;
+  sliderElement.on('change', async function () {
+    const sliderData = sliderElement.data('ionRangeSlider');
+    const data = sliderData.result;
+    precioMinimo = data.from;
+    precioMaximo = data.to;
   });
 
   const consultarForm = document.querySelector('.consultarForm');
 
   consultarForm.addEventListener('submit', async event => {
     event.preventDefault();
-    await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   const ordenFechaAscLink = document.getElementById('ordenFechaAsc');
   const ordenFechaDescLink = document.getElementById('ordenFechaDesc');
   const ordenPrecioAscLink = document.getElementById('ordenPrecioAsc');
   const ordenPrecioDescLink = document.getElementById('ordenPrecioDesc');
-  
+
   ordenFechaAscLink.addEventListener('click', async event => {
-      event.preventDefault();
-      orden = 'RECIENTE';
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    event.preventDefault();
+    orden = 'RECIENTE';
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   ordenFechaDescLink.addEventListener('click', async event => {
-      event.preventDefault();
-      orden = 'ANTIGUOS';
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    event.preventDefault();
+    orden = 'ANTIGUOS';
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   ordenPrecioAscLink.addEventListener('click', async event => {
-      event.preventDefault();
-      orden = 'MIN';
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    event.preventDefault();
+    orden = 'MIN';
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   ordenPrecioDescLink.addEventListener('click', async event => {
-      event.preventDefault();
-      orden = 'MAX';
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+    event.preventDefault();
+    orden = 'MAX';
+    await adListController(
+      anunciosDiv,
+      pagination,
+      paginaActual,
+      searchTerm,
+      categoriasSeleccionadas,
+      valorTransaccion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
   });
 
   const pageElementsUl = document.getElementById('paginationId');
@@ -134,7 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = event.target.id;
       const pageNumber = id.split('_')[1];
       paginaActual = parseInt(pageNumber);
-      await adListController(anunciosDiv, pagination, paginaActual, searchTerm, categoriasSeleccionadas, valorTransaccion, precioMinimo, precioMaximo, orden);
+      await adListController(
+        anunciosDiv,
+        pagination,
+        paginaActual,
+        searchTerm,
+        categoriasSeleccionadas,
+        valorTransaccion,
+        precioMinimo,
+        precioMaximo,
+        orden,
+        usuario,
+      );
     }
   });
 });

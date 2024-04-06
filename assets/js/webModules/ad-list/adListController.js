@@ -5,13 +5,14 @@ import { printEvent } from '../tools/printEvent.js';
 export const adListController = async (
   adList,
   pagination,
-  paginaActual = 0, 
+  paginaActual = 0,
   searchTerm = '',
   categorias = [],
   transacion = null,
   precioMinimo = 0,
   precioMaximo = 0,
-  orden = 'RECIENTE'
+  orden = 'RECIENTE',
+  usuario,
 ) => {
   let page;
   let adverts = [];
@@ -19,7 +20,16 @@ export const adListController = async (
 
   try {
     printEvent('loadingListAdvs', null, adList);
-    page = await getAdverts(paginaActual, searchTerm, categorias, transacion, precioMinimo, precioMaximo, orden);
+    page = await getAdverts(
+      paginaActual,
+      searchTerm,
+      categorias,
+      transacion,
+      precioMinimo,
+      precioMaximo,
+      orden,
+      usuario,
+    );
     adverts = page.content;
     totalPages = page.totalPages;
     printEvent(
@@ -39,8 +49,6 @@ export const adListController = async (
       },
       adList,
     );
-  } finally {
-    printEvent('loadingListAdvsOver', null, adList);
   }
 
   if (adverts.length === 0) {
@@ -67,19 +75,24 @@ const printAdList = (adverts, adList) => {
     if (ad.mapIdImagenes) {
       const mapEntries = Object.entries(ad.mapIdImagenes);
       const map = new Map(mapEntries);
-      if(map.size > 0){
+      if (map.size > 0) {
         const sortedKeys = Array.from(map.keys()).sort((a, b) => a - b);
         ad.image = map.get(sortedKeys[0]);
       }
     }
-    
+
     adContainer.innerHTML = adListTemplate(ad);
 
     adList.appendChild(adContainer);
   });
 };
 
-const printPagination = (paginaActual, totalPages, pagination, maxPagesToShow) => {
+const printPagination = (
+  paginaActual,
+  totalPages,
+  pagination,
+  maxPagesToShow,
+) => {
   pagination.innerHTML = '';
 
   // Calcula el rango de páginas a mostrar
@@ -87,44 +100,44 @@ const printPagination = (paginaActual, totalPages, pagination, maxPagesToShow) =
   const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1);
 
   // Crea y agrega el botón de retroceso
-  if(paginaActual !== 0) {
+  if (paginaActual !== 0) {
     const backButton = document.createElement('li');
-    backButton.innerHTML = '<a href=""><i class="fas fa-chevron-left pagination-link" id="pagina_0"></i></a>';
-    backButton.addEventListener('click', (event) => {
-      event.preventDefault(); 
+    backButton.innerHTML =
+      '<a href=""><i class="fas fa-chevron-left pagination-link" id="pagina_0"></i></a>';
+    backButton.addEventListener('click', event => {
+      event.preventDefault();
       window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en el botón de retroceso
     });
     pagination.appendChild(backButton);
   }
 
-   // Itera desde 0 hasta totalPages - 1 y crea los elementos de página correspondientes
-   for (let i = startPage; i <= endPage; i++) {
+  // Itera desde 0 hasta totalPages - 1 y crea los elementos de página correspondientes
+  for (let i = startPage; i <= endPage; i++) {
     const pageItem = document.createElement('li');
     const pageLink = document.createElement('a');
     pageLink.href = '';
     pageLink.textContent = i + 1;
-    pageLink.id = `pagina_${i}`; 
+    pageLink.id = `pagina_${i}`;
     pageLink.classList.add('pagination-link');
     if (i === paginaActual) {
       pageLink.classList.add('active');
     }
-    pageLink.addEventListener('click', (event) => {
+    pageLink.addEventListener('click', event => {
       event.preventDefault();
       window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en cualquier enlace de página
     });
     pageItem.appendChild(pageLink);
     pagination.appendChild(pageItem);
   }
-  
-  if(paginaActual !== totalPages-1) {
+
+  if (paginaActual !== totalPages - 1) {
     const forwardButton = document.createElement('li');
     const lastPageId = totalPages - 1;
     forwardButton.innerHTML = `<a href=""><i class="fas fa-chevron-right pagination-link" id = "pagina_${lastPageId}"></i></a>`;
-    forwardButton.addEventListener('click', (event) => {
-      event.preventDefault(); 
+    forwardButton.addEventListener('click', event => {
+      event.preventDefault();
       window.scrollTo({ top: 200, behavior: 'smooth' }); // Desplaza hacia arriba al hacer clic en el botón de avance
     });
     pagination.appendChild(forwardButton);
   }
-  
 };

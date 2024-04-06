@@ -7,8 +7,8 @@ export const getAdverts = async (
   transacion = null,
   precioMinimo = 0,
   precioMaximo = 0,
-  orden = 'RECIENTE'
-
+  orden = 'RECIENTE',
+  usuario = null,
 ) => {
   const endpoint = 'final-project/public/anunciosFiltrados';
   const filtros = {
@@ -18,7 +18,8 @@ export const getAdverts = async (
     transaccion: transacion,
     precioMin: precioMinimo,
     precioMax: precioMaximo,
-    orden: orden
+    orden: orden,
+    usuario: usuario,
   };
 
   return await apiRest().getFiltros(endpoint, filtros);

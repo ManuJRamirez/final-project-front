@@ -61,7 +61,7 @@ export const apiRest = () => {
         throw new Error(message);
       }
       const newToken = response.headers.get('Authorization');
-      if (newToken) {      
+      if (newToken) {
         localStorage.setItem('token', newToken.split(' ')[1]);
       }
     } catch (error) {
@@ -175,7 +175,7 @@ export const apiRest = () => {
 
       const data = await response.json();
 
-      if (!response.ok) {        
+      if (!response.ok) {
         throw new Error(data.message);
       } else {
         return data;

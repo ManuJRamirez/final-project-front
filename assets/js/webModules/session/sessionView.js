@@ -1,3 +1,11 @@
+import { decodeToken } from '../tools/decodeToken.js';
+
+let usuario;
+const tokenUsuario = decodeToken(localStorage.getItem('token'));
+if (tokenUsuario) {
+  usuario = tokenUsuario.sub;
+}
+
 export const menuLoggedSession = () => {
   return `
     <header class="large-screens">
@@ -28,7 +36,7 @@ export const menuLoggedSession = () => {
                   <li class="has-children">
                     <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
                     <li class="has-children">
-                    <li class="menu-item"><a href="anuncios.html">Mi Perfil</a></li>
+                    <li class="menu-item"><a href="area-del-usuario.html?user=${usuario}">Mi Perfil</a></li>
                   <li class="has-children">
                     <li class="menu-item"><button type="button" class="menu-item-button" id="logoutButton">¡Desconectar!</button></li>
                   </li>
@@ -56,7 +64,7 @@ export const menuLoggedSession = () => {
             <ul>
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
-                <li class="menu-item"><a href="anuncios.html">Mi Perfil</a></li>
+                <li class="menu-item"><a href="area-del-usuario.html?user=${usuario}">Mi Perfil</a></li>
                 <li class="menu-item"><button type="button" class="menu-item-button-submenu" id="logoutButton">¡Desconectar!</button></li>  
             </ul>
           </nav>

@@ -26,8 +26,6 @@ export const categoriesListController = async listCategoriasUl => {
       },
       listCategoriasUl,
     );
-  } finally {
-    printEvent('loadingListAdvsOver', null, listCategoriasUl);
   }
 
   printAdList(categories, listCategoriasUl);

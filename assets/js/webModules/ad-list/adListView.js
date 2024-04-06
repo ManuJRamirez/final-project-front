@@ -1,6 +1,5 @@
-
 export const emptyAdListTemplate = () => {
-  return `No hay anuncios disponibles para mostrar. Inténtelo de nuevo mas tarde`;
+  return `<h6 style="text-align: center;  color: #002366;">No hay anuncios disponibles para mostrar.</h6>`;
 };
 
 export const adListTemplate = ad => {
@@ -52,7 +51,9 @@ export const adListTemplate = ad => {
     template = `
     <div class="product-card sec mb-32">
     <div class="img-block">
-      <img id="ItemPreview" src="data:image/png;base64, ${ad.listImagenes[0].imagen}" >
+      <img id="ItemPreview" src="data:image/png;base64, ${
+        ad.listImagenes[0].imagen
+      }" >
     </div>
     <div class="content">
         <div
@@ -87,4 +88,3 @@ export const adListTemplate = ad => {
   }
   return template;
 };
- 
