@@ -898,7 +898,24 @@ Helpers
 .mb-4p {
   margin-bottom: 4px;
 }
-
+.p-96user {
+  padding: 5px 0;
+}
+@media (max-width: 1199px) {
+  .p-96user {
+    padding: 5px 0;
+  }
+}
+@media (max-width: 991px) {
+  .p-96user {
+    padding: 5px 0;
+  }
+}
+@media (max-width: 767px) {
+  .p-96user {
+    padding: 30px 0;
+  }
+}
 .p-96 {
   padding: 96px 0;
 }
@@ -1269,8 +1286,8 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled {
 
 button.cus-btn:disabled:hover,
 footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
-  background-color: gray; 
-  color: white; 
+  background-color: gray;
+  color: white;
 }
 .cus-btn {
   font-family: 'Nunito', sans-serif;
@@ -1293,6 +1310,18 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
     padding: 12px 24px;
     border-radius: 12px;
   }
+}
+.cus-btn.editar {
+  background-color: #fbc270;
+  color: #fafafa;
+  width: 100%;
+  margin-top: 10px;
+}
+.cus-btn.borrar {
+  background-color: #940707;
+  color: #fafafa;
+  margin-top: 10px;
+  margin-inline-start: auto;
 }
 .cus-btn.primary {
   background-color: #fbc270;
