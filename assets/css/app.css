@@ -1311,6 +1311,20 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
     border-radius: 12px;
   }
 }
+
+.divSaveButton {
+  display: ruby;
+}
+
+.cus-btn.cancel {
+  background-color: #c91212;
+  color: white;
+}
+.cus-btn.save {
+  background-color: #16ad2f;
+  color: white;
+}
+
 .cus-btn.editar {
   background-color: #fbc270;
   color: #fafafa;
@@ -1318,7 +1332,7 @@ footer .footer-main .footer-info .newsletter button.cus-btn:disabled:hover {
   margin-top: 10px;
 }
 .cus-btn.borrar {
-  background-color: #940707;
+  background-color: #c91212;
   color: #fafafa;
   margin-top: 10px;
   margin-inline-start: auto;
@@ -4500,4 +4514,8 @@ footer .footer-main .footer-info .menu .link li a:hover {
   font-size: 30px;
   color: white;
   cursor: pointer;
+}
+
+.disabledBtn {
+  color: #808080;
 }

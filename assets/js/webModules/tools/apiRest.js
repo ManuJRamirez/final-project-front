@@ -42,6 +42,29 @@ export const apiRest = () => {
     }
   };
 
+  const getUser = async endpoint => {
+    const url = baseUrl + endpoint;
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        const message = data.message || 'Ha ocurrido un error';
+        throw new Error(message);
+      }
+    } catch (error) {
+      throw error.message;
+    }
+  };
+
   const remove = async endpoint => {
     const url = baseUrl + endpoint;
     const token = localStorage.getItem('token');
@@ -99,6 +122,37 @@ export const apiRest = () => {
     }
   };
 
+  const putUsuario = async (endpoint, data) => {
+    const url = baseUrl + endpoint;
+    const token = localStorage.getItem('token');
+
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const dataResponse = await response.json();
+      if (response.ok) {
+        return dataResponse;
+      } else {
+        const message =
+          dataResponse.error || 'No ha sido posible actualizar la cuenta';
+        throw new Error(message);
+      }
+    } catch (error) {
+      if (error.message) {
+        throw error.message;
+      } else {
+        throw error;
+      }
+    }
+  };
   const loginAcc = async (endpoint, body) => {
     const url = baseUrl + endpoint;
     let response;
@@ -220,7 +274,11 @@ export const apiRest = () => {
 
     const urlActual = window.location.href;
     const params = new URLSearchParams(new URL(urlActual).search);
-    const token = params.get('token');
+    let token = params.get('token');
+
+    if (!token) {
+      token = localStorage.getItem('token');
+    }
 
     let response;
     try {
@@ -251,8 +309,10 @@ export const apiRest = () => {
   return {
     get: get,
     getFiltros: getFiltros,
+    getUser: getUser,
     delete: remove,
     createAcc: createAcc,
+    putUsuario: putUsuario,
     loginAcc: loginAcc,
     createAd: createAd,
     updateAd: updateAd,

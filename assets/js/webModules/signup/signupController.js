@@ -46,7 +46,7 @@ const dataChecking = async (event, signupData) => {
   }
 };
 
-const isEmailOk = email => {
+export const isEmailOk = email => {
   const emailRegExp = new RegExp(
     // /^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$/,
     /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
@@ -59,7 +59,7 @@ const isEmailOk = email => {
   return result;
 };
 
-const isPasswordOk = (password, passwordConfirmation) => {
+export const isPasswordOk = (password, passwordConfirmation) => {
   const passwordRegExp = new RegExp(
     /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,!-_?]).{6,}$/,
     // /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,!-_?])(?=\\S+$).{6,}$/,

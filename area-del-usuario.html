@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="assets/css/vendor/ionrangeslider.css" />
     <link rel="stylesheet" href="assets/css/vendor/aksVideoPlayer.css" />
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="./assets/js/webModules/tools/notifications/style.css" />
   </head>
   
   <body>
@@ -68,17 +69,37 @@
           </div>
         </div>
       </div>
-      <!-- Main Content Start -->
-      <div class="page-content">
-        <div id="perfil"></div>
-        <!-- All Product Start -->
+       <!-- Main Content Start -->
+       <div class="page-content">
+        <section class="checkout p-96user">
+          <div class="container">
+            <div class="shipping p-96 pt-0">
+              <h2 class="h-47 bold color-white mb-48">¡Mi perfil!</h2>
+              <form id="usuarioPerfil">
+                <div id="perfil" name="perfil"></div>
+                <div id="notification"></div>
+                <div class="divSaveButton">
+                  <button type="submit" class="cus-btn save guardar-btn" id="guardarBtn" style="display:none;">Guardar</button>
+                  <button class="cus-btn cancel cancelar-btn" id="cancelarEditBtn" style="display:none;">Cancelar</button>
+                  <button type="submit" class="cus-btn save guardar-btn" id="guardarPwdBtn" style="display:none;">Guardar</button>
+                  <button class="cus-btn cancel cancelar-btn" id="cancelarEditPwdBtn" style="display:none;">Cancelar</button>                
+                </div>
+                <button class="cus-btn editar" id="editarPerfilBtn">Editar perfil</button>
+                <button class="cus-btn editar" id="editar-contrasenia-btn">Editar contraseña</button>
+              </form>
+              <div>
+                <button class="cus-btn borrar" id="borrar-cuenta-btn">Borrar la cuenta</button>
+              </div>
+            </div>
+          </div>
+        </section>
+   <!-- All Product Start -->
         <section class="all-product p-96">
           <div class="container">
             <div class="row">
               <div class="col-xl-4">
                 <div class="mb-32">
                   <form
-                  action="shop-listing-1.html"
                   class="input-group search-bar"
                   >
                   <input id="searchInput" type="text" placeholder="Buscar..." />

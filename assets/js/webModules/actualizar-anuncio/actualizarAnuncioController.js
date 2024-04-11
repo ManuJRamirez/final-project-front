@@ -1,5 +1,8 @@
 import { getOneAd } from '../ad-specification/adSpecificationModel.js';
-import { handleImageUpload, obtenerListImagenes } from '../tools/handleImageUpload.js';
+import {
+  handleImageUpload,
+  obtenerListImagenes,
+} from '../tools/handleImageUpload.js';
 import { putAd } from './actualizarAnuncioModel.js';
 import { printEvent } from '../tools/printEvent.js';
 
@@ -11,8 +14,7 @@ export const actualizarAnuncioController = async (adInfoUpdate, adId) => {
     event.preventDefault();
     let updateAdId;
     const formData = new FormData(adInfoUpdate);
-    const fileInput = document.getElementById('imageInput');
-    //const imagenes = Array.from(fileInput.files).slice(0, 3);
+    // const fileInput = document.getElementById('imageInput');
     const imagenes = Array.from(obtenerListImagenes.values());
     try {
       updateAdId = await putAd(formData, imagenes, adId);

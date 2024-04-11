@@ -7,8 +7,6 @@ import {
 import { handleImageUpload } from '../tools/handleImageUpload.js';
 
 const token = localStorage.getItem('token');
-const adInfo = localStorage.getItem('infoAd');
-const adId = localStorage.getItem('adId');
 const tagsSelect = document.getElementById('tags');
 
 if (!token) {

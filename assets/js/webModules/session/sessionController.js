@@ -7,7 +7,7 @@ export const sessionController = nav => {
     logoutButtons.forEach(button => {
       button.addEventListener('click', () => {
         localStorage.removeItem('token');
-        location.reload();
+        window.location = './index.html';
       });
     });
   }

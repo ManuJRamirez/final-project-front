@@ -1,6 +1,6 @@
-export const closeByButtonController = (notificationSection) => {
-    const closeNotificationByButton = document.querySelector('#close');
-    closeNotificationByButton.addEventListener('click', () => {
-        notificationSection.innerHTML = '';
-    });
-}
+export const closeByButtonController = notificationSection => {
+  const closeNotificationByButton = document.querySelector('#closeBtn');
+  closeNotificationByButton.addEventListener('click', () => {
+    notificationSection.innerHTML = '';
+  });
+};
