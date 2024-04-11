@@ -77,15 +77,14 @@ export const apiRest = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      
+      const data = await response.json();
       if (!response.ok) {
-        const data = await response.json();
         const message = data.message || 'No ha sido posible borrar el elemento';
         throw new Error(message);
       }
-      const newToken = response.headers.get('Authorization');
-      if (newToken) {
-        localStorage.setItem('token', newToken.split(' ')[1]);
+      if (data.token) {
+        localStorage.setItem('token', data.token);
       }
     } catch (error) {
       if (error.message) {
@@ -202,6 +201,9 @@ export const apiRest = () => {
       if (!response.ok) {
         throw new Error(data.message);
       } else {
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+        }
         return data;
       }
     } catch (error) {
@@ -232,6 +234,9 @@ export const apiRest = () => {
       if (!response.ok) {
         throw new Error(data.message);
       } else {
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+        }
         return data;
       }
     } catch (error) {
@@ -291,11 +296,14 @@ export const apiRest = () => {
         },
       });
 
+      const data = await response.json();
       if (!response.ok) {
-        const data = await response.json();
         const message =
           data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
+      }
+      if (data.token) {
+        localStorage.setItem('token', data.token);
       }
     } catch (error) {
       if (error.message) {
