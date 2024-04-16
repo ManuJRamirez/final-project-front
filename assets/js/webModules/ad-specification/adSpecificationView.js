@@ -29,7 +29,7 @@ export const adTemplate = ad => {
           </a>
         </div>
         <div class="btn-block">
-          <a href="./cart.html" class="cus-btn primary">
+          <a href="" class="cus-btn primary chat-btn">
            ¡¡Chat!!</a
           >
           <a
@@ -161,7 +161,7 @@ export const adTemplate = ad => {
         </a>
       </div>
       <div class="btn-block">
-        <a href="./cart.html" class="cus-btn primary">
+        <a href="" class="cus-btn primary chat-btn">
          ¡¡Chat!!</a
         >
         <a

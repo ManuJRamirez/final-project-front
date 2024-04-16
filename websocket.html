@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #abd9e9;
+                font-family: Arial;
+            }
+
+            #container {
+                width: 750px;
+                height: 800px;
+                background: #eff3f7;
+                margin: 0 auto;
+                font-size: 0;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            aside {
+                width: 260px;
+                height: 800px;
+                background-color: #3b3e49;
+                display: inline-block;
+                font-size: 15px;
+                vertical-align: top;
+            }
+
+            main {
+                width: 490px;
+                height: 800px;
+                display: inline-block;
+                font-size: 15px;
+                vertical-align: top;
+            }
+
+
+            aside ul {
+                padding-left: 0;
+                margin: 0;
+                list-style-type: none;
+                overflow-y: scroll;
+                height: 100%;
+            }
+
+            aside li {
+                padding: 10px 0;
+            }
+
+            aside li:hover {
+                background-color: #5e616a;
+            }
+
+            h2,
+            h3 {
+                margin: 0;
+            }
+
+            aside li img {
+                border-radius: 50%;
+                margin-left: 20px;
+                margin-right: 8px;
+            }
+
+            aside li div {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 12px;
+            }
+
+            aside li h2 {
+                font-size: 14px;
+                color: #fff;
+                font-weight: normal;
+                margin-bottom: 5px;
+            }
+
+            aside li h3 {
+                font-size: 12px;
+                color: #7e818a;
+                font-weight: normal;
+            }
+
+            .status {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 7px;
+            }
+
+            .green {
+                background-color: #58b666;
+            }
+
+            .orange {
+                background-color: #ff725d;
+            }
+
+            .blue {
+                background-color: #6fbced;
+                margin-right: 0;
+                margin-left: 7px;
+            }
+
+            #chat {
+                padding-left: 0;
+                margin: 0;
+                list-style-type: none;
+                overflow-y: scroll;
+                height: 650px;
+                border-top: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+            }
+
+            #chat li {
+                padding: 10px 30px;
+            }
+
+            #chat h2,
+            #chat h3 {
+                display: inline-block;
+                font-size: 13px;
+                font-weight: normal;
+            }
+
+            #chat h3 {
+                color: #bbb;
+            }
+
+            #chat .entete {
+                margin-bottom: 5px;
+            }
+
+            #chat .message {
+                padding: 20px;
+                color: #fff;
+                line-height: 25px;
+                max-width: 90%;
+                display: inline-block;
+                text-align: left;
+                border-radius: 5px;
+            }
+
+            #chat .me {
+                text-align: right;
+            }
+
+            #chat .you .message {
+                background-color: #58b666;
+            }
+
+            #chat .me .message {
+                background-color: #6fbced;
+            }
+
+            #chat .triangle {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+            }
+
+            #chat .you .triangle {
+                border-color: transparent transparent #58b666 transparent;
+                margin-left: 15px;
+            }
+
+            #chat .me .triangle {
+                border-color: transparent transparent #6fbced transparent;
+                margin-left: 375px;
+            }
+
+            main footer {
+                height: 155px;
+                padding: 20px 30px 10px 20px;
+            }
+
+            main footer textarea {
+                resize: none;
+                border: none;
+                display: block;
+                width: 100%;
+                height: 80px;
+                border-radius: 3px;
+                padding: 20px;
+                font-size: 13px;
+                margin-bottom: 13px;
+            }
+
+            main footer textarea::placeholder {
+                color: #ddd;
+            }
+
+            main footer img {
+                height: 30px;
+                cursor: pointer;
+            }
+
+            main footer button {
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #6fbced;
+                vertical-align: top;
+                margin-left: 303px;
+                margin-top: 5px;
+                display: inline-block;
+            }
+    </style>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        html {
+            min-height: 100%;
+            display: grid;
+        }
+
+        body {
+            margin: auto;
+        }
+        .center-name{
+            border: 3px solid blue;
+            padding: 30px;
+            background-color: white;
+            justify-content: center;
+        }
+        .center-form{
+            display: flex;
+            margin: 40px 100px;
+        }
+        .image{
+            display: flex;
+            justify-content: start;
+            justify-self: start;
+            position: absolute;
+            margin: 40px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-name">
+        <strong>Login Page</strong>
+        <div class="center-form">
+            <form action="/chat-prueba.html">   
+                <label>Enter Your Name:</label>        
+                <input type="text" name="sender" placeholder="Enter Your Name">        
+                <br><br>        
+                <label>Choose Your Gender:</label>
+                <input type="radio" id="Male" name="gender" value="male">
+                <label for="Male">Male</label>
+                <input type="radio" id="Female" name="gender" value="female">
+                <label for="Female">Female</label><br>
+                <br><br>        
+                <input type="submit">
+            </form>    
+        </div>    
+    </div>
+</body>
+</html>

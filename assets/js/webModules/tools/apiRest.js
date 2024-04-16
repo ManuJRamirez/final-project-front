@@ -314,6 +314,29 @@ export const apiRest = () => {
     }
   };
 
+  const getChats = async endpoint => {
+    const url = baseUrl + endpoint;
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        const message = data.message || 'Ha ocurrido un error';
+        throw new Error(message);
+      }
+    } catch (error) {
+      throw error.message;
+    }
+  };
+
   return {
     get: get,
     getFiltros: getFiltros,
@@ -326,5 +349,6 @@ export const apiRest = () => {
     updateAd: updateAd,
     post: post,
     postAuthUrl: postAuthUrl,
+    getChats: getChats,
   };
 };

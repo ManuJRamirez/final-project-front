@@ -7,6 +7,7 @@ export const adSpecificationController = async (adInfoSection, adId) => {
   try {
     const ad = await getOneAd(adId);
     adInfoSection.innerHTML = adTemplate(ad);
+    userChatAuthorization(ad, adInfoSection);
     userDeleteAuthorization(ad, adInfoSection);
   } catch (error) {
     printEvent(
@@ -17,6 +18,24 @@ export const adSpecificationController = async (adInfoSection, adId) => {
       },
       adInfoSection,
     );
+  }
+};
+
+const userChatAuthorization = (ad, adInfoSection) => {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    const chatButton = adInfoSection.querySelector('.chat-btn');
+    chatButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location = `mis-chats.html?id=${ad.id}`;
+    });
+  } else {
+    const chatButton = adInfoSection.querySelector('.chat-btn');
+    chatButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location = 'login.html';
+    });
   }
 };
 
