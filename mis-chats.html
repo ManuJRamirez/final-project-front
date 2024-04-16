@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="assets/css/vendor/ionrangeslider.css" />
     <link rel="stylesheet" href="assets/css/vendor/aksVideoPlayer.css" />
     <link rel="stylesheet" href="assets/css/app.css" />
-    <link rel="stylesheet" href="./assets/js/webModules/tools/notifications/style.css" />
     <link rel="stylesheet" href="./assets/js/webModules/tools/css/mis-chats/style.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -73,23 +73,55 @@
       <!-- Main Content Start -->
       <div class="page-content">
         <!-- Product Detail Start -->
+
         <section class="product-detail p-96">
           <div class="container">
             <div class="product-card">
-              <aside>
-                <ul id="aside"></ul>
-              </aside>
-              <main>
-                <ul id="chat"></ul>
-                <footer>
-                <form id="enviarMensajeForm">
-                    <textarea placeholder="Escribe tu mensaje" name="msg" id="msg"></textarea>
-                    <button type="submit" id="enviarMensaje">Enviar</button>
-                  </form>
-                </footer>
-              </main>
-
-              <div id="notification"></div>
+              <div class="container bootstrap snippets bootdey">
+                <div class="row">
+                <div class="col-md-4 bg-white ">
+                        <div class=" row border-bottom padding-sm" style="height: 40px;">
+                          Member
+                        </div>
+                        
+                        <!-- =============================================================== -->
+                        <!-- member list -->
+                        <ul class="friend-list">
+                            <li class="active bounceInDown">
+                              <a href="#" class="clearfix">
+                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                                <div class="friend-name">	
+                                  <strong>John Doe</strong>
+                                </div>
+                                <div class="last-message text-muted">Hello, Are you there?</div>
+                                <small class="time text-muted">Just now</small>
+                                <small class="chat-alert label label-danger">1</small>
+                              </a>
+                            </li>
+                           
+                        </ul>
+                </div>
+                    
+                    <!--=========================================================-->
+                    <!-- selected chat -->
+                  <div class="col-md-8 bg-white ">
+                        <div class="chat-message">
+                            <ul class="chat" id="chat">
+                            </ul>
+                        </div>
+                        <div class="chat-box bg-white">
+                          <form id="enviarMensajeForm">
+                          <div class="input-container">
+                            <input class=" border no-shadow no-rounded" name="msg" id="msg" placeholder="Escribe aquí">
+                            <span class="input-group-btn">
+                              <button class="btnc btn-success1 no-rounded1" type="submit" id="enviarMensaje">Enviar</button>
+                            </span>
+                          </div><!-- /input-group -->	
+                        </form>
+                        </div>            
+                </div>        
+              </div>
+            </div>
             </div>
           </div>
         </section>

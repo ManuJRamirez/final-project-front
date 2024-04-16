@@ -23,16 +23,19 @@ export const adSpecificationController = async (adInfoSection, adId) => {
 
 const userChatAuthorization = (ad, adInfoSection) => {
   const token = localStorage.getItem('token');
+  const chatButton = adInfoSection.querySelector('.chat-btn');
+  const favoritoButton = adInfoSection.querySelector('.favorito-btn');
 
-  if (token) {
-    const chatButton = adInfoSection.querySelector('.chat-btn');
-    chatButton.addEventListener('click', (event) => {
+  if (token && decodeToken(token).sub === ad.apodoCreador) {
+    chatButton.style.display = 'none';
+    favoritoButton.style.display = 'none';
+  } else if (token) {
+    chatButton.addEventListener('click', event => {
       event.preventDefault();
       window.location = `mis-chats.html?id=${ad.id}`;
     });
   } else {
-    const chatButton = adInfoSection.querySelector('.chat-btn');
-    chatButton.addEventListener('click', (event) => {
+    chatButton.addEventListener('click', event => {
       event.preventDefault();
       window.location = 'login.html';
     });
@@ -67,8 +70,7 @@ const showDeleteAdButton = (ad, adInfoSection) => {
   } catch (error) {
     printEvent('oneAdDeleted', {
       notificationType: 'error',
-      message:
-        '¡El anuncio no ha podido ser eliminado! ¡Inténtelo mas tarde, por favor!',
+      message: '¡El anuncio no ha podido ser eliminado! ¡Inténtelo mas tarde, por favor!',
     });
   }
 };

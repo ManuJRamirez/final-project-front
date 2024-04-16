@@ -20,22 +20,14 @@ export const menuLoggedSession = () => {
                     <li class="menu-item"><a href="index.html">Inicio</a></li>
                 </ul>
               </div>
-              <div class="search-block">
-                <form
-                  action="anuncios.html"
-                  class="input-group search-bar"
-                >
-                  <input type="text" placeholder="Search..." required />
-                  <button class="search" type="submit">
-                    <i class="far fa-search search-icon"></i>
-                  </button>
-                </form>
-              </div>
+             
               <div class="right-nav">
                 <ul class="navbar-nav m-0">
                   <li class="has-children">
                     <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
-                    <li class="has-children">
+                  <li class="has-children">
+                    <li class="menu-item"><a href="mis-chats.html">Mis Chats</a></li>
+                  <li class="has-children">
                     <li class="menu-item"><a href="area-del-usuario.html?user=${usuario}">Mi Perfil</a></li>
                   <li class="has-children">
                     <li class="menu-item"><button type="button" class="menu-item-button" id="logoutButton">¡Desconectar!</button></li>
@@ -64,6 +56,7 @@ export const menuLoggedSession = () => {
             <ul>
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
+                <li class="menu-item"><a href="mis-chats.html">Mis Chats</a></li>
                 <li class="menu-item"><a href="area-del-usuario.html?user=${usuario}">Mi Perfil</a></li>
                 <li class="menu-item"><button type="button" class="menu-item-button-submenu" id="logoutButton">¡Desconectar!</button></li>  
             </ul>
@@ -90,18 +83,7 @@ export const menuUnloggedSession = () => {
                   <li class="has-children">
                     <li class="menu-item"><a href="index.html">Inicio</a></li>
                 </ul>
-              </div>
-              <div class="search-block">
-                <form
-                  action="shop-listing-1.html"
-                  class="input-group search-bar"
-                >
-                  <input type="text" placeholder="Search..." required />
-                  <button class="search" type="submit">
-                    <i class="far fa-search search-icon"></i>
-                  </button>
-                </form>
-              </div>
+              </div>      
               <div class="right-nav">
                 <ul class="navbar-nav m-0">
                   <li class="has-children">

@@ -7,6 +7,10 @@ import { isPasswordOk } from '../signup/signupController.js';
 
 export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
   const token = localStorage.getItem('token');
+  const editarPerfilBtn = document.getElementById('editarPerfilBtn');
+  const editarContraseniaBtn = document.getElementById('editar-contrasenia-btn');
+  const miPerfilTitulo = document.getElementById('perfil-titulo');
+
   let disabledUser = true;
   let disabledPwd = true;
 
@@ -16,7 +20,6 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
     if (usuarioFromUrl === usuarioFromToken) {
       userForm.innerHTML = perfilCabeceraView(disabledUser, disabledPwd);
       let usuarioBBDD = await getUsuario(usuarioFromToken);
-      const editarPerfilBtn = document.getElementById('editarPerfilBtn');
       cargarDatosUsuarioEnFormulario(usuarioBBDD);
 
       if (editarPerfilBtn) {
@@ -66,7 +69,6 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
           }
         });
       }
-      const editarContraseniaBtn = document.getElementById('editar-contrasenia-btn');
       if (editarContraseniaBtn) {
         editarContraseniaBtn.addEventListener('click', event => {
           event.preventDefault();
@@ -143,6 +145,12 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
         });
       }
     }
+  } else {
+    const borrarCuentaBtn = document.getElementById('borrar-cuenta-btn');
+    editarPerfilBtn.style.display = 'none';
+    editarContraseniaBtn.style.display = 'none';
+    borrarCuentaBtn.style.display = 'none';
+    miPerfilTitulo.style.display = 'none';
   }
 };
 

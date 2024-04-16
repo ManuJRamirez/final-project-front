@@ -1,6 +1,6 @@
 export const apiRest = () => {
-  const baseUrl = 'http://localhost:8080/';
-  //const baseUrl = 'http://16.170.166.103:8080/';
+  //const baseUrl = 'http://localhost:8080/';
+  const baseUrl = 'http://16.170.166.103:8080/';
 
   const get = async endpoint => {
     const url = baseUrl + endpoint;
@@ -77,7 +77,7 @@ export const apiRest = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      
+
       const data = await response.json();
       if (!response.ok) {
         const message = data.message || 'No ha sido posible borrar el elemento';
@@ -140,8 +140,7 @@ export const apiRest = () => {
       if (response.ok) {
         return dataResponse;
       } else {
-        const message =
-          dataResponse.error || 'No ha sido posible actualizar la cuenta';
+        const message = dataResponse.error || 'No ha sido posible actualizar la cuenta';
         throw new Error(message);
       }
     } catch (error) {
@@ -169,8 +168,7 @@ export const apiRest = () => {
       if (response.ok) {
         return data.token;
       } else {
-        const message =
-          data.message || 'No ha sido posible establecer la conexión.';
+        const message = data.message || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {
@@ -262,8 +260,7 @@ export const apiRest = () => {
 
       if (!response.ok) {
         const data = await response.json();
-        const message =
-          data.error || 'No ha sido posible establecer la conexión.';
+        const message = data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
     } catch (error) {
@@ -298,8 +295,7 @@ export const apiRest = () => {
 
       const data = await response.json();
       if (!response.ok) {
-        const message =
-          data.error || 'No ha sido posible establecer la conexión.';
+        const message = data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
       }
       if (data.token) {

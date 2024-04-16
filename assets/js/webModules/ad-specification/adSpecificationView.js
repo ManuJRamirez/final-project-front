@@ -39,9 +39,7 @@ export const adTemplate = ad => {
             ¡Favorito!</a
           >
         </div>
-        <p style="color:black;">${moment(ad.fechaCreacion).format(
-          'DD/MM/YYYY',
-        )}</p>
+        <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
         <div class="social-link">
           <h4 class="h-27 light-black">Share this product:</h4>
           <ul class="unstyled social-icons">
@@ -115,11 +113,9 @@ export const adTemplate = ad => {
             .map(
               (imagen, index) => `
               <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="data:image/png;base64,${
-                  imagen.imagenResize
-                }" role="button" data-key="${
-                imagen.id
-              }" class="buttonImg"  data-info="${imagen.imagen}">
+                <img src="data:image/png;base64,${imagen.imagenResize}" role="button" data-key="${imagen.id}" class="buttonImg"  data-info="${
+                imagen.imagen
+              }">
                 <div class="popup-container">
                   <span class="close">&times;</span>
                   <img class="popupImage" src="" alt="Original Image">
@@ -166,34 +162,32 @@ export const adTemplate = ad => {
         >
         <a
           href="./shop-listing-1.html"
-          class="cus-btn light st-2"
+          class="cus-btn light st-2 favorito-btn"
         >
           ¡Favorito!</a
         >
       </div>
-      <p style="color:black;">${moment(ad.fechaCreacion).format(
-        'DD/MM/YYYY',
-      )}</p>
+      <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
       <div class="social-link">
         <h4 class="h-27 light-black">Share this product:</h4>
         <ul class="unstyled social-icons">
           <li>
-            <a href="./product-detail.html"
+            <a href="./404.html"
               ><i class="fab fa-facebook-f"></i
             ></a>
           </li>
           <li>
-            <a href="./product-detail.html"
+            <a href="./404.html"
               ><i class="fab fa-twitter"></i
             ></a>
           </li>
           <li>
-            <a href="./product-detail.html"
+            <a href="./404.html"
               ><i class="fab fa-snapchat-ghost"></i
             ></a>
           </li>
           <li>
-            <a href="./product-detail.html">
+            <a href="./404.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
