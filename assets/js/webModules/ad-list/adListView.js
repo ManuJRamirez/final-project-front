@@ -19,11 +19,7 @@ export const adListTemplate = ad => {
                 class="name-price">
                 <div
                     class="product-name">
-                    <h5>${
-                      ad.titulo.length > 10
-                        ? ad.titulo.slice(0, 10) + '...'
-                        : ad.titulo
-                    }</h5>
+                    <h5>${ad.titulo.length > 10 ? ad.titulo.slice(0, 10) + '...' : ad.titulo}</h5>
                 </div>
                 <div
                     class="product-price">
@@ -33,9 +29,7 @@ export const adListTemplate = ad => {
             </div>
             <div class="additional-info">
             <p style="color:black;">${ad.transacion ? 'Venta' : 'Compra'}</p>
-            <p style="color:black;">${moment(ad.fechaCreacion).format(
-              'DD/MM/YYYY',
-            )}</p>
+            <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
         </div>
             <a
                 href="../detalle-anuncio.html?id=${ad.id}?${ad.titulo}"
@@ -51,20 +45,14 @@ export const adListTemplate = ad => {
     template = `
     <div class="product-card sec mb-32">
     <div class="img-block">
-      <img id="ItemPreview" src="data:image/png;base64, ${
-        ad.listImagenes[0].imagen
-      }" >
+      <img id="ItemPreview" src="data:image/png;base64, ${ad.listImagenes[0].imagen}" >
     </div>
     <div class="content">
         <div
             class="name-price">
             <div
                 class="product-name">
-                <h5>${
-                  ad.titulo.length > 10
-                    ? ad.titulo.slice(0, 10) + '...'
-                    : ad.titulo
-                }</h5>
+                <h5>${ad.titulo.length > 10 ? ad.titulo.slice(0, 10) + '...' : ad.titulo}</h5>
             </div>
             <div
                 class="product-price">
@@ -74,9 +62,7 @@ export const adListTemplate = ad => {
         </div>
         <div class="additional-info">
         <p style="color:black;">${ad.transaccion ? 'Venta' : 'Compra'}</p>
-        <p style="color:black;">${moment(ad.fechaCreacion).format(
-          'DD/MM/YYYY',
-        )}</p>
+        <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
     </div>
         <a
             href="../detalle-anuncio.html?id=${ad.id}?${ad.titulo}"

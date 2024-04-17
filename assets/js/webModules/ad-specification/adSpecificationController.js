@@ -18,6 +18,9 @@ export const adSpecificationController = async (adInfoSection, adId) => {
       },
       adInfoSection,
     );
+    setTimeout(() => {
+      window.location.href = 'anuncios.html';
+    }, 4000);
   }
 };
 

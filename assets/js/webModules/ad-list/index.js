@@ -65,9 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('categoria-link')) {
       event.preventDefault();
       const categoriaSeleccionada = event.target.textContent.trim();
-      const isSelected = categoriasSeleccionadas.includes(
-        categoriaSeleccionada,
-      );
+      const isSelected = categoriasSeleccionadas.includes(categoriaSeleccionada);
 
       if (isSelected) {
         const index = categoriasSeleccionadas.indexOf(categoriaSeleccionada);
@@ -103,9 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         event.target.classList.add('active');
       }
-      const transaccionLinks = document.querySelectorAll(
-        '.transaccion-link.active',
-      );
+      const transaccionLinks = document.querySelectorAll('.transaccion-link.active');
       valorTransaccion = null;
 
       if (transaccionLinks.length === 1) {

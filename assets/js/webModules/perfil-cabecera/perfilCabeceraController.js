@@ -1,6 +1,6 @@
 import { decodeToken } from '../tools/decodeToken.js';
 import { perfilCabeceraView } from './perfilCabeceraView.js';
-import { getUsuario, actualizarUsuario } from './perfilCabeceraModel.js';
+import { getUsuario, actualizarUsuario, bajaUsuario } from './perfilCabeceraModel.js';
 import { printEvent } from '../tools/printEvent.js';
 import { nuevaPassword } from '../nueva-password/nuevaPasswordModel.js';
 import { isPasswordOk } from '../signup/signupController.js';
@@ -10,6 +10,7 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
   const editarPerfilBtn = document.getElementById('editarPerfilBtn');
   const editarContraseniaBtn = document.getElementById('editar-contrasenia-btn');
   const miPerfilTitulo = document.getElementById('perfil-titulo');
+  const borrarCuentaBtn = document.getElementById('borrar-cuenta-btn');
 
   let disabledUser = true;
   let disabledPwd = true;
@@ -41,7 +42,7 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
                   'userUpdate',
                   {
                     notificationType: 'success',
-                    message: '¡Felicidades!¡Perfil actualizado correctamente',
+                    message: '¡Felicidades!¡Perfil actualizado correctamente!',
                   },
                   userForm,
                 );
@@ -96,7 +97,7 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
                       'userUpdate',
                       {
                         notificationType: 'success',
-                        message: '¡Felicidades!¡Contraseña actualizada correctamente',
+                        message: '¡Felicidades!¡Contraseña actualizada correctamente!',
                       },
                       userForm,
                     );
@@ -144,9 +145,38 @@ export const perfilCabeceraController = async (userForm, usuarioFromUrl) => {
           }
         });
       }
+      borrarCuentaBtn.addEventListener('click', async event => {
+        event.preventDefault();
+        const confirmacion = confirm('Su cuenta va a ser borrada. ¿Desea continuar?');
+        if (confirmacion) {
+          try {
+            await bajaUsuario(usuarioFromToken);
+            printEvent(
+              'userDelete',
+              {
+                notificationType: 'success',
+                message: '¡Felicidades!¡Cuenta eliminada correctamente!',
+              },
+              userForm,
+            );
+            localStorage.removeItem('token');
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 3000);
+          } catch (error) {
+            printEvent(
+              'userDelete',
+              {
+                notificationType: 'error',
+                message: 'No se ha podido eliminar la cuenta. Intentelo de nuevo más tarde',
+              },
+              userForm,
+            );
+          }
+        }
+      });
     }
   } else {
-    const borrarCuentaBtn = document.getElementById('borrar-cuenta-btn');
     editarPerfilBtn.style.display = 'none';
     editarContraseniaBtn.style.display = 'none';
     borrarCuentaBtn.style.display = 'none';

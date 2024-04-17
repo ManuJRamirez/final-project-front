@@ -1,6 +1,6 @@
 export const apiRest = () => {
-  const baseUrl = 'http://localhost:8080/';
-  //const baseUrl = 'http://16.170.166.103:8080/';
+  //const baseUrl = 'http://localhost:8080/';
+  const baseUrl = 'http://16.170.166.103:8080/';
 
   const get = async endpoint => {
     const url = baseUrl + endpoint;
@@ -151,6 +151,35 @@ export const apiRest = () => {
       }
     }
   };
+
+  const deleteUsuario = async (endpoint, body) => {
+    const url = baseUrl + endpoint;
+    const token = localStorage.getItem('token');
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'DELETE',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        const message = data.message || 'No ha sido posible borrar el usuario';
+        throw new Error(message);
+      }
+    } catch (error) {
+      if (error.message) {
+        throw error.message;
+      } else {
+        throw error;
+      }
+    }
+  };
+
   const loginAcc = async (endpoint, body) => {
     const url = baseUrl + endpoint;
     let response;
@@ -271,7 +300,7 @@ export const apiRest = () => {
       }
     }
   };
-  const postAuthUrl = async (endpoint, data) => {
+  const postAuthUrl = async (endpoint, inData) => {
     const url = baseUrl + endpoint;
 
     const urlActual = window.location.href;
@@ -286,7 +315,7 @@ export const apiRest = () => {
     try {
       response = await fetch(url, {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(inData),
         headers: {
           'Content-type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -340,6 +369,7 @@ export const apiRest = () => {
     delete: remove,
     createAcc: createAcc,
     putUsuario: putUsuario,
+    deleteUsuario: deleteUsuario,
     loginAcc: loginAcc,
     createAd: createAd,
     updateAd: updateAd,

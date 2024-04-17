@@ -23,6 +23,8 @@ export const menuLoggedSession = () => {
              
               <div class="right-nav">
                 <ul class="navbar-nav m-0">
+                <li class="has-children">
+                <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
                   <li class="has-children">
                     <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
                   <li class="has-children">
@@ -55,6 +57,7 @@ export const menuLoggedSession = () => {
           <nav class="mobile-navar d-xl-none">
             <ul>
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="anuncios.html">Anuncios</a></li>
                 <li class="menu-item"><a href="nuevo-anuncio.html">Crear Anuncio</a></li>
                 <li class="menu-item"><a href="mis-chats.html">Mis Chats</a></li>
                 <li class="menu-item"><a href="area-del-usuario.html?user=${usuario}">Mi Perfil</a></li>

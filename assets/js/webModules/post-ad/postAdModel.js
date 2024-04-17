@@ -1,6 +1,7 @@
 import { defaultImageController } from '../defaultImage/defaultImageController.js';
 import { apiRest } from '../tools/apiRest.js';
 import { convertirImagenABase64 } from '../tools/convertirImagenABase64.js';
+import { comprimirImagen } from '../tools/comprimirImg.js';
 
 export const postAd = async (formData, images) => {
   const endpoint = 'final-project/auth/nuevoanuncio';
@@ -8,7 +9,8 @@ export const postAd = async (formData, images) => {
 
   if (images && images.length > 0 && images.length <= 3) {
     for (const image of images) {
-      imagenesMap.set(image.name, await convertirImagenABase64(image));
+      const compressedImage = await comprimirImagen(image, 200);
+      imagenesMap.set(image.name, await convertirImagenABase64(compressedImage));
     }
   } else {
     const defaultImage = (await defaultImageController()).imagen;

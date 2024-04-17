@@ -20,3 +20,13 @@ export const actualizarUsuario = async formData => {
 
   return await apiRest().putUsuario(endpoint, body);
 };
+
+export const bajaUsuario = async apodo => {
+  const endpoint = `final-project/auth/bajaUsuario`;
+
+  const body = {
+    apodo: apodo,
+  };
+
+  return await apiRest().deleteUsuario(endpoint, body);
+};

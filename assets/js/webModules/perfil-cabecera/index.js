@@ -16,4 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     printNotification(event.detail.notificationType, event.detail.message);
     closeByButtonController(notificationSection);
   });
+
+  perfilCabecera.addEventListener('userDelete', event => {
+    printNotification(event.detail.notificationType, event.detail.message);
+    closeByButtonController(notificationSection);
+  });
 });

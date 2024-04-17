@@ -6,31 +6,27 @@ let wsocket;
 let formData;
 
 export const misChatsController = async enviarMensajeFormData => {
-
   formData = enviarMensajeFormData;
   let queryString = window.location.search;
 
-  
-  if(queryString !== '') {
+  if (queryString !== '') {
     const apodo = decodeToken(token).sub;
     queryString += `&apodo=${apodo}`;
 
     activarChat(queryString);
-  } else {    
-  const responseListadoChats = await getChats();
-  crearListadoChats(responseListadoChats);
+  } else {
+    const responseListadoChats = await getChats();
+    crearListadoChats(responseListadoChats);
   }
-
 };
 
-const crearListadoChats = (responseListadoChats) => {
+const crearListadoChats = responseListadoChats => {
   responseListadoChats.misChats.forEach(element => {
     crearChat(element);
   });
-}
+};
 
-const crearChat = (chat) => {
-  
+const crearChat = chat => {
   const listadoChat = document.getElementById('listadoChat');
 
   var element = document.createElement('li');
@@ -51,7 +47,7 @@ const crearChat = (chat) => {
   listadoChat.appendChild(element);
 
   const btnChat = element.querySelector('.btnChat');
-  btnChat.addEventListener('click', function(event) {
+  btnChat.addEventListener('click', function (event) {
     event.preventDefault();
 
     listadoChat.querySelectorAll('li').forEach(li => {
@@ -66,35 +62,32 @@ const crearChat = (chat) => {
     const queryString = `?id=${chat.idAnuncio}&apodo=${decodeToken(token).sub}&idChat=${chat.id}`;
     activarChat(queryString);
   });
+};
 
-}
-
-const activarChat = (queryString) => {
-
+const activarChat = queryString => {
   desactivarChat();
 
   wsocket = connectWebSocket(queryString);
-  const enviarMensaje = (event) => {
+  const enviarMensaje = event => {
     event.preventDefault();
     enviar(wsocket);
   };
 
   formData.addEventListener('submit', enviarMensaje);
-}
+};
 
 const desactivarChat = () => {
   if (wsocket) {
-    wsocket.close(); 
-    wsocket = null; 
-    
+    wsocket.close();
+    wsocket = null;
+
     formData.removeEventListener('submit', enviarMensaje);
   }
-}
+};
 
-const connectWebSocket = (queryString) => {
-
-  let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
-  //let wsocket = new WebSocket('ws://http://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
+const connectWebSocket = queryString => {
+  //let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
+  let wsocket = new WebSocket('ws://http://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
 
   function onError() {
     alert('Error websocket.');
@@ -102,8 +95,7 @@ const connectWebSocket = (queryString) => {
 
   wsocket.onerror = onError;
 
-  function onClose() {
-  }
+  function onClose() {}
 
   wsocket.onclose = onClose;
 
@@ -118,14 +110,13 @@ const connectWebSocket = (queryString) => {
 
   wsocket.onmessage = onMessage;
   return wsocket;
-  
 };
 
 const enviar = wsocket => {
   var msg = document.getElementById('msg').value;
 
   if (wsocket instanceof WebSocket && wsocket.readyState === WebSocket.OPEN) {
-    if(msg != '') {
+    if (msg != '') {
       wsocket.send(msg);
       document.getElementById('msg').value = '';
     }
@@ -165,11 +156,10 @@ const crearNuevoMensaje = obj => {
   document.getElementById('chat').appendChild(element);
 };
 
-const formatearFecha = (fecha) => {
+const formatearFecha = fecha => {
   const dia = fecha.getDate();
-  const mes = fecha.getMonth() + 1; 
+  const mes = fecha.getMonth() + 1;
   const año = fecha.getFullYear();
 
   return `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
-
-}
+};
