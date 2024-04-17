@@ -1,80 +1,143 @@
 import { getChats } from './misChatsModel.js';
 import { decodeToken } from '../tools/decodeToken.js';
 
-export const misChatsController = enviarMensajeFormData => {
-  const wsocket = connectWebSocket();
+const token = localStorage.getItem('token');
+let wsocket;
+let formData;
 
-  enviarMensajeFormData.addEventListener('submit', event => {
-    event.preventDefault();
-    enviar(wsocket);
-  });
-};
+export const misChatsController = async enviarMensajeFormData => {
 
-const connectWebSocket = () => {
+  formData = enviarMensajeFormData;
   let queryString = window.location.search;
 
-  function onError(error, err) {
-    alert('error happened ' + err.type);
-  }
-
-  if (queryString === '') {
-    const error = new Error('No existe el anuncio.');
-    onError(error);
-  } else {
-    const token = localStorage.getItem('token');
+  
+  if(queryString !== '') {
     const apodo = decodeToken(token).sub;
     queryString += `&apodo=${apodo}`;
-    // console.log('ws://localhost:8080/final-project/websocket' + queryString);
-    console.log('ws://http://16.170.166.103:8080/final-project/websocket' + queryString);
-    //let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
-    let wsocket = new WebSocket('ws://http://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
 
-    wsocket.onerror = onError;
-
-    function onClose() {
-      alert('closed successfully');
-    }
-
-    wsocket.onclose = onClose;
-
-    function onMessage(evt) {
-      const obj = JSON.parse(evt.data);
-      if (obj.mensaje != null) {
-        createNewMessage(obj);
-        /*else if (obj.sender) {
-                createNewUser(obj);*/
-      } else {
-        alert(evt.data);
-      }
-    }
-
-    wsocket.onmessage = onMessage;
-    return wsocket;
+    activarChat(queryString);
+  } else {    
+  const responseListadoChats = await getChats();
+  crearListadoChats(responseListadoChats);
   }
+
+};
+
+const crearListadoChats = (responseListadoChats) => {
+  responseListadoChats.misChats.forEach(element => {
+    crearChat(element);
+  });
+}
+
+const crearChat = (chat) => {
+  
+  const listadoChat = document.getElementById('listadoChat');
+
+  var element = document.createElement('li');
+  element.classList.add('bounceInDown');
+
+  const fecha = new Date(chat.fechaUltimoMensaje);
+  const fechaFormateada = formatearFecha(fecha);
+
+  element.innerHTML = `
+  <a href="#" class="clearfix btnChat">
+    <div class="friend-name">	
+      <strong>${chat.tituloAnuncio}</strong>
+    </div>
+    <div class="last-message text-muted">${chat.participante}</div>
+    <small class="time text-muted">${fechaFormateada}</small>
+  </a>
+  `;
+  listadoChat.appendChild(element);
+
+  const btnChat = element.querySelector('.btnChat');
+  btnChat.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    listadoChat.querySelectorAll('li').forEach(li => {
+      li.classList.remove('active');
+    });
+
+    element.classList.add('active');
+
+    const listadoMensajes = document.getElementById('chat');
+    listadoMensajes.innerHTML = '';
+
+    const queryString = `?id=${chat.idAnuncio}&apodo=${decodeToken(token).sub}&idChat=${chat.id}`;
+    activarChat(queryString);
+  });
+
+}
+
+const activarChat = (queryString) => {
+
+  desactivarChat();
+
+  wsocket = connectWebSocket(queryString);
+  const enviarMensaje = (event) => {
+    event.preventDefault();
+    enviar(wsocket);
+  };
+
+  formData.addEventListener('submit', enviarMensaje);
+}
+
+const desactivarChat = () => {
+  if (wsocket) {
+    wsocket.close(); 
+    wsocket = null; 
+    
+    formData.removeEventListener('submit', enviarMensaje);
+  }
+}
+
+const connectWebSocket = (queryString) => {
+
+  let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
+  //let wsocket = new WebSocket('ws://http://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
+
+  function onError() {
+    alert('Error websocket.');
+  }
+
+  wsocket.onerror = onError;
+
+  function onClose() {
+  }
+
+  wsocket.onclose = onClose;
+
+  function onMessage(evt) {
+    const obj = JSON.parse(evt.data);
+    if (obj.mensaje != null) {
+      crearNuevoMensaje(obj);
+    } else {
+      alert(evt.data);
+    }
+  }
+
+  wsocket.onmessage = onMessage;
+  return wsocket;
+  
 };
 
 const enviar = wsocket => {
   var msg = document.getElementById('msg').value;
 
   if (wsocket instanceof WebSocket && wsocket.readyState === WebSocket.OPEN) {
-    wsocket.send(msg);
-    document.getElementById('msg').value = '';
+    if(msg != '') {
+      wsocket.send(msg);
+      document.getElementById('msg').value = '';
+    }
   } else {
     alert('Connect first');
   }
 };
 
-const createNewMessage = obj => {
+const crearNuevoMensaje = obj => {
   var element = document.createElement('li');
   const fecha = new Date(obj.fecha);
-
-  // Obtener las partes de la fecha (día, mes y año)
-  const dia = fecha.getDate();
-  const mes = fecha.getMonth() + 1; // Se agrega 1 porque los meses van de 0 a 11 en JavaScript
-  const año = fecha.getFullYear();
-
-  // Crear una cadena con el formato deseado (por ejemplo, 'dd/mm/yyyy')
-  const fechaFormateada = `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
+  const fechaFormateada = formatearFecha(fecha);
 
   /* element.innerHTML = `<div class="entete">
   <span class="${statusClass}"></span>
@@ -101,3 +164,12 @@ const createNewMessage = obj => {
         </div>`;
   document.getElementById('chat').appendChild(element);
 };
+
+const formatearFecha = (fecha) => {
+  const dia = fecha.getDate();
+  const mes = fecha.getMonth() + 1; 
+  const año = fecha.getFullYear();
+
+  return `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
+
+}
