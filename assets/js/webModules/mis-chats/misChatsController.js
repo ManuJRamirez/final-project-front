@@ -68,9 +68,21 @@ const activarChat = queryString => {
   desactivarChat();
 
   wsocket = connectWebSocket(queryString);
+
+  // Agregar evento de recepción de mensajes
+  wsocket.addEventListener('message', function (event) {
+    const obj = JSON.parse(event.data);
+    if (obj.mensaje != null) {
+      crearNuevoMensaje(obj);
+    } else {
+      alert(event.data);
+    }
+  });
+
   const enviarMensaje = event => {
     event.preventDefault();
     enviar(wsocket);
+    console.log('mensaje enviado');
   };
 
   formData.addEventListener('submit', enviarMensaje);
@@ -82,33 +94,27 @@ const desactivarChat = () => {
     wsocket = null;
 
     formData.removeEventListener('submit', enviarMensaje);
+    console.log('desconectado');
   }
 };
 
 const connectWebSocket = queryString => {
   //let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
-  let wsocket = new WebSocket('ws://http://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
+  let wsocket = new WebSocket('ws://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
 
+  console.log('conectado');
   function onError() {
     alert('Error websocket.');
   }
 
   wsocket.onerror = onError;
 
-  function onClose() {}
+  function onClose() {
+    console.log('close');
+  }
 
   wsocket.onclose = onClose;
 
-  function onMessage(evt) {
-    const obj = JSON.parse(evt.data);
-    if (obj.mensaje != null) {
-      crearNuevoMensaje(obj);
-    } else {
-      alert(evt.data);
-    }
-  }
-
-  wsocket.onmessage = onMessage;
   return wsocket;
 };
 
@@ -119,6 +125,7 @@ const enviar = wsocket => {
     if (msg != '') {
       wsocket.send(msg);
       document.getElementById('msg').value = '';
+      console.log('mensaje enviado ' + msg);
     }
   } else {
     alert('Connect first');
@@ -129,16 +136,6 @@ const crearNuevoMensaje = obj => {
   var element = document.createElement('li');
   const fecha = new Date(obj.fecha);
   const fechaFormateada = formatearFecha(fecha);
-
-  /* element.innerHTML = `<div class="entete">
-  <span class="${statusClass}"></span>
-  <h2>${obj.usuario}</h2>
-  <h3>${obj.fecha}</h3>
-  </div>
-  <div class="triangle"></div>
-  <div class="message">
-  ${obj.mensaje}
-  </div>`;*/
 
   var isMe = obj.me === true ? 'right' : 'left';
   element.classList.add(isMe);
