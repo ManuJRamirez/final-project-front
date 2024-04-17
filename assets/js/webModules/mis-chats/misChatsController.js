@@ -100,7 +100,7 @@ const desactivarChat = () => {
 
 const connectWebSocket = queryString => {
   //let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
-  let wsocket = new WebSocket('ws://16.170.166.103:8080/final-project/websocket' + queryString, ['Authorization', token]);
+  let wsocket = new WebSocket('ws://13.50.250.169:8080/final-project/websocket' + queryString, ['Authorization', token]);
 
   console.log('conectado');
   function onError() {
