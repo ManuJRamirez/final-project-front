@@ -161,7 +161,7 @@ export const adTemplate = ad => {
          ¡¡Chat!!</a
         >
         <a
-          href="./shop-listing-1.html"
+          href="./404.html"
           class="cus-btn light st-2 favorito-btn"
         >
           ¡Favorito!</a
