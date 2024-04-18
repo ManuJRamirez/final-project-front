@@ -1,6 +1,6 @@
 export const apiRest = () => {
   //const baseUrl = 'http://localhost:8080/';
-  const baseUrl = 'http://13.50.250.169:8080/';
+  const baseUrl = 'https://apibabytreasure.duckdns.org/';
 
   const get = async endpoint => {
     const url = baseUrl + endpoint;
