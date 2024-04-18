@@ -322,13 +322,10 @@ export const apiRest = () => {
         },
       });
 
-      const data = await response.json();
       if (!response.ok) {
+        const data = await response.json();
         const message = data.error || 'No ha sido posible establecer la conexión.';
         throw new Error(message);
-      }
-      if (data.token) {
-        localStorage.setItem('token', data.token);
       }
     } catch (error) {
       if (error.message) {
