@@ -21,7 +21,6 @@ export const adTemplate = ad => {
           <div class="category mb-16">
             <h5 class="h-27 light-black">Tags:</h5>
             <h6 class="light-black">${ad.listCategoria}</h6>
-            <p> ${ad.transacion}</p>
           </div>
           <a href="area-del-usuario.html?user=${ad.apodoCreador}">
           <div class="category">
@@ -40,6 +39,7 @@ export const adTemplate = ad => {
             ¡Favorito!</a
           >
         </div>
+        <p style="color:black;">${ad.transacion ? 'Venta' : 'Compra'}</p>
         <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
         <div class="social-link">
           <h4 class="h-27 light-black">Compartir:</h4>
@@ -169,6 +169,7 @@ export const adTemplate = ad => {
           ¡Favorito!</a
         >
       </div>
+      <p style="color:black;">${ad.transacion ? 'Venta' : 'Compra'}</p>
       <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
       <div class="social-link">
         <h4 class="h-27 light-black">Compartir:</h4>
