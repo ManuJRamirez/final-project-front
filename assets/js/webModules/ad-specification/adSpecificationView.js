@@ -169,7 +169,7 @@ export const adTemplate = ad => {
       </div>
       <p style="color:black;">${moment(ad.fechaCreacion).format('DD/MM/YYYY')}</p>
       <div class="social-link">
-        <h4 class="h-27 light-black">Share this product:</h4>
+        <h4 class="h-27 light-black">Compartir:</h4>
         <ul class="unstyled social-icons">
           <li>
             <a href="./404.html"
