@@ -100,7 +100,7 @@ const desactivarChat = () => {
 
 const connectWebSocket = queryString => {
   //let wsocket = new WebSocket('ws://localhost:8080/final-project/websocket' + queryString, ['Authorization', token]);
-  let wsocket = new WebSocket('ws://apibabytreasure.duckdns.org/final-project/websocket' + queryString, ['Authorization', token]);
+  let wsocket = new WebSocket('wss://apibabytreasure.duckdns.org/final-project/websocket' + queryString, ['Authorization', token]);
 
   console.log('conectado');
   function onError() {
