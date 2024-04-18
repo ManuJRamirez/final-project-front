@@ -21,6 +21,7 @@ export const adTemplate = ad => {
           <div class="category mb-16">
             <h5 class="h-27 light-black">Tags:</h5>
             <h6 class="light-black">${ad.listCategoria}</h6>
+            <p> ${ad.transacion}</p>
           </div>
           <a href="area-del-usuario.html?user=${ad.apodoCreador}">
           <div class="category">
@@ -149,6 +150,7 @@ export const adTemplate = ad => {
         <div class="category mb-16">
           <h5 class="h-27 light-black">Tags:</h5>
           <h6 class="light-black">${ad.listCategoria}</h6>
+          <p> ${ad.transacion}</p>
         </div>
         <a href="area-del-usuario.html?user=${ad.apodoCreador}">
         <div class="category">
